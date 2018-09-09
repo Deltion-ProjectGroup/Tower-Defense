@@ -573,7 +573,6 @@ GameObject:
   - component: {fileID: 1463445601}
   - component: {fileID: 1463445600}
   - component: {fileID: 1463445599}
-  - component: {fileID: 1463445598}
   - component: {fileID: 1463445597}
   - component: {fileID: 1463445596}
   m_Layer: 0
@@ -591,11 +590,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463445595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30098c7a6034e9945bfdc394930f16d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 96c0a58cde2db4d4a96e49056ea6a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
-  shotCooldown: 1
+  baseDamage: 10
+  damage: 10
+  attackSpeed: 2
+  targets: []
 --- !u!135 &1463445597
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -608,19 +609,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.3
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1463445598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463445595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30098c7a6034e9945bfdc394930f16d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  shotCooldown: 0.2
 --- !u!136 &1463445599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -706,7 +694,7 @@ GameObject:
   - component: {fileID: 1541398874}
   - component: {fileID: 1541398880}
   m_Layer: 0
-  m_Name: PrototypeEnemy
+  m_Name: PrototypeBerserker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -810,7 +798,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541398873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99.641, y: 0.48, z: 15.644}
+  m_LocalPosition: {x: 99.641, y: 0.48, z: 15.61}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -824,10 +812,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541398873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e065c855c174246aaa9b60752acce3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6337c102a0b8386488ccf64ce1f39240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 10
+  damage: 10
+  attackSpeed: 1
+  baseAttackSpeed: 1
+  baseHealth: 100
   health: 100
+  maxHealth: 100
+  baseMovementspeed: 1
+  movementspeed: 1
+  attackRange: 10
+  target: {fileID: 0}
+  rageSpeedBuff: 2
+  rageHealthBuff: 100
+  rageDamageBuff: 20
+  rageAttackspeedBuff: 5
+  attackAnim: {fileID: 0}
 --- !u!1 &1866699718
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1866699719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +863,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e065c855c174246aaa9b60752acce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 0
+  damage: 0
+  attackSpeed: 0
+  baseAttackSpeed: 0
+  baseHealth: 0
   health: 100
+  maxHealth: 0
+  baseMovementspeed: 0
+  movementspeed: 1
+  attackRange: 0
+  target: {fileID: 0}
 --- !u!195 &1866699720
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -959,7 +972,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866699718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99.07, y: 0.48, z: 15.644}
+  m_LocalPosition: {x: 99.07, y: 0.48, z: 15.64}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
