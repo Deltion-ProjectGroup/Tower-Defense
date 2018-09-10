@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
     public Vector3 targetDestination;
     public static LevelManager levelManager;
+    public int currency;
 	// Use this for initialization
     private void Awake()
     {

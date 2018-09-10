@@ -7,7 +7,7 @@ public class Turret : Attacker {
 
     private void OnTriggerEnter(Collider hit)
     {
-        if(hit.gameObject.tag == "Enemy")
+        if (hit.gameObject.tag == "Enemy")
         {
             targets.Add(hit.gameObject);
             if (targets.Count == 1)
@@ -20,10 +20,9 @@ public class Turret : Attacker {
     {
         if (hit.gameObject.tag == "Enemy")
         {
-            targets.Add(hit.gameObject);
             if (targets.Count == 1)
             {
-                StopCoroutine("Attack");
+                StopAllCoroutines();
             }
             targets.Remove(hit.gameObject);
         }
