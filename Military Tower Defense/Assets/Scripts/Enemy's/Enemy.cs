@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : Attacker {
-    public float baseAttackSpeed;
     public float baseHealth;
     public float health;
     public float maxHealth;
@@ -14,6 +13,7 @@ public class Enemy : Attacker {
     bool attacking = false;
     public GameObject target;
     public RaycastHit hitObj;
+    public List <GameObject> targettedBy = new List<GameObject>();
     // Use this for initialization
     private void Awake()
     {
@@ -32,6 +32,7 @@ public class Enemy : Attacker {
             {
                 if(hitObj.transform.gameObject.tag == "Targettable")
                 {
+                    attacking = true;
                     target = hitObj.transform.gameObject;
                     GetComponent<NavMeshAgent>().isStopped = true;
                     StartCoroutine(Attack());
@@ -43,7 +44,17 @@ public class Enemy : Attacker {
     {
         if(health <= 0)
         {
+            for(int i = 0; i < targettedBy.Count; i++)
+            {
+                targettedBy[i].GetComponent<Turret>().targets.Remove(gameObject);
+            }
             Destroy(gameObject);
         }
+    }
+    public void Repath()
+    {
+        print("Yay");
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().targetDestination);
+        StopAllCoroutines();
     }
 }

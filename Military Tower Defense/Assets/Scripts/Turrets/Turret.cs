@@ -24,7 +24,6 @@ public class Turret : Attacker {
             {
                 StopAllCoroutines();
             }
-            targets.Remove(hit.gameObject);
         }
     }
 }
