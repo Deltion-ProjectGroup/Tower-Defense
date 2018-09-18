@@ -26,4 +26,8 @@ public class Turret : Attacker {
             }
         }
     }
+    public void CleanTarget(GameObject unit)
+    {
+        targets.Remove(unit);
+    }
 }

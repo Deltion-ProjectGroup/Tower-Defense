@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
     public float health;
+    public string objName;
+    public string description;
     public List<GameObject> targettedBy = new List<GameObject>();
 	// Use this for initialization
 	void Start () {

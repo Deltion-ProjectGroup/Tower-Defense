@@ -4,23 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Berserker : Enemy {
+    [Header("RageBuff")]
     public EnrageBuff enrageBuff;
-    bool enraged;
     public GameObject rageParticles;
+    bool enraged;
     // Use this for initialization
 
-    public override IEnumerator Attack()
-    {
-        target.GetComponent<Obstacle>().targettedBy.Add(gameObject);
-        while (true)
-        {
-            //yield return new WaitForSeconds(attackAnim.clip.length);
-            target.GetComponent<Obstacle>().health -= damage;
-            target.GetComponent<Obstacle>().CheckHealth();
-            yield return new WaitForSeconds(1 / attackSpeed);
-            print("Attack");
-        }
-    }
     public override void HealthCheck()
     {
         if(health <= maxHealth * 0.2f && !enraged)
@@ -46,6 +35,17 @@ public class Berserker : Enemy {
                 targettedBy[i].GetComponent<Turret>().targets.Remove(gameObject);
             }
             Destroy(gameObject, gameObject.GetComponentInChildren<ParticleSystem>().startLifetime);
+        }
+    }
+    public override IEnumerator Attack()
+    {
+        base.Attack();
+        while (true)
+        {
+            //yield return new WaitForSeconds(attackAnim.clip.length);
+            target.GetComponent<Obstacle>().health -= damage;
+            target.GetComponent<Obstacle>().CheckHealth();
+            yield return new WaitForSeconds(1 / attackSpeed);
         }
     }
     [System.Serializable]

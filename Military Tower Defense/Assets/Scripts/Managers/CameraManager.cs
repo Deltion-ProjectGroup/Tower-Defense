@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.InteropServices;
 
 public class CameraManager : MonoBehaviour {
-    [DllImport("user32.dll")]
-    public static extern bool SetCursorPos(int X, int Y);
     public ScrollPositions maxHorizontalPos;
     public ScrollPositions maxVerticalPos;
+    public ScrollPositions scrollLimits;
     public int maxScrollWidth;
     public float keepScrollModifier;
     public float cameraRotateModifier;
@@ -21,6 +19,7 @@ public class CameraManager : MonoBehaviour {
     public float minSpeed;
     public float maxSpeed;
     float movementModifier;
+    RaycastHit hitTarget;
 	// Use this for initialization
 	void Start () {
         up.upperBorder = Screen.height;
@@ -35,6 +34,13 @@ public class CameraManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (Physics.Raycast(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hitTarget))
+            {
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(hitTarget.transform.gameObject);
+            }
+        }
         if (canMove)
         {
             CameraMovement();
@@ -98,7 +104,11 @@ public class CameraManager : MonoBehaviour {
     }
     public void CameraScrolling()
     {
+        float newPos = new float();
         scrollMovement.y = -Input.GetAxis("Mouse ScrollWheel");
+        newPos = Mathf.Clamp(newPos, scrollLimits.upperBorder, scrollLimits.underBorder);
+        scrollMovement.y = newPos;
+        transform.position = scrollMovement * zoomSpeed * Time.deltaTime);
         transform.Translate(scrollMovement * zoomSpeed * Time.deltaTime);
     }
     public void CameraRotation()

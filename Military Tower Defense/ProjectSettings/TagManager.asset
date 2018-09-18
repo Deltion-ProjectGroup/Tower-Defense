@@ -8,6 +8,8 @@ TagManager:
   - Targettable
   - LevelManager
   - TowerTerrain
+  - Canvas
+  - Turret
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - PostProcessing
   - Terrain
-  - 
-  - 
+  - Obstacle
+  - Enemies
   - 
   - 
   - 
