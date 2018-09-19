@@ -108,7 +108,7 @@ public class CameraManager : MonoBehaviour {
         scrollMovement.y = -Input.GetAxis("Mouse ScrollWheel");
         newPos = Mathf.Clamp(newPos, scrollLimits.upperBorder, scrollLimits.underBorder);
         scrollMovement.y = newPos;
-        transform.position = scrollMovement * zoomSpeed * Time.deltaTime);
+        transform.position = scrollMovement * zoomSpeed * Time.deltaTime;
         transform.Translate(scrollMovement * zoomSpeed * Time.deltaTime);
     }
     public void CameraRotation()
