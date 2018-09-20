@@ -56,7 +56,7 @@ public class Enemy : Attacker {
             }
         }
     }
-    public virtual void HealthCheck()
+    public virtual void CheckHealth()
     {
         if(health <= 0)
         {

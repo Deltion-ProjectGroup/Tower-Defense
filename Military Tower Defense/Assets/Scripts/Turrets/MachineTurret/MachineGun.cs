@@ -16,7 +16,7 @@ public class MachineGun : Turret {
                 StopAllCoroutines();
             }
         }
-        target.GetComponent<Enemy>().HealthCheck();
+        target.GetComponent<Enemy>().CheckHealth();
         yield return new WaitForSeconds(1 / attackSpeed);
         StartCoroutine(Attack());
     }

@@ -10,7 +10,7 @@ public class Berserker : Enemy {
     bool enraged;
     // Use this for initialization
 
-    public override void HealthCheck()
+    public override void CheckHealth()
     {
         if(health <= maxHealth * 0.2f && !enraged)
         {

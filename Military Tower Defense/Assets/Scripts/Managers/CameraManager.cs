@@ -46,6 +46,7 @@ public class CameraManager : MonoBehaviour {
             CameraMovement();
         }
         CameraScrolling();
+        CameraMovement();
         CameraRotation();
     }
     [System.Serializable]
@@ -104,12 +105,11 @@ public class CameraManager : MonoBehaviour {
     }
     public void CameraScrolling()
     {
-        float newPos = new float();
-        scrollMovement.y = -Input.GetAxis("Mouse ScrollWheel");
-        newPos = Mathf.Clamp(newPos, scrollLimits.upperBorder, scrollLimits.underBorder);
-        scrollMovement.y = newPos;
-        transform.position = scrollMovement * zoomSpeed * Time.deltaTime;
-        transform.Translate(scrollMovement * zoomSpeed * Time.deltaTime);
+        scrollMovement = transform.position;
+        scrollMovement.y += -Input.GetAxisRaw("Mouse ScrollWheel");
+        print(Input.GetAxis("Mouse ScrollWheel"));
+        scrollMovement.y = Mathf.Clamp(scrollMovement.y, scrollLimits.upperBorder, scrollLimits.underBorder);
+        transform.position = scrollMovement;
     }
     public void CameraRotation()
     {
