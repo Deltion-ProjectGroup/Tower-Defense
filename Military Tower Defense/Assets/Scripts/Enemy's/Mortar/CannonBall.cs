@@ -21,20 +21,22 @@ public class CannonBall : MonoBehaviour {
         {
             if(hit.gameObject.transform.tag == "Targettable")
             {
-                GameObject explosion = Instantiate(explosionParticles, hit.transform.position, Quaternion.identity);
+                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
                 hit.gameObject.GetComponent<Obstacle>().health -= damage;
                 hit.gameObject.GetComponent<Obstacle>().CheckHealth();
-                Destroy(explosion, 1);
+                Destroy(explosion, 3);
+                Destroy(gameObject);
             }
         }
         else
         {
             if(hit.gameObject.transform.tag == "Enemy")
             {
-                GameObject explosion = Instantiate(explosionParticles, hit.transform.position, Quaternion.identity);
+                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
                 hit.gameObject.GetComponent<Enemy>().health -= damage;
                 hit.gameObject.GetComponent<Enemy>().CheckHealth();
-                Destroy(explosion, 1);
+                Destroy(explosion, 3);
+                Destroy(gameObject);
             }
         }
     }

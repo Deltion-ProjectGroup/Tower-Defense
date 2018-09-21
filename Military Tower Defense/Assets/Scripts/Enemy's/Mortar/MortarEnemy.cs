@@ -20,7 +20,7 @@ public class MortarEnemy : Enemy {
         force.z = distance;
         GameObject shot = Instantiate(ball, spawnPosition, Quaternion.identity);
         shot.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
-        yield return new WaitForSeconds(attackSpeed);
+        yield return new WaitForSeconds(1 / attackSpeed);
         StartCoroutine(Attack());
     }
 }
