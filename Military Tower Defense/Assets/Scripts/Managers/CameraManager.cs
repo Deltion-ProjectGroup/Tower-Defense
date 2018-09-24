@@ -11,24 +11,14 @@ public class CameraManager : MonoBehaviour {
     public float cameraRotateModifier;
     public float zoomSpeed;
     public bool canMove = true;
-    ScrollPositions up, down, right, left;
     Vector3 movement;
     Vector3 scrollMovement;
     Vector3 rotateAmount;
-    public float minMoveSpeed;
-    public float maxMoveSpeed;
-    float movementModifier;
+    public float movementModifier;
     RaycastHit hitTarget;
 	// Use this for initialization
 	void Start () {
-        up.upperBorder = Screen.height;
-        up.underBorder = Screen.height - moveBorderWidth;
-        down.upperBorder = moveBorderWidth;
-        down.underBorder = 0;
-        left.upperBorder = moveBorderWidth;
-        left.underBorder = 0;
-        right.upperBorder = Screen.width - moveBorderWidth;
-        right.underBorder = Screen.width;
+
 	}
 	
 	// Update is called once per frame
@@ -55,36 +45,8 @@ public class CameraManager : MonoBehaviour {
     }
     public void CameraMovement()
     {
-        movement = Vector3.zero;
-        //up
-        if (Input.mousePosition.y < up.upperBorder && Input.mousePosition.y > up.underBorder || Input.GetButton("Up"))
-        {
-            movement += transform.forward;
-        }
-        //down
-        if (Input.mousePosition.y < down.upperBorder && Input.mousePosition.y > down.underBorder || Input.GetButton("Down"))
-        {
-            movement += -transform.forward;
-        }
-        //left
-        if (Input.mousePosition.x < left.upperBorder && Input.mousePosition.x > left.underBorder || Input.GetButton("Left"))
-        {
-            movement += -transform.right;
-        }
-        //right
-        if (Input.mousePosition.x > right.upperBorder && Input.mousePosition.y < right.underBorder || Input.GetButton("Right"))
-        {
-            movement += transform.right;
-        }
-        if (movement != Vector3.zero)
-        {
-            movementModifier += keepScrollModifier;
-            movementModifier = Mathf.Clamp(movementModifier, minMoveSpeed, maxMoveSpeed);
-        }
-        else
-        {
-            movementModifier = minMoveSpeed;
-        }
+        movement.x = Input.GetAxis("Horizontal");
+        movement.z = Input.GetAxis("Vertical");
         movement *= movementModifier * Time.deltaTime;
         if (Input.GetButton("Shift"))
         {
@@ -93,7 +55,8 @@ public class CameraManager : MonoBehaviour {
         movement += transform.position;
         movement.x = Mathf.Clamp(movement.x, maxHorizontalPos.underBorder, maxHorizontalPos.upperBorder);
         movement.z = Mathf.Clamp(movement.z, maxVerticalPos.underBorder, maxVerticalPos.upperBorder);
-        transform.position = movement;
+        movement -= transform.position;
+        transform.Translate(movement);
     }
     public void CameraScrolling()
     {

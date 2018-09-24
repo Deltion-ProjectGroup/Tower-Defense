@@ -16,7 +16,6 @@ public class MortarEnemy : Enemy {
         float distance = Vector3.Distance(target.transform.position, transform.position);
         distance *= 0.283f;
         force.y = 17;
-        print(distance);
         force.z = distance;
         GameObject shot = Instantiate(ball, spawnPosition, Quaternion.identity);
         shot.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
