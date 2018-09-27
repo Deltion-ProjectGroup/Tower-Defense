@@ -10,10 +10,10 @@ public class MachineGun : Turret {
             GameObject target = targets[0];
             target.GetComponent<Enemy>().health -= damage;
             target.GetComponent<Enemy>().CheckHealth();
-            if (targets.Count == 0)
+            /*if (targets.Count == 0)
             {
                 StopAllCoroutines();
-            }
+            }*/
             yield return new WaitForSeconds(1 / attackSpeed);
             StartCoroutine(Attack());
         }

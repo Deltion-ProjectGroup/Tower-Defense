@@ -2,19 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonBall : MonoBehaviour {
-    public GameObject explosionParticles;
-    public float damage;
+public class CannonBall : Explosive {
     public bool isFromEnemy;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+
     public void OnTriggerEnter(Collider hit)
     {
         if (!hit.isTrigger)
@@ -27,19 +18,18 @@ public class CannonBall : MonoBehaviour {
                     hit.gameObject.GetComponent<Obstacle>().health -= damage;
                     hit.gameObject.GetComponent<Obstacle>().CheckHealth();
                     Destroy(explosion, 3);
+                    Destroy(gameObject);
                 }
             }
             else
             {
-                if (hit.gameObject.transform.tag == "Enemy")
+                if (hit.gameObject.transform.tag != "Turret")
                 {
                     GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                    hit.gameObject.GetComponent<Enemy>().health -= damage;
-                    hit.gameObject.GetComponent<Enemy>().CheckHealth();
+                    Explosion();
                     Destroy(explosion, 3);
                 }
             }
-            Destroy(gameObject);
         }
     }
 }
