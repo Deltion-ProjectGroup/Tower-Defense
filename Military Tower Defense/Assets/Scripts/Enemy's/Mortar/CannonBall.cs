@@ -17,27 +17,29 @@ public class CannonBall : MonoBehaviour {
 	}
     public void OnTriggerEnter(Collider hit)
     {
-        if (isFromEnemy)
+        if (!hit.isTrigger)
         {
-            if(hit.gameObject.transform.tag == "Targettable")
+            if (isFromEnemy)
             {
-                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                hit.gameObject.GetComponent<Obstacle>().health -= damage;
-                hit.gameObject.GetComponent<Obstacle>().CheckHealth();
-                Destroy(explosion, 3);
-                Destroy(gameObject);
+                if (hit.gameObject.transform.tag == "Targettable")
+                {
+                    GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+                    hit.gameObject.GetComponent<Obstacle>().health -= damage;
+                    hit.gameObject.GetComponent<Obstacle>().CheckHealth();
+                    Destroy(explosion, 3);
+                }
             }
-        }
-        else
-        {
-            if(hit.gameObject.transform.tag == "Enemy")
+            else
             {
-                GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                hit.gameObject.GetComponent<Enemy>().health -= damage;
-                hit.gameObject.GetComponent<Enemy>().CheckHealth();
-                Destroy(explosion, 3);
-                Destroy(gameObject);
+                if (hit.gameObject.transform.tag == "Enemy")
+                {
+                    GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+                    hit.gameObject.GetComponent<Enemy>().health -= damage;
+                    hit.gameObject.GetComponent<Enemy>().CheckHealth();
+                    Destroy(explosion, 3);
+                }
             }
+            Destroy(gameObject);
         }
     }
 }

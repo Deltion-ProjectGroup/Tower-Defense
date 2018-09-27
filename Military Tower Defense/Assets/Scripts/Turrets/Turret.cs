@@ -9,10 +9,9 @@ public class Turret : Attacker {
     {
         if (hit.gameObject.tag == "Enemy" && !hit.isTrigger)
         {
-            targets.Add(hit.gameObject);
+            AddTarget(hit.transform.gameObject);
             if (targets.Count == 1)
             {
-                AddTarget(hit.gameObject);
                 StartCoroutine(Attack());
             }
         }
@@ -21,9 +20,9 @@ public class Turret : Attacker {
     {
         if (hit.gameObject.tag == "Enemy" && !hit.isTrigger)
         {
-            if (targets.Count == 1)
+            CleanTarget(hit.gameObject);
+            if (targets.Count == 0)
             {
-                CleanTarget(hit.gameObject);
                 StopAllCoroutines();
             }
         }

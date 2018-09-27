@@ -14,11 +14,11 @@ public class MortarEnemy : Enemy {
         spawnPosition = transform.position;
         spawnPosition.y += 1.5f;
         float distance = Vector3.Distance(target.transform.position, transform.position);
-        distance *= 0.283f;
+        distance *= 0.35f; //287
         force.y = 17;
         force.z = distance;
-        GameObject shot = Instantiate(ball, spawnPosition, Quaternion.identity);
-        shot.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
+        GameObject shot = Instantiate(ball, spawnPosition, transform.rotation);
+        shot.GetComponent<Rigidbody>().AddRelativeForce(force, ForceMode.Impulse);
         yield return new WaitForSeconds(1 / attackSpeed);
         StartCoroutine(Attack());
     }
