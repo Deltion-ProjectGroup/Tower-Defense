@@ -7,6 +7,24 @@ public class Turret : Attacker {
 
     private void OnTriggerEnter(Collider hit)
     {
+        OnEnterEffect(hit);
+    }
+    private void OnTriggerExit(Collider hit)
+    {
+        OnExitEffect(hit);
+    }
+    public virtual void CleanTarget(GameObject unit) //virtual because of flamethrower needing to remove the damagetarget instead of targets;
+    {
+        targets.Remove(unit);
+        unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
+    }
+    public virtual void AddTarget(GameObject unit)
+    {
+        targets.Add(unit);
+        unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
+    }
+    public virtual void OnEnterEffect(Collider hit)
+    {
         if (hit.gameObject.tag == "Enemy" && !hit.isTrigger)
         {
             AddTarget(hit.transform.gameObject);
@@ -16,7 +34,7 @@ public class Turret : Attacker {
             }
         }
     }
-    private void OnTriggerExit(Collider hit)
+    public virtual void OnExitEffect(Collider hit)
     {
         if (hit.gameObject.tag == "Enemy" && !hit.isTrigger)
         {
@@ -26,15 +44,5 @@ public class Turret : Attacker {
                 StopAllCoroutines();
             }
         }
-    }
-    public void CleanTarget(GameObject unit)
-    {
-        targets.Remove(unit);
-        unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
-    }
-    public void AddTarget(GameObject unit)
-    {
-        targets.Add(unit);
-        unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
     }
 }
