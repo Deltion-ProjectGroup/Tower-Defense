@@ -20,6 +20,7 @@ public class Enemy : Attacker {
     public RaycastHit hitObj;
     public List <GameObject> targettedBy = new List<GameObject>();
     bool attacking = false;
+    public int worthCurrency;
     // Use this for initialization
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class Enemy : Attacker {
             {
                 targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
             }
+            LevelManager.levelManager.AddCurrency(worthCurrency);
             Destroy(gameObject);
         }
     }

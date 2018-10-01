@@ -142,6 +142,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDestination: {x: 100, y: 0.2, z: 15}
+  spawnPositions:
+  - {x: 104.81, y: 0.5, z: 21.05}
+  waves:
+  - berserkers: 1
+    ranged: 1
+    melees: 1
+    tanks: 1
+    mortars: 2
+  enemies:
+    berserker: {fileID: 1743243019}
+    melee: {fileID: 1743243019}
+    ranged: {fileID: 1743243019}
+    tank: {fileID: 1743243019}
+    mortar: {fileID: 1743243019}
+  aliveEnemies: []
+  spawnDelay: 2
+  intermissionTime: 0
   currency: 0
 --- !u!4 &81418554
 Transform:
@@ -293,6 +310,7 @@ MonoBehaviour:
   attackRange: 3
   target: {fileID: 0}
   targettedBy: []
+  worthCurrency: 0
   explosionParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
     type: 2}
 --- !u!195 &103056952
@@ -1363,7 +1381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &614044140
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3652,6 +3670,7 @@ MonoBehaviour:
   attackRange: 1
   target: {fileID: 0}
   targettedBy: []
+  worthCurrency: 0
   enrageBuff:
     rageSpeedBuff: 0
     rageHealthBuff: 0
@@ -4111,6 +4130,7 @@ MonoBehaviour:
   attackRange: 10
   target: {fileID: 0}
   targettedBy: []
+  worthCurrency: 0
   ball: {fileID: 1141815893873552, guid: 5c50fe4cecac58047bdf53d07e15f52a, type: 2}
 --- !u!195 &1743243021
 NavMeshAgent:
@@ -4210,7 +4230,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1743243019}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 104.28, y: 0.48, z: 17.31}
+  m_LocalPosition: {x: 109.02, y: 0.48, z: 21.05}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4427,6 +4447,7 @@ MonoBehaviour:
   attackRange: 0
   target: {fileID: 0}
   targettedBy: []
+  worthCurrency: 0
 --- !u!195 &1866699720
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4692,6 +4713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944630018}
   - component: {fileID: 1944630017}
+  - component: {fileID: 1944630019}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -4739,6 +4761,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944630019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944630016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be5fc6a38876d5499f83a0e3fd9a92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenPos: {x: 0, y: 0}
+  hi: 0
 --- !u!1001 &1948826948
 Prefab:
   m_ObjectHideFlags: 0
@@ -5083,6 +5118,7 @@ MonoBehaviour:
   attackRange: 200
   target: {fileID: 0}
   targettedBy: []
+  worthCurrency: 0
   explosionParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
     type: 2}
 --- !u!195 &2072164534

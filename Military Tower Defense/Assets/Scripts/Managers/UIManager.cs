@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
     public GameObject shopUI;
+    public GameObject timerUI;
     public GameObject informationUI;
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
@@ -92,5 +93,13 @@ public class UIManager : MonoBehaviour {
     {
         isTracking = false;
         informationUI.SetActive(false);
+    }
+    public void UpdateTimer(int time)
+    {
+        timerUI.GetComponent<Text>().text = time.ToString();
+        if(time == 0)
+        {
+            timerUI.SetActive(false);
+        }
     }
 }

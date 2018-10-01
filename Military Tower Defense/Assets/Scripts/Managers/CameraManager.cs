@@ -52,11 +52,11 @@ public class CameraManager : MonoBehaviour {
         {
             movement *= 4;
         }
-        movement += transform.position;
-        movement.x = Mathf.Clamp(movement.x, maxHorizontalPos.underBorder, maxHorizontalPos.upperBorder);
-        movement.z = Mathf.Clamp(movement.z, maxVerticalPos.underBorder, maxVerticalPos.upperBorder);
-        movement -= transform.position;
         transform.Translate(movement);
+        Vector3 newPos = transform.position;
+        newPos.x = Mathf.Clamp(newPos.x, maxHorizontalPos.underBorder, maxHorizontalPos.upperBorder);
+        newPos.z = Mathf.Clamp(newPos.z, maxVerticalPos.underBorder, maxVerticalPos.upperBorder);
+        transform.position = newPos;
     }
     public void CameraScrolling()
     {
