@@ -64,6 +64,7 @@ public class Enemy : Attacker {
             for(int i = 0; i < targettedBy.Count; i++)
             {
                 targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
+                LevelManager.levelManager.RemoveEnemy(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency);
             Destroy(gameObject);

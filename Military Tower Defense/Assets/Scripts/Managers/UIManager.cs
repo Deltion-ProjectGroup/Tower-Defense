@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public GameObject shopUI;
     public GameObject timerUI;
+    public GameObject roundUI;
     public GameObject informationUI;
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
@@ -101,5 +102,10 @@ public class UIManager : MonoBehaviour {
         {
             timerUI.SetActive(false);
         }
+    }
+    public void ShowText(string textToShow)
+    {
+        roundUI.GetComponent<Text>().text = textToShow;
+        roundUI.GetComponent<Animation>().Play();
     }
 }

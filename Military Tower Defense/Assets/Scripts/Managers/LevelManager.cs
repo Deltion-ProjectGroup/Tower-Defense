@@ -12,7 +12,9 @@ public class LevelManager : MonoBehaviour {
     public float spawnDelay;
     public int intermissionTime;
     int currentWave = 0;
+    public string newRoundText;
     public int currency;
+    bool doneSpawning;
 	// Use this for initialization
     private void Awake()
     {
@@ -28,44 +30,57 @@ public class LevelManager : MonoBehaviour {
 	}
     public IEnumerator SpawnNextWave()
     {
+        doneSpawning = false;
+        UIManager uiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
+        string waveText = newRoundText + " " + (currentWave + 1).ToString();
+        uiManager.ShowText(waveText);
+        yield return new WaitForSeconds(uiManager.roundUI.GetComponent<Animation>().clip.length);
+        List<GameObject> enemieList = new List<GameObject>();
         for(int i = 0; i < waves[currentWave].berserkers; i++)
         {
-            aliveEnemies.Add(Instantiate(enemies.berserker, spawnPositions[Random.Range(0, waves.Length)], Quaternion.identity));
-            yield return new WaitForSeconds(spawnDelay);
-        }
-        for (int i = 0; i < waves[currentWave].melees; i++)
-        {
-            aliveEnemies.Add(Instantiate(enemies.melee, spawnPositions[Random.Range(0, waves.Length)], Quaternion.identity));
-            yield return new WaitForSeconds(spawnDelay);
+            enemieList.Add(enemies.berserker);
         }
         for (int i = 0; i < waves[currentWave].ranged; i++)
         {
-            aliveEnemies.Add(Instantiate(enemies.ranged, spawnPositions[Random.Range(0, waves.Length)], Quaternion.identity));
-            yield return new WaitForSeconds(spawnDelay);
+            enemieList.Add(enemies.ranged);
+        }
+        for (int i = 0; i < waves[currentWave].melees; i++)
+        {
+            enemieList.Add(enemies.melee);
         }
         for (int i = 0; i < waves[currentWave].tanks; i++)
         {
-            aliveEnemies.Add(Instantiate(enemies.tank, spawnPositions[Random.Range(0, waves.Length)], Quaternion.identity));
-            yield return new WaitForSeconds(spawnDelay);
+            enemieList.Add(enemies.tank);
         }
         for (int i = 0; i < waves[currentWave].mortars; i++)
         {
-            aliveEnemies.Add(Instantiate(enemies.mortar, spawnPositions[Random.Range(0, waves.Length)], Quaternion.identity));
+            enemieList.Add(enemies.mortar);
+        }
+        int listLength = enemieList.Count;
+        for(int i = 0; i < listLength; i++)
+        {
             yield return new WaitForSeconds(spawnDelay);
+            int randomNum = Random.Range(0, enemieList.Count);
+            aliveEnemies.Add(Instantiate(enemieList[randomNum], spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+            enemieList.RemoveAt(randomNum);
         }
         currentWave++;
+        doneSpawning = true;
     }
     public IEnumerator Intermission()
     {
+        UIManager uiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
+        uiManager.ShowText("Intermission");
+        uiManager.timerUI.SetActive(true);
         int timer = intermissionTime;
-        for(int i = 0; i < intermissionTime; i++)
+        uiManager.UpdateTimer(timer);
+        for (int i = 0; i < intermissionTime; i++)
         {
             yield return new WaitForSeconds(1);
             timer--;
-            GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateTimer(timer);
-            //Decrement with 1 at ui timer
+            uiManager.UpdateTimer(timer);
         }
-        SpawnNextWave();
+        StartCoroutine(SpawnNextWave());
     }
     public void AddCurrency(int amount)
     {
@@ -73,22 +88,25 @@ public class LevelManager : MonoBehaviour {
     }
     public void CheckWave()
     {
-        if(aliveEnemies.Count == 0)
+        if (doneSpawning)
         {
-            //Yeet
-            if(currentWave == waves.Length - 1)
+            if (aliveEnemies.Count == 0)
             {
-                // U WON
-            }
-            else
-            {
-                StartCoroutine(Intermission());
+                if (currentWave == waves.Length)
+                {
+                    // U WON
+                }
+                else
+                {
+                    StartCoroutine(Intermission());
+                }
             }
         }
     }
     public void RemoveEnemy(GameObject enemy)
     {
         aliveEnemies.Remove(enemy);
+        CheckWave();
     }
     [System.Serializable]
     public struct Waves

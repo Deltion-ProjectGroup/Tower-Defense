@@ -11,8 +11,14 @@ public class SniperTower : Turret {
         {
             targets[0].GetComponent<Enemy>().health -= damage;
             targets[0].GetComponent<Enemy>().CheckHealth();
-            yield return new WaitForSeconds(1 / baseAttackSpeed);
-            StartCoroutine(Attack());
+            if (targets.Count > 0)
+            {
+                yield return new WaitForSeconds(1 / baseAttackSpeed);
+                if (targets.Count > 0)
+                {
+                    StartCoroutine(Attack());
+                }
+            }
         }
     }
     public void Update()

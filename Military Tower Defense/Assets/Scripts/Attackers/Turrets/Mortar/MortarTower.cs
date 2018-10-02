@@ -23,8 +23,14 @@ public class MortarTower : Turret {
             GameObject shot = Instantiate(ball, spawnPosition, transform.rotation);
             shot.GetComponent<Rigidbody>().AddRelativeForce(force, ForceMode.Impulse);
             //shot.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
-            yield return new WaitForSeconds(1 / baseAttackSpeed);
-            StartCoroutine(Attack());
+            if (targets.Count > 0)
+            {
+                yield return new WaitForSeconds(1 / baseAttackSpeed);
+                if (targets.Count > 0)
+                {
+                    StartCoroutine(Attack());
+                }
+            }
         }
     }
     public void Update()

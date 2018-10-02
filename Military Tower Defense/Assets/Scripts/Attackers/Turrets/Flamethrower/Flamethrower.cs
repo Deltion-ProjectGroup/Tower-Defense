@@ -45,17 +45,21 @@ public class Flamethrower : Turret {
     }
     public override IEnumerator Attack()
     {
-        yield return new WaitForEndOfFrame();
-        if(damagingTargets.Count > 0)
+        print("Attack");
+        for (int i = 0; i < damagingTargets.Count; i++)
         {
-            for (int i = 0; i < damagingTargets.Count; i++)
-            {
-                AddEffect(damagingTargets[i]);
-                damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
-                damagingTargets[i].GetComponent<Enemy>().CheckHealth();
-            }
+            AddEffect(damagingTargets[i]);
+            damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
+            print(damagingTargets[i].GetComponent<Enemy>().health.ToString());
+            damagingTargets[i].GetComponent<Enemy>().CheckHealth();
+        }
+        if (damagingTargets.Count > 0)
+        {
             yield return new WaitForSeconds(1 / baseAttackSpeed);
-            StartCoroutine(Attack());
+            if(damagingTargets.Count > 0)
+            {
+                StartCoroutine(Attack());
+            }
         }
     }
     public override void CleanTarget(GameObject unit)

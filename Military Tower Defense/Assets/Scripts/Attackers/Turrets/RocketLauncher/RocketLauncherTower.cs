@@ -11,8 +11,14 @@ public class RocketLauncherTower : Turret {
         {
             GameObject rocket = Instantiate(missile, spawnModifier + transform.position, Quaternion.identity);
             rocket.transform.LookAt(targets[0].transform);
-            yield return new WaitForSeconds(1 / baseAttackSpeed);
-            StartCoroutine(Attack());
+            if (targets.Count > 0)
+            {
+                yield return new WaitForSeconds(1 / baseAttackSpeed);
+                if (targets.Count > 0)
+                {
+                    StartCoroutine(Attack());
+                }
+            }
         }
     }
     public void Update()
