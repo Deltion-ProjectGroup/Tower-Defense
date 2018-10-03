@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : Attacker {
     [Header("Health")]
@@ -17,9 +18,12 @@ public class Enemy : Attacker {
     public float attackRange;
     [Header("AttackStuff")]
     public GameObject target;
+    public GameObject healthbar;
+    public GameObject healthbarHolder;
     public RaycastHit hitObj;
     public List <GameObject> targettedBy = new List<GameObject>();
     bool attacking = false;
+    bool damaged;
     public int worthCurrency;
     // Use this for initialization
     private void Awake()
@@ -38,6 +42,10 @@ public class Enemy : Attacker {
 	// Update is called once per frame
 	public virtual void Update ()
     {
+        if (damaged)
+        {
+            healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
+        }
         CheckAttack();
 	}
     public void CheckAttack()
@@ -59,6 +67,15 @@ public class Enemy : Attacker {
     }
     public virtual void CheckHealth()
     {
+        if(health < maxHealth)
+        {
+            if (!damaged)
+            {
+                damaged = true;
+                healthbarHolder.SetActive(true);
+            }
+            healthbar.GetComponent<Image>().fillAmount = (1/maxHealth) * health;
+        }
         if(health <= 0)
         {
             for(int i = 0; i < targettedBy.Count; i++)

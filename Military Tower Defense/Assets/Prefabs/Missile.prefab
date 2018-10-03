@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionParticles: {fileID: 0}
-  damage: 0
-  explosionRange: 0
+  damage: 10
+  explosionRange: 20
   enemies: []
   speed: 2
 --- !u!136 &136874765226661982

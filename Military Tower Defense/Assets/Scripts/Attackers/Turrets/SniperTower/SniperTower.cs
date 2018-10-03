@@ -9,7 +9,7 @@ public class SniperTower : Turret {
     {
         if(targets.Count > 0)
         {
-            targets[0].GetComponent<Enemy>().health -= damage;
+            targets[0].GetComponent<Enemy>().health -= baseDamage;
             targets[0].GetComponent<Enemy>().CheckHealth();
             if (targets.Count > 0)
             {

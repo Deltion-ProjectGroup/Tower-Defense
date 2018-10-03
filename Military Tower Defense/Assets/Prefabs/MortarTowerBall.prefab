@@ -115,7 +115,7 @@ MonoBehaviour:
   explosionParticles: {fileID: 1187748021940796, guid: 17c48ea766287ee4f870590a679a0ec1,
     type: 2}
   damage: 10
-  explosionRange: 0
+  explosionRange: 10
   enemies: []
   isFromEnemy: 0
 --- !u!135 &135618115279408430
