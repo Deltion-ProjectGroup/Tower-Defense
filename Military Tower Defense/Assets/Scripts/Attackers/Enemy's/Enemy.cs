@@ -22,8 +22,8 @@ public class Enemy : Attacker {
     public GameObject healthbarHolder;
     public RaycastHit hitObj;
     public List <GameObject> targettedBy = new List<GameObject>();
-    bool attacking = false;
-    bool damaged;
+    public bool attacking = false;
+    public bool damaged;
     public int worthCurrency;
     // Use this for initialization
     private void Awake()
@@ -46,22 +46,18 @@ public class Enemy : Attacker {
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
         }
-        CheckAttack();
 	}
-    public void CheckAttack()
+    public void OnTriggerEnter(Collider hit)
     {
         if (!attacking)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hitObj, attackRange))
+            if (hit.tag == "Targettable")
             {
-                if (hitObj.transform.gameObject.tag == "Targettable")
-                {
-                    attacking = true;
-                    target = hitObj.transform.gameObject;
-                    GetComponent<NavMeshAgent>().isStopped = true;
-                    target.GetComponent<Obstacle>().targettedBy.Add(gameObject);
-                    StartCoroutine(Attack());
-                }
+                attacking = true;
+                target = hit.transform.gameObject;
+                GetComponent<NavMeshAgent>().isStopped = true;
+                target.GetComponent<Obstacle>().AddUnit(gameObject);
+                StartCoroutine(Attack());
             }
         }
     }
@@ -82,6 +78,10 @@ public class Enemy : Attacker {
             {
                 targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
                 LevelManager.levelManager.RemoveEnemy(gameObject);
+            }
+            if (attacking)
+            {
+                target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency);
             Destroy(gameObject);

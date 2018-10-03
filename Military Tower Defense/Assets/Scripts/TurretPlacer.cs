@@ -24,8 +24,8 @@ public class TurretPlacer : MonoBehaviour {
             }
             if (Input.GetButtonDown("Fire1"))
             {
-                placingObject.GetComponent<CapsuleCollider>().enabled = true;
-                placingObject.GetComponent<SphereCollider>().enabled = true;
+                //placingObject.GetComponent<CapsuleCollider>().enabled = true;
+                //placingObject.GetComponent<SphereCollider>().enabled = true;
                 placingObject = null;
                 placing = false;
             }

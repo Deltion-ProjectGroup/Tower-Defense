@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1370480339640644
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1370480339640644}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 107.70323, y: 0, z: 17.947851}
+  m_LocalPosition: {x: 105.98268, y: 0, z: 15.352003}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 224003384253167924}
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09451604, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.10058836, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -259,7 +259,9 @@ MonoBehaviour:
   healthbar: {fileID: 1839416036995104}
   healthbarHolder: {fileID: 1265073208505912}
   targettedBy: []
-  worthCurrency: 0
+  attacking: 0
+  damaged: 0
+  worthCurrency: 1
   ball: {fileID: 1141815893873552, guid: 5c50fe4cecac58047bdf53d07e15f52a, type: 2}
 --- !u!114 &114798568446885408
 MonoBehaviour:

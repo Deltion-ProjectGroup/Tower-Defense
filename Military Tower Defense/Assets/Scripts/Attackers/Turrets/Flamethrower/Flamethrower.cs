@@ -7,6 +7,7 @@ public class Flamethrower : Turret {
     public List<GameObject> damagingTargets = new List<GameObject>();
     public float detectionRange;
     public BurnStats burnstats;
+    public ParticleSystem fireParticles;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +33,7 @@ public class Flamethrower : Turret {
             AddTarget(hit.transform.gameObject);
             if (damagingTargets.Count == 1)
             {
+                fireParticles.Play();
                 StartCoroutine(Attack());
             }
         }
@@ -61,11 +63,20 @@ public class Flamethrower : Turret {
                 StartCoroutine(Attack());
             }
         }
+        else
+        {
+            fireParticles.Stop();
+        }
     }
     public override void CleanTarget(GameObject unit)
     {
         unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
         damagingTargets.Remove(unit);
+        if (damagingTargets.Count <= 0)
+        {
+            StopAllCoroutines();
+            fireParticles.Stop();
+        }
     }
     public override void AddTarget(GameObject unit)
     {

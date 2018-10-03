@@ -85,6 +85,7 @@ public class LevelManager : MonoBehaviour {
     public void AddCurrency(int amount)
     {
         currency += amount;
+        StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateCash(amount, currency));
     }
     public void CheckWave()
     {

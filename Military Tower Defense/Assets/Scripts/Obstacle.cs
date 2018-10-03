@@ -40,8 +40,16 @@ public class Obstacle : MonoBehaviour
                 {
                     targettedBy[i].GetComponent<Enemy>().Repath();
                 }
-                Destroy(gameObject);
+                Destroy(gameObject, Time.deltaTime);
             }
         }
+    }
+    public void RemoveUnit(GameObject unit)
+    {
+        targettedBy.Remove(unit);
+    }
+    public void AddUnit(GameObject unit)
+    {
+        targettedBy.Add(unit);
     }
 }

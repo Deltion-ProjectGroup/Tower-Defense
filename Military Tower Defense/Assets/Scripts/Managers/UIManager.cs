@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour {
     public GameObject timerUI;
     public GameObject roundUI;
     public GameObject informationUI;
+    public GameObject addMoneyInd;
+    public GameObject moneyIndHolder;
+    public GameObject moneyUI;
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
@@ -94,6 +97,24 @@ public class UIManager : MonoBehaviour {
     {
         isTracking = false;
         informationUI.SetActive(false);
+    }
+    public IEnumerator UpdateCash(int addedAmt, int newCash)
+    {
+        string addedCash = "k";
+        if(addedAmt < 0)
+        {
+            addedCash = "-";
+        }
+        else
+        {
+            addedCash = "+";
+        }
+        addedCash += addedAmt.ToString();
+        moneyUI.GetComponent<Text>().text = "$" + newCash.ToString();
+        GameObject g = Instantiate(addMoneyInd, Vector3.zero, Quaternion.identity, moneyIndHolder.transform);
+        g.GetComponent<Text>().text = addedCash;
+        yield return new WaitForSeconds(g.GetComponent<Animation>().clip.length);
+        Destroy(g);
     }
     public void UpdateTimer(int time)
     {

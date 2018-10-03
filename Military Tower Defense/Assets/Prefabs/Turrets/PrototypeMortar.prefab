@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965083342113432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102.5, y: 0.63, z: 19.03}
+  m_LocalPosition: {x: 107.00106, y: 0, z: 17.51715}
   m_LocalScale: {x: 1, y: 0.62432, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,13 +97,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bb0b09583a4804b8ec85ec05e3679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objName: 
-  description: 
+  objName: Mortar
+  description: Inaccurate, AOI
   baseDamage: 0
   damage: 0
-  baseAttackSpeed: 0
+  baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
+  enabledd: 0
   targets: []
   ball: {fileID: 1141815893873552, guid: cc2307d0b0fb60f4b92c0f51c27abd9f, type: 2}
 --- !u!135 &135323891512147076
@@ -116,7 +117,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.58
+  m_Radius: 8.45
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &136554233576788988
 CapsuleCollider:

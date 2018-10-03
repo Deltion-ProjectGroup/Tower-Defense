@@ -9,47 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1730936752364894}
+  m_RootGameObject: {fileID: 1913791838300316}
   m_IsPrefabAsset: 1
---- !u!1 &1730936752364894
+--- !u!1 &1913791838300316
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4650786705320408}
-  - component: {fileID: 33213767291164292}
-  - component: {fileID: 23115933411113912}
-  - component: {fileID: 136093403670820376}
-  - component: {fileID: 114858598698787726}
-  - component: {fileID: 65477403530270882}
-  m_Layer: 9
-  m_Name: FlameThrower
-  m_TagString: Turret
+  - component: {fileID: 4392755983569110}
+  - component: {fileID: 33840598984845238}
+  - component: {fileID: 23964955290303364}
+  - component: {fileID: 136874765226661982}
+  - component: {fileID: 114079741898036414}
+  m_Layer: 0
+  m_Name: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4650786705320408
+--- !u!4 &4392755983569110
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
+  m_GameObject: {fileID: 1913791838300316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102.81, y: 1, z: 20.57}
-  m_LocalScale: {x: 1, y: 0.62432, z: 1}
+  m_LocalPosition: {x: 96.34484, y: 1.48, z: 18.543896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23115933411113912
+--- !u!23 &23964955290303364
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
+  m_GameObject: {fileID: 1913791838300316}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -79,59 +78,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33213767291164292
+--- !u!33 &33840598984845238
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
+  m_GameObject: {fileID: 1913791838300316}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65477403530270882
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 6.5377502}
-  m_Center: {x: 0.000000059604645, y: 0, z: 2.7688751}
---- !u!114 &114858598698787726
+--- !u!114 &114079741898036414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
+  m_GameObject: {fileID: 1913791838300316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97c60439c8f0ff4c8ab770cd2668e18, type: 3}
+  m_Script: {fileID: 11500000, guid: 626ddd51da260264296e5a6512e654e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objName: 
-  description: 
-  baseDamage: 10
-  damage: 0
-  baseAttackSpeed: 1
-  attackSpeed: 0
-  attackAnim: {fileID: 0}
-  targets: []
-  newTargets: []
-  damagingTargets: []
-  detectionRange: 100
-  burnstats:
-    tickDamage: 1
-    maxTicks: 99
-    ticksPerSecond: 1
---- !u!136 &136093403670820376
+  explosionParticles: {fileID: 1187748021940796, guid: 17c48ea766287ee4f870590a679a0ec1,
+    type: 2}
+  damage: 10
+  explosionRange: 20
+  enemies: []
+  speed: 2
+--- !u!136 &136874765226661982
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730936752364894}
+  m_GameObject: {fileID: 1913791838300316}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2

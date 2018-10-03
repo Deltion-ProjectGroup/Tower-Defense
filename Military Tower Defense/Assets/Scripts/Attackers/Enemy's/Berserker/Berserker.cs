@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Berserker : Enemy {
     [Header("RageBuff")]
     public EnrageBuff enrageBuff;
     public GameObject rageParticles;
     bool enraged;
+    bool dead;
     // Use this for initialization
 
     public override void CheckHealth()
     {
-        if(health <= maxHealth * 0.2f && !enraged)
+        if (health < maxHealth)
+        {
+            if (!damaged)
+            {
+                damaged = true;
+                healthbarHolder.SetActive(true);
+            }
+            healthbar.GetComponent<Image>().fillAmount = (1 / maxHealth) * health;
+        }
+        if (health <= maxHealth * 0.2f && !enraged)
         {
             enraged = true;
             Instantiate(rageParticles, transform.position, Quaternion.identity, gameObject.transform);
@@ -23,17 +34,24 @@ public class Berserker : Enemy {
             maxHealth += enrageBuff.rageHealthBuff;
             damage += enrageBuff.rageDamageBuff;
         }
-        if(health <= 0)
+        if (health <= 0 && !dead)
         {
+            dead = true;
+            for (int i = 0; i < targettedBy.Count; i++)
+            {
+                targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
+                LevelManager.levelManager.RemoveEnemy(gameObject);
+            }
+            if (attacking)
+            {
+                target.GetComponent<Obstacle>().RemoveUnit(gameObject);
+            }
             StopAllCoroutines();
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-            for (int i = 0; i < targettedBy.Count; i++)
-            {
-                targettedBy[i].GetComponent<Turret>().targets.Remove(gameObject);
-            }
+            LevelManager.levelManager.AddCurrency(worthCurrency);
             Destroy(gameObject, gameObject.GetComponentInChildren<ParticleSystem>().startLifetime);
         }
     }
