@@ -24,6 +24,7 @@ public class Enemy : Attacker {
     public List <GameObject> targettedBy = new List<GameObject>();
     public bool attacking = false;
     public bool damaged;
+    public bool dead;
     public int worthCurrency;
     // Use this for initialization
     private void Awake()
@@ -42,6 +43,7 @@ public class Enemy : Attacker {
 	// Update is called once per frame
 	public virtual void Update ()
     {
+        print(targettedBy.Count);
         if (damaged)
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
@@ -72,9 +74,12 @@ public class Enemy : Attacker {
             }
             healthbar.GetComponent<Image>().fillAmount = (1/maxHealth) * health;
         }
-        if(health <= 0)
+        if(health <= 0 && !dead)
         {
-            for(int i = 0; i < targettedBy.Count; i++)
+            print("DIED");
+            dead = true;
+            int hi = targettedBy.Count;
+            for (int i = 0; i < hi; i++)
             {
                 targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
                 LevelManager.levelManager.RemoveEnemy(gameObject);

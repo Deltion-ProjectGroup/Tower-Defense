@@ -9,7 +9,6 @@ public class Berserker : Enemy {
     public EnrageBuff enrageBuff;
     public GameObject rageParticles;
     bool enraged;
-    bool dead;
     // Use this for initialization
 
     public override void CheckHealth()
@@ -37,6 +36,7 @@ public class Berserker : Enemy {
         if (health <= 0 && !dead)
         {
             dead = true;
+            healthbarHolder.SetActive(false);
             for (int i = 0; i < targettedBy.Count; i++)
             {
                 targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);

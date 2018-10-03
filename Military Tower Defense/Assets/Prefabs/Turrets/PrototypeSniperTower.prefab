@@ -320,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: SniperTower
   description: Long ranged tower
-  baseDamage: 40
+  baseDamage: 10
   damage: 0
   baseAttackSpeed: 0.5
   attackSpeed: 0

@@ -301,7 +301,7 @@ MonoBehaviour:
   detectionRange: 20
   burnstats:
     tickDamage: 1
-    maxTicks: 10
+    maxTicks: 20
     ticksPerSecond: 2
   fireParticles: {fileID: 198392341367307116}
 --- !u!136 &136449858243935046
