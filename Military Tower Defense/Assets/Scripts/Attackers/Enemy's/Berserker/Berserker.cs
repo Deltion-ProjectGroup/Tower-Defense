@@ -37,9 +37,9 @@ public class Berserker : Enemy {
         {
             dead = true;
             healthbarHolder.SetActive(false);
-            for (int i = 0; i < targettedBy.Count; i++)
+            while (targettedBy.Count != 0)
             {
-                targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
+                targettedBy[0].GetComponent<Turret>().CleanTarget(gameObject);
                 LevelManager.levelManager.RemoveEnemy(gameObject);
             }
             if (attacking)

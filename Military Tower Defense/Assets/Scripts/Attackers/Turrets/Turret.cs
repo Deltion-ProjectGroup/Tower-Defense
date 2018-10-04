@@ -44,10 +44,6 @@ public class Turret : Attacker {
         if (hit.gameObject.tag == "Enemy" && !hit.isTrigger)
         {
             CleanTarget(hit.gameObject);
-            if (targets.Count == 0)
-            {
-                StopAllCoroutines();
-            }
         }
     }
 }

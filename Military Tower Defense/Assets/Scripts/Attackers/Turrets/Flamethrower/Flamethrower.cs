@@ -48,12 +48,14 @@ public class Flamethrower : Turret {
     public override IEnumerator Attack()
     {
         print("Attack");
-        for (int i = 0; i < damagingTargets.Count; i++)
+        if(damagingTargets.Count > 0)
         {
-            AddEffect(damagingTargets[i]);
-            damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
-            print(damagingTargets[i].GetComponent<Enemy>().health.ToString());
-            damagingTargets[i].GetComponent<Enemy>().CheckHealth();
+            for (int i = 0; i < damagingTargets.Count; i++)
+            {
+                AddEffect(damagingTargets[i]);
+                damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
+                damagingTargets[i].GetComponent<Enemy>().CheckHealth();
+            }
         }
         if (damagingTargets.Count > 0)
         {

@@ -104,9 +104,10 @@ MonoBehaviour:
   baseAttackSpeed: 10
   attackSpeed: 0
   attackAnim: {fileID: 0}
+  enabledd: 0
   targets: []
   missile: {fileID: 1913791838300316, guid: 635b9740462ca21488750939826a2ea2, type: 2}
-  spawnModifier: {x: 0, y: 3, z: 0}
+  spawnModifier: {x: 0, y: 1, z: 0}
 --- !u!135 &135361576670537828
 SphereCollider:
   m_ObjectHideFlags: 1

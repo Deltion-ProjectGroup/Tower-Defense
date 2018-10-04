@@ -43,7 +43,6 @@ public class Enemy : Attacker {
 	// Update is called once per frame
 	public virtual void Update ()
     {
-        print(targettedBy.Count);
         if (damaged)
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
@@ -76,12 +75,11 @@ public class Enemy : Attacker {
         }
         if(health <= 0 && !dead)
         {
-            print("DIED");
             dead = true;
-            int hi = targettedBy.Count;
-            for (int i = 0; i < hi; i++)
+            print("DIED");
+            while (targettedBy.Count != 0)
             {
-                targettedBy[i].GetComponent<Turret>().CleanTarget(gameObject);
+                targettedBy[0].GetComponent<Turret>().CleanTarget(gameObject);
                 LevelManager.levelManager.RemoveEnemy(gameObject);
             }
             if (attacking)
