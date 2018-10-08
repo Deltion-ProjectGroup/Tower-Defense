@@ -47,7 +47,7 @@ public class Berserker : Enemy {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             StopAllCoroutines();
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();

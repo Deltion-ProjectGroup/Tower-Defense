@@ -8,10 +8,10 @@ public class RoundInfo : MonoBehaviour , IPointerEnterHandler, IPointerExitHandl
 	// Use this for initialization
     public void OnPointerEnter(PointerEventData eventData)
     {
-
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowWaveInfo(roundEnemies);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().RemoveWafeInfo();
     }
 }

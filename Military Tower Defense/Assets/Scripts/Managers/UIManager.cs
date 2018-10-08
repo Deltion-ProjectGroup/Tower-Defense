@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
+    public GameObject[] waveInformation;
     bool isTracking;
     public GameObject trackingObj;
 	// Use this for initialization
@@ -121,9 +122,16 @@ public class UIManager : MonoBehaviour {
         roundUI.GetComponent<Text>().text = textToShow;
         roundUI.GetComponent<Animation>().Play();
     }
-    public void ShowWaveInfo(LevelManager.Enemies enemies)
+    public void ShowWaveInfo(LevelManager.Waves enemies)
     {
-
+        /*
+        waveInformation[0].SetActive(true);
+        waveInformation[1].GetComponent<Text>().text = enemies.berserkers.ToString();
+        waveInformation[2].GetComponent<Text>().text = enemies.melees.ToString();
+        waveInformation[3].GetComponent<Text>().text = enemies.ranged.ToString();
+        waveInformation[4].GetComponent<Text>().text = enemies.mortars.ToString();
+        waveInformation[5].GetComponent<Text>().text = enemies.tanks.ToString();
+        */
     }
     public void QuitGame()
     {
@@ -145,5 +153,9 @@ public class UIManager : MonoBehaviour {
         transitionUI.GetComponent<Animation>().Play("NAME");
         yield return new WaitForSeconds(transitionUI.GetComponent<Animation>().clip.length);
         SceneManager.LoadScene(sceneName);
+    }
+    public void RemoveWafeInfo()
+    {
+        waveInformation[0].SetActive(false);
     }
 }
