@@ -73,20 +73,22 @@ public class Enemy : Attacker {
             }
             healthbar.GetComponent<Image>().fillAmount = (1/maxHealth) * health;
         }
-        if(health <= 0 && !dead)
+        if (health <= 0 && !dead)
         {
+            StopAllCoroutines();
             dead = true;
-            print("DIED");
+            healthbarHolder.SetActive(false);
             while (targettedBy.Count != 0)
             {
                 targettedBy[0].GetComponent<Turret>().CleanTarget(gameObject);
-                LevelManager.levelManager.RemoveEnemy(gameObject);
             }
+            LevelManager.levelManager.RemoveEnemy(gameObject);
             if (attacking)
             {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency);
+            gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject);
         }
     }

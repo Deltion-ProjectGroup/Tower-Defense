@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
     public Vector3 targetDestination;
@@ -9,6 +10,8 @@ public class LevelManager : MonoBehaviour {
     public Waves[] waves;
     public Enemies enemies;
     public List<GameObject> aliveEnemies = new List<GameObject>();
+    public List<GameObject> roundBullets;
+    public int currentBullet;
     public float spawnDelay;
     public int intermissionTime;
     int currentWave = 0;
@@ -21,12 +24,16 @@ public class LevelManager : MonoBehaviour {
         levelManager = this;
     }
     void Start () {
+        StartCoroutine(Revolve());
         StartCoroutine(SpawnNextWave());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Level 1");
+        }
 	}
     public IEnumerator SpawnNextWave()
     {
@@ -66,6 +73,15 @@ public class LevelManager : MonoBehaviour {
         }
         currentWave++;
         doneSpawning = true;
+    }
+    public IEnumerator Revolve()
+    {
+        //Rotate by 60;
+        for(int i = 0; i < 60; i++)
+        {
+            transform.Rotate(new Vector3(0, 0, -1));
+            yield return new WaitForEndOfFrame();
+        }
     }
     public IEnumerator Intermission()
     {
@@ -126,5 +142,12 @@ public class LevelManager : MonoBehaviour {
         public GameObject ranged;
         public GameObject tank;
         public GameObject mortar;
+    }
+    private void Initialize()
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            roundBullets[i].GetComponent<RoundInfo>().roundEnemies = waves[i];
+        }
     }
 }

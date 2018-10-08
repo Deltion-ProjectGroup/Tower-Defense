@@ -53,6 +53,8 @@ public class Flamethrower : Turret {
             for (int i = 0; i < damagingTargets.Count; i++)
             {
                 AddEffect(damagingTargets[i]);
+                Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
+                transform.LookAt(lookRotation);
                 damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
                 damagingTargets[i].GetComponent<Enemy>().CheckHealth();
             }
@@ -82,8 +84,8 @@ public class Flamethrower : Turret {
     }
     public override void AddTarget(GameObject unit)
     {
-        damagingTargets.Add(unit);
         unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
+        damagingTargets.Add(unit);
     }
     [System.Serializable]
     public struct BurnStats
@@ -94,16 +96,19 @@ public class Flamethrower : Turret {
     }
     public void AddEffect(GameObject target)
     {
-        if(target.GetComponent<DOT>() != null)
+        if(target != null)
         {
-            target.GetComponent<DOT>().Refresh();
-        }
-        else
-        {
-            DOT burn = target.AddComponent<DOT>();
-            burn.ticksPerSecond = burnstats.ticksPerSecond;
-            burn.maxTicks = burnstats.maxTicks;
-            burn.damage = burnstats.tickDamage;
+            if (target.GetComponent<DOT>() != null)
+            {
+                target.GetComponent<DOT>().Refresh();
+            }
+            else
+            {
+                DOT burn = target.AddComponent<DOT>();
+                burn.ticksPerSecond = burnstats.ticksPerSecond;
+                burn.maxTicks = burnstats.maxTicks;
+                burn.damage = burnstats.tickDamage;
+            }
         }
     }
 }

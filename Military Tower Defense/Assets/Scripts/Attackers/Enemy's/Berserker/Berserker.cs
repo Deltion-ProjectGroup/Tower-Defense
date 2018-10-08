@@ -40,8 +40,8 @@ public class Berserker : Enemy {
             while (targettedBy.Count != 0)
             {
                 targettedBy[0].GetComponent<Turret>().CleanTarget(gameObject);
-                LevelManager.levelManager.RemoveEnemy(gameObject);
             }
+            LevelManager.levelManager.RemoveEnemy(gameObject);
             if (attacking)
             {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);

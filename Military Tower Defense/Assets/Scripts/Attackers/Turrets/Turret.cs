@@ -25,8 +25,11 @@ public class Turret : Attacker {
     }
     public virtual void AddTarget(GameObject unit)
     {
-        targets.Add(unit);
-        unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
+        if(unit != null)
+        {
+            targets.Add(unit);
+            unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
+        }
     }
     public virtual void OnEnterEffect(Collider hit)
     {

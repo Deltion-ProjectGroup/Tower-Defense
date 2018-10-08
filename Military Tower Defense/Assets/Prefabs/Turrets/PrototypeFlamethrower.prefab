@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4318464367354850}
   - component: {fileID: 33970695806505648}
   - component: {fileID: 23721696311208118}
+  - component: {fileID: 65234995291548434}
   - component: {fileID: 65012570311846666}
   - component: {fileID: 114770834223911286}
-  - component: {fileID: 136449858243935046}
   m_Layer: 9
   m_Name: PrototypeFlamethrower
   m_TagString: Turret
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124836524915518}
   m_LocalRotation: {x: -0, y: -0.9989771, z: -0, w: -0.04521949}
-  m_LocalPosition: {x: 102.83, y: 0.549, z: 18.85}
+  m_LocalPosition: {x: 108.113815, y: 2.842171e-14, z: 13.529424}
   m_LocalScale: {x: 1, y: 0.5549, z: 1}
   m_Children:
   - {fileID: 4667493010944720}
@@ -276,6 +276,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 3.107029, z: 5.576637}
   m_Center: {x: 0.0000016641267, y: 0.5535146, z: 1.7976944}
+--- !u!65 &65234995291548434
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124836524915518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000006, y: 2, z: 1.0000007}
+  m_Center: {x: 0.00000005960467, y: 0, z: -0.00000008940701}
 --- !u!114 &114770834223911286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,19 +316,6 @@ MonoBehaviour:
     maxTicks: 20
     ticksPerSecond: 2
   fireParticles: {fileID: 198392341367307116}
---- !u!136 &136449858243935046
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1124836524915518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.50000036
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.00000005960467, y: 0, z: -0.00000008940701}
 --- !u!136 &136931648020825230
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
+    public GameObject transitionUI;
     public GameObject shopUI;
     public GameObject timerUI;
     public GameObject roundUI;
@@ -14,7 +16,6 @@ public class UIManager : MonoBehaviour {
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
-    public bool shopping;
     bool isTracking;
     public GameObject trackingObj;
 	// Use this for initialization
@@ -30,16 +31,7 @@ public class UIManager : MonoBehaviour {
         }
         if (Input.GetButtonDown("Fire2"))
         {
-            if (shopping)
-            {
-                shopping = false;
-                shopUI.SetActive(false);
-            }
-            else
-            {
-                shopping = true;
-                shopUI.SetActive(true);
-            }
+            shopUI.GetComponent<RadialMenu>().SwitchShop();
         }
 	}
     public void ShowStats(GameObject target)
@@ -128,5 +120,30 @@ public class UIManager : MonoBehaviour {
     {
         roundUI.GetComponent<Text>().text = textToShow;
         roundUI.GetComponent<Animation>().Play();
+    }
+    public void ShowWaveInfo(LevelManager.Enemies enemies)
+    {
+
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void PauseGame(bool resume = false)
+    {
+        if (resume)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+    public IEnumerator ChangeScene(string sceneName)
+    {
+        transitionUI.GetComponent<Animation>().Play("NAME");
+        yield return new WaitForSeconds(transitionUI.GetComponent<Animation>().clip.length);
+        SceneManager.LoadScene(sceneName);
     }
 }
