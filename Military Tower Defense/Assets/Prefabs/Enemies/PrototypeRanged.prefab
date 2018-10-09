@@ -184,8 +184,11 @@ MonoBehaviour:
   healthbar: {fileID: 1295945391250528}
   healthbarHolder: {fileID: 1454199709219444}
   targettedBy: []
+  attacking: 0
   damaged: 0
+  dead: 0
   worthCurrency: 1
+  enemyType: 2
 --- !u!114 &114255280273291168
 MonoBehaviour:
   m_ObjectHideFlags: 1

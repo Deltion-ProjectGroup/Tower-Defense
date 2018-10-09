@@ -275,8 +275,11 @@ MonoBehaviour:
   healthbar: {fileID: 1778137796031646}
   healthbarHolder: {fileID: 1302910215297418}
   targettedBy: []
+  attacking: 0
   damaged: 0
+  dead: 0
   worthCurrency: 1
+  enemyType: 4
   explosionParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
     type: 2}
 --- !u!135 &135340738759599774

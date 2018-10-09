@@ -26,6 +26,7 @@ public class Enemy : Attacker {
     public bool damaged;
     public bool dead;
     public int worthCurrency;
+    public LevelManager.EnemyType enemyType;
     // Use this for initialization
     private void Awake()
     {

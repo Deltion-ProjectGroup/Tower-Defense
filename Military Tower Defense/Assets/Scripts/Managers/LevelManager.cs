@@ -20,9 +20,34 @@ public class LevelManager : MonoBehaviour {
     public string newRoundText;
     public int currency;
     bool doneSpawning;
+    public Vector3 bulletScaler;
 	// Use this for initialization
     private void Awake()
     {
+        if(waves.Length < roundBullets.Count - 1)
+        {
+            throw new System.Exception("NotEnoughWavesException");
+        }
+        else
+        {
+            for (int i = 0; i < waves.Length; i++)
+            {
+                if (waves[i].enemies.Length <= 0)
+                {
+                    throw new System.Exception("ZeroWaveEnemyException");
+                }
+                else
+                {
+                    for (int q = 0; q < waves[i].enemies.Length; q++)
+                    {
+                        if (waves[i].enemies[q].spawnAmount <= 0)
+                        {
+                            throw new System.Exception("ZeroSpawnException");
+                        }
+                    }
+                }
+            }
+        }
         levelManager = this;
     }
     void Start () {
@@ -40,14 +65,13 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator SpawnNextWave()
     {
         int waveBackup = nextWave;
-        StartCoroutine(Revolve(nextWave));
+        StartCoroutine(SpinBarrel(nextWave));
         nextWave++;
         doneSpawning = false;
         UIManager uiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
         string waveText = newRoundText + " " + (nextWave).ToString();
         uiManager.ShowText(waveText);
         yield return new WaitForSeconds(uiManager.roundUI.GetComponent<Animation>().clip.length);
-        List<GameObject> enemieList = new List<GameObject>();
         for(int i = 0; i < waves[waveBackup].enemies.Length; i++)
         {
             for(int q = 0; q < waves[waveBackup].enemies[i].spawnAmount; q++)
@@ -75,29 +99,37 @@ public class LevelManager : MonoBehaviour {
         }
         doneSpawning = true;
     }
-    public IEnumerator Revolve(int currentWave)
+    public IEnumerator SpinBarrel(int currentWave)
     {
         //Rotate by 60;
         //Put S always first
+        while(roundBullets[currentBullet].transform.localScale.x > 0)
+        {
+            roundBullets[currentBullet].transform.localScale -= bulletScaler;
+            yield return new WaitForEndOfFrame();
+        }
+        roundBullets[currentBullet].transform.localScale = new Vector3(0, 0, 0);
         for(int i = 0; i < 60; i++)
         {
             transform.Rotate(new Vector3(0, 0, -1));
             yield return new WaitForEndOfFrame();
         }
-        if((currentWave + roundBullets.Count) < waves.Length)
+        if ((currentWave + roundBullets.Count) < waves.Length)
         {
-            roundBullets[currentBullet].GetComponent<RoundInfo>().roundEnemies = waves[currentWave + roundBullets.Count];
+            roundBullets[currentBullet].GetComponent<RoundInfo>().NewWaveImport(waves[currentWave + roundBullets.Count]);
             roundBullets[currentBullet].GetComponentInChildren<Text>().text = (currentWave + roundBullets.Count).ToString();
-            currentBullet++;
-            if (currentBullet >= roundBullets.Count - 1)
-            {
-                currentBullet = 0;
-            }
+            roundBullets[currentBullet].transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
+            roundBullets[currentBullet].GetComponentInChildren<Text>().text = "E";
             print("There is no more waves for this bullet");
             // WIN
+        }
+        currentBullet++;
+        if (currentBullet >= roundBullets.Count)
+        {
+            currentBullet = 0;
         }
     }
     public IEnumerator Intermission()
@@ -140,12 +172,13 @@ public class LevelManager : MonoBehaviour {
     public void RemoveEnemy(GameObject enemy)
     {
         aliveEnemies.Remove(enemy);
+        roundBullets[currentBullet].GetComponent<RoundInfo>().RemoveEnemies(enemy.GetComponent<Enemy>().enemyType);
         CheckWave();
     }
     [System.Serializable]
     public struct Waves
     {
-        public Enemy[] enemies;
+        public Enemeh[] enemies;
         /*
         public int berserkers;
         public int ranged;
@@ -155,7 +188,7 @@ public class LevelManager : MonoBehaviour {
         */
     }
     [System.Serializable]
-    public struct Enemy
+    public struct Enemeh
     {
         public EnemyType enemy;
         public int spawnAmount;
@@ -173,7 +206,7 @@ public class LevelManager : MonoBehaviour {
     {
         for(int i = 1; i < roundBullets.Count; i++)
         {
-            roundBullets[i].GetComponent<RoundInfo>().roundEnemies = waves[i];
+            roundBullets[i].GetComponent<RoundInfo>().NewWaveImport(waves[i - 1]);
         }
     }
 }

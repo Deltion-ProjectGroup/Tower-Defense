@@ -122,16 +122,20 @@ public class UIManager : MonoBehaviour {
         roundUI.GetComponent<Text>().text = textToShow;
         roundUI.GetComponent<Animation>().Play();
     }
-    public void ShowWaveInfo(LevelManager.Waves enemies)
+    public void ShowWaveInfo(int[] enemyAmts)
     {
-        /*
         waveInformation[0].SetActive(true);
-        waveInformation[1].GetComponent<Text>().text = enemies.berserkers.ToString();
-        waveInformation[2].GetComponent<Text>().text = enemies.melees.ToString();
-        waveInformation[3].GetComponent<Text>().text = enemies.ranged.ToString();
-        waveInformation[4].GetComponent<Text>().text = enemies.mortars.ToString();
-        waveInformation[5].GetComponent<Text>().text = enemies.tanks.ToString();
-        */
+        for(int i = 1; i < waveInformation.Length; i++)
+        {
+            waveInformation[i].GetComponent<Text>().text = enemyAmts[(i - 1)].ToString();
+        }
+    }
+    public void UpdateWaveInfo(int[] enemyAmts)
+    {
+        for (int i = 1; i < waveInformation.Length; i++)
+        {
+            waveInformation[i].GetComponent<Text>().text = enemyAmts[(i - 1)].ToString();
+        }
     }
     public void QuitGame()
     {
