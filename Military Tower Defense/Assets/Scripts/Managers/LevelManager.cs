@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour {
     public Vector3[] spawnPositions;
     public static LevelManager levelManager;
     public Waves[] waves;
+    public Obstacle[] obstacles;
     public Enemies enemies;
     public List<GameObject> aliveEnemies = new List<GameObject>();
     public List<GameObject> roundBullets;
@@ -47,6 +48,10 @@ public class LevelManager : MonoBehaviour {
                     }
                 }
             }
+        }
+        for(int i = 0; i < obstacles.Length; i++)
+        {
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateObstHpBar(obstacles[i]);
         }
         levelManager = this;
     }

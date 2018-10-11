@@ -26,6 +26,10 @@ public class Flamethrower : Turret {
             transform.LookAt(new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z));
         }
     }
+    /*
+    Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
+    transform.LookAt(lookRotation);
+    */
     public override void OnEnterEffect(Collider hit)
     {
         if(hit.tag == "Enemy" && !hit.isTrigger)
@@ -53,8 +57,6 @@ public class Flamethrower : Turret {
             for (int i = 0; i < damagingTargets.Count; i++)
             {
                 AddEffect(damagingTargets[i]);
-                Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
-                transform.LookAt(lookRotation);
                 damagingTargets[i].GetComponent<Enemy>().health -= baseDamage;
                 damagingTargets[i].GetComponent<Enemy>().CheckHealth();
             }

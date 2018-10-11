@@ -11,6 +11,7 @@ public class Obstacle : MonoBehaviour
     public string description;
     public GameObject healthbarHolder;
     public GameObject healthbar;
+    public GameObject mainUIHealthbar;
     bool damaged;
     public List<GameObject> targettedBy = new List<GameObject>();
     // Use this for initialization
@@ -33,6 +34,7 @@ public class Obstacle : MonoBehaviour
                 damaged = true;
                 healthbarHolder.SetActive(true);
             }
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateObstHpBar(this);
             healthbar.GetComponent<Image>().fillAmount = (1 / maxHealth) * health;
             if (health <= 0)
             {

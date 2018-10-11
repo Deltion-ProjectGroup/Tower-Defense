@@ -313,7 +313,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637666546522530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 513bef3ecb1958b4b9447bc1a5daea25, type: 3}
   m_Name: 
@@ -325,7 +325,6 @@ MonoBehaviour:
   baseAttackSpeed: 0.5
   attackSpeed: 0
   attackAnim: {fileID: 0}
-  enabledd: 0
   targets: []
 --- !u!135 &135742663017378262
 SphereCollider:
@@ -335,7 +334,7 @@ SphereCollider:
   m_GameObject: {fileID: 1637666546522530}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 8.16
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -347,7 +346,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1637666546522530}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.50000036
   m_Height: 2
   m_Direction: 1

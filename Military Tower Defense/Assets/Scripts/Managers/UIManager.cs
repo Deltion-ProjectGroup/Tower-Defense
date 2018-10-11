@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public GameObject addMoneyInd;
     public GameObject moneyIndHolder;
     public GameObject moneyUI;
+    public GameObject[] healthBars;
     public GameObject[] enemyInformation;
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
@@ -161,5 +162,10 @@ public class UIManager : MonoBehaviour {
     public void RemoveWafeInfo()
     {
         waveInformation[0].SetActive(false);
+    }
+    public void UpdateObstHpBar(Obstacle obstacle)
+    {
+        obstacle.mainUIHealthbar.GetComponent<Image>().fillAmount = 1 / obstacle.maxHealth * obstacle.health;
+        obstacle.mainUIHealthbar.GetComponentInChildren<Text>().text = obstacle.health.ToString() + "/" + obstacle.maxHealth.ToString();
     }
 }

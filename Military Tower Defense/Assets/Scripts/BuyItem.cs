@@ -27,7 +27,7 @@ public class BuyItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        if (!GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().placing)
+        if (GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().placing == false)
         {
             if(LevelManager.levelManager.currency >= cost)
             {
