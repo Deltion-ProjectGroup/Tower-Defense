@@ -48,7 +48,11 @@ public class Berserker : Enemy {
             }
             StopAllCoroutines();
             gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
-            gameObject.GetComponent<Collider>().enabled = false;
+            Collider[] colliders = GetComponents<Collider>();
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = false;
+            }
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();
             LevelManager.levelManager.AddCurrency(worthCurrency);

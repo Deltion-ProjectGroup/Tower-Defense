@@ -42,7 +42,8 @@ public class Obstacle : MonoBehaviour
                 {
                     targettedBy[i].GetComponent<Enemy>().Repath();
                 }
-                Destroy(gameObject, Time.deltaTime);
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().CheckIfTracked(gameObject);
+                Destroy(gameObject);
             }
         }
     }

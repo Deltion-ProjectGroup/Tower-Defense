@@ -19,7 +19,10 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if(hit.transform.gameObject.tag == "TowerTerrain")
                 {
-                    placingObject.transform.position = hit.point;
+                    if (CanPlace())
+                    {
+                        placingObject.transform.position = hit.point;
+                    }
                 }
             }
             if (Input.GetButtonDown("Fire1"))
@@ -39,5 +42,17 @@ public class TurretPlacer : MonoBehaviour {
     {
         placing = true;
         placingObject = Instantiate(turret, Vector3.zero, Quaternion.identity);
+    }
+    bool CanPlace()
+    {
+        Collider[] colls = Physics.OverlapBox(placingObject.transform.position, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, 11, QueryTriggerInteraction.Ignore);
+        for(int i = 0; i < colls.Length; i++)
+        {
+            if(colls[i].tag != "TowerTerrain")
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

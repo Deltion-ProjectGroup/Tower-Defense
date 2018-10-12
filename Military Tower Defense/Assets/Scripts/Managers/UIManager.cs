@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour {
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
     public GameObject[] waveInformation;
-    bool isTracking;
+    public bool isTracking;
+    bool canInfoToggle = true;
     public GameObject trackingObj;
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isTracking)
+        if(isTracking && trackingObj != null)
         {
             UpdateStats();
         }
@@ -36,61 +37,112 @@ public class UIManager : MonoBehaviour {
             shopUI.GetComponent<RadialMenu>().SwitchShop();
         }
 	}
-    public void ShowStats(GameObject target)
+    public IEnumerator ShowStats(GameObject target)
     {
-        trackingObj = target;
-        enemyInformation[0].SetActive(false);
-        turretInformation[0].SetActive(false);
-        obstacleInformation[0].SetActive(false);
-        if(target.tag == "Enemy" || target.tag == "Turret" || target.tag == "Targettable")
+        if(target == null)
         {
-            informationUI.SetActive(true);
-            isTracking = true;
+            StartCoroutine(StatBarDissapear());
         }
         else
         {
-            isTracking = false;
-            informationUI.SetActive(false);
+            if (target.tag == "Enemy" || target.tag == "Turret" || target.tag == "Targettable")
+            {
+                print(target);
+                trackingObj = target;
+                enemyInformation[0].SetActive(false);
+                turretInformation[0].SetActive(false);
+                obstacleInformation[0].SetActive(false);
+                switch (trackingObj.tag)
+                {
+                    case "Enemy":
+                        enemyInformation[0].SetActive(true);
+                        break;
+                    case "Turret":
+                        turretInformation[0].SetActive(true);
+                        break;
+                    case "Targettable":
+                        obstacleInformation[0].SetActive(true);
+                        break;
+                }
+                UpdateStats();
+                if (!isTracking && canInfoToggle)
+                {
+                    canInfoToggle = false;
+                    isTracking = true;
+                    informationUI.GetComponent<Animation>().Play();
+                    yield return new WaitForSeconds(informationUI.GetComponent<Animation>().clip.length);
+                    canInfoToggle = true;
+
+                }
+            }
+            else
+            {
+                StartCoroutine(StatBarDissapear());
+            }
         }
     }
     public void UpdateStats()
     {
-        if(trackingObj != null)
+        switch (trackingObj.tag)
         {
-            switch (trackingObj.tag)
-            {
-                case "Enemy":
-                    enemyInformation[0].SetActive(true);
-                    enemyInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().objName;
-                    enemyInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().health.ToString();
-                    enemyInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().attackSpeed.ToString();
-                    enemyInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().movementspeed.ToString();
-                    enemyInformation[6].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().damage.ToString();
-                    enemyInformation[7].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().description;
-                    break;
-                case "Turret":
-                    turretInformation[0].SetActive(true);
-                    turretInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().objName;
-                    turretInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().attackSpeed.ToString();
-                    turretInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().damage.ToString();
-                    turretInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().description;
-                    break;
-                case "Targettable":
-                    obstacleInformation[0].SetActive(true);
-                    obstacleInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().objName;
-                    obstacleInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().description;
-                    break;
-            }
-        }
-        else
-        {
-            StatBarDissapear();
+            case "Enemy":
+                enemyInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().objName;
+                enemyInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().health.ToString() + "/" + trackingObj.GetComponent<Enemy>().maxHealth;
+                enemyInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().attackSpeed.ToString();
+                enemyInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().movementspeed.ToString();
+                enemyInformation[6].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().damage.ToString();
+                enemyInformation[7].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().description;
+                enemyInformation[8].GetComponent<Image>().fillAmount = trackingObj.GetComponent<Enemy>().healthbar.GetComponent<Image>().fillAmount;
+                enemyInformation[9].SetActive(false);
+                if(trackingObj.GetComponent<DOT>() != null)
+                {
+                    switch (trackingObj.GetComponent<DOT>().dotType)
+                    {
+                        case DOT.DOTType.Fire:
+                            enemyInformation[9].SetActive(true);
+                            enemyInformation[9].GetComponentInChildren<Text>().text = Mathf.RoundToInt((trackingObj.GetComponent<DOT>().remainingTicks / trackingObj.GetComponent<DOT>().ticksPerSecond)).ToString();
+                            break;
+                        case DOT.DOTType.Poison:
+
+                            break;
+                    }
+                }
+                break;
+            case "Turret":
+                turretInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().objName;
+                turretInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().attackSpeed.ToString();
+                turretInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().damage.ToString();
+                turretInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().description;
+                break;
+            case "Targettable":
+                obstacleInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().objName;
+                obstacleInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().description;
+                obstacleInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().health.ToString() + "/" + trackingObj.GetComponent<Obstacle>().maxHealth.ToString();
+                obstacleInformation[5].GetComponent<Image>().fillAmount = trackingObj.GetComponent<Obstacle>().healthbar.GetComponent<Image>().fillAmount;
+                break;
         }
     }
-    void StatBarDissapear()
+    public void CheckIfTracked(GameObject target)
     {
-        isTracking = false;
-        informationUI.SetActive(false);
+        if(target == trackingObj)
+        {
+            StartCoroutine(StatBarDissapear());
+        }
+    }
+    IEnumerator StatBarDissapear()
+    {
+        if (canInfoToggle && isTracking)
+        {
+            canInfoToggle = false;
+            informationUI.GetComponent<Animation>().Play("StatbarRemove");
+            yield return new WaitForSeconds(informationUI.GetComponent<Animation>().GetClip("StatbarRemove").length);
+            isTracking = false;
+            trackingObj = null;
+            enemyInformation[0].SetActive(false);
+            turretInformation[0].SetActive(false);
+            obstacleInformation[0].SetActive(false);
+            canInfoToggle = true;
+        }
     }
     public IEnumerator UpdateCash(int addedAmt, int newCash)
     {

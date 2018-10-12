@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4318464367354850}
   - component: {fileID: 33970695806505648}
   - component: {fileID: 23721696311208118}
-  - component: {fileID: 65234995291548434}
   - component: {fileID: 65012570311846666}
+  - component: {fileID: 65234995291548434}
   - component: {fileID: 114770834223911286}
   m_Layer: 9
   m_Name: PrototypeFlamethrower
@@ -312,8 +312,8 @@ MonoBehaviour:
   detectionRange: 20
   burnstats:
     tickDamage: 1
-    maxTicks: 20
-    ticksPerSecond: 2
+    maxTicks: 50
+    ticksPerSecond: 3
   fireParticles: {fileID: 198392341367307116}
 --- !u!136 &136931648020825230
 CapsuleCollider:

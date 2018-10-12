@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224696572759605262}
   - component: {fileID: 222091511110838722}
   - component: {fileID: 114202129380811126}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 223754814085452988}
   - component: {fileID: 114384955825289768}
   - component: {fileID: 114041356721641708}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 195559101522214262}
   - component: {fileID: 114886552965751790}
   - component: {fileID: 135340738759599774}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: PrototypeTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 224571175167688728}
   - component: {fileID: 222436052921560860}
   - component: {fileID: 114498543180382070}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}

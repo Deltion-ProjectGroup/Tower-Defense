@@ -17,19 +17,12 @@ public class CameraManager : MonoBehaviour {
     public float movementModifier;
     RaycastHit hitTarget;
 	// Use this for initialization
-	void Start () {
-
+	void Awake () {
+        EventManager.OnClick += ShowStats;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (Physics.Raycast(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hitTarget))
-            {
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(hitTarget.transform.gameObject);
-            }
-        }
         if (canMove)
         {
             CameraMovement();
@@ -76,6 +69,17 @@ public class CameraManager : MonoBehaviour {
         if (Input.GetButtonUp("Fire3"))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+    public void ShowStats()
+    {
+        if (Physics.Raycast(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hitTarget))
+        {
+            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(hitTarget.transform.gameObject));
+        }
+        else
+        {
+            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(null));
         }
     }
 }

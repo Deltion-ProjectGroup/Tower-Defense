@@ -176,6 +176,7 @@ public class LevelManager : MonoBehaviour {
     }
     public void RemoveEnemy(GameObject enemy)
     {
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().CheckIfTracked(enemy);
         aliveEnemies.Remove(enemy);
         roundBullets[currentBullet].GetComponent<RoundInfo>().RemoveEnemies(enemy.GetComponent<Enemy>().enemyType);
         CheckWave();
