@@ -31,10 +31,6 @@ public class MachineGun : Turret {
             turret.transform.LookAt(lookRotation);
             gun.transform.LookAt(targets[0].transform);
             Quaternion rotation = gun.transform.rotation;
-            rotation.x = Mathf.Clamp(rotation.x, -24, 15.25f);
-            Quaternion.
-            print(rotation.x);
-            gun.transform.rotation = rotation;
         }
     }
 }
