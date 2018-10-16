@@ -14,15 +14,14 @@ public class TurretPlacer : MonoBehaviour {
 	void Update () {
         if (placing)
         {
-            RaycastHit hit;
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000))
+            RaycastHit[] hits;
+            hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 10000);
+            for(int i = 0; i < hits.Length; i++)
             {
-                if(hit.transform.gameObject.tag == "TowerTerrain")
+                if(hits[i].transform.tag == "TowerTerrain")
                 {
-                    if (CanPlace())
-                    {
-                        placingObject.transform.position = hit.point;
-                    }
+                    placingObject.transform.position = hits[i].point;
+                    break;
                 }
             }
             if (Input.GetButtonDown("Fire1"))
@@ -36,6 +35,12 @@ public class TurretPlacer : MonoBehaviour {
                 placingObject = null;
                 placing = false;
             }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                placing = false;
+                Destroy(placingObject);
+                placingObject = null;
+            }
         }
 	}
     public void PlaceTurret(GameObject turret)
@@ -45,7 +50,7 @@ public class TurretPlacer : MonoBehaviour {
     }
     bool CanPlace()
     {
-        Collider[] colls = Physics.OverlapBox(placingObject.transform.position, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, 11, QueryTriggerInteraction.Ignore);
+        Collider[] colls = Physics.OverlapBox(placingObject.GetComponent<BoxCollider>().center, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, 11, QueryTriggerInteraction.Ignore);
         for(int i = 0; i < colls.Length; i++)
         {
             if(colls[i].tag != "TowerTerrain")

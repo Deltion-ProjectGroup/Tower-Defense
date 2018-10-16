@@ -48,6 +48,10 @@ public class Enemy : Attacker {
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
         }
+        if (attacking)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position, Vector3.zero), 1.5f);
+        }
 	}
     public void OnTriggerEnter(Collider hit)
     {
@@ -89,12 +93,21 @@ public class Enemy : Attacker {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency);
+            GetComponent<Animator>().Play("He_Dead", 0);
             gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject);
         }
     }
+    public override IEnumerator Attack()
+    {
+        GetComponent<Animator>().SetBool("canWalk", false);
+        GetComponent<Animator>().SetBool("canAttack", true);
+        return base.Attack();
+    }
     public void Repath()
     {
+        GetComponent<Animator>().SetBool("canAttack", false);
+        GetComponent<Animator>().SetBool("canWalk", true);
         StopAllCoroutines();
         gameObject.GetComponent<NavMeshAgent>().isStopped = false;
         attacking = false;

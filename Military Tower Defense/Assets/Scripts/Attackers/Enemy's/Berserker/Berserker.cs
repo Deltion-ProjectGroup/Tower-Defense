@@ -47,7 +47,7 @@ public class Berserker : Enemy {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             StopAllCoroutines();
-            gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+            //gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             Collider[] colliders = GetComponents<Collider>();
             for(int i = 0; i < colliders.Length; i++)
             {
@@ -56,6 +56,9 @@ public class Berserker : Enemy {
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();
             LevelManager.levelManager.AddCurrency(worthCurrency);
+            GetComponent<Animator>().SetBool("canAttack", false);
+            GetComponent<Animator>().SetBool("canWalk", false);
+            GetComponent<Animator>().SetBool("canDie", true);
             Destroy(gameObject, gameObject.GetComponentInChildren<ParticleSystem>().startLifetime);
         }
     }

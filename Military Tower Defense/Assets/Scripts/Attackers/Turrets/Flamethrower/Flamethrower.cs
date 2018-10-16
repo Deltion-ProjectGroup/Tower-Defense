@@ -32,7 +32,8 @@ public class Flamethrower : Turret {
     */
     public override void OnEnterEffect(Collider hit)
     {
-        if(hit.tag == "Enemy" && !hit.isTrigger)
+        print(hit.isTrigger);
+        if (hit.tag == "Enemy" && !hit.isTrigger)
         {
             AddTarget(hit.transform.gameObject);
             if (damagingTargets.Count == 1)
