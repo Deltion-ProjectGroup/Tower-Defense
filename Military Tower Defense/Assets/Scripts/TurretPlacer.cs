@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TurretPlacer : MonoBehaviour {
     public bool placing;
+    public Color[] placementColors;
     public GameObject placingObject;
+    Material ogMaterial;
+    Material fakeMaterial;
 	// Use this for initialization
 	void Start () {
 		
@@ -64,6 +67,10 @@ public class TurretPlacer : MonoBehaviour {
             {
                 return false;
             }
+        }
+        for(int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+        {
+            placingObject.GetComponent<Turret>().turretParts[i].GetComponent<MeshRenderer>
         }
         return true;
     }

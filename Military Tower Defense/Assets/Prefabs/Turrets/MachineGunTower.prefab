@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33221726173422280}
   - component: {fileID: 23407318210467568}
   m_Layer: 9
-  m_Name: Circle
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324358213501132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.16447, y: 0, z: 18.787102}
+  m_LocalPosition: {x: 100.330345, y: 0, z: 12.592297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4562525516121708}
@@ -150,7 +150,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100004, guid: f9ccf53b3443a5b4db5bf1fdacbffc8e, type: 3}
+  - {fileID: 2100000, guid: 7810be119cd994149a63402fcc0befc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,7 +185,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f9ccf53b3443a5b4db5bf1fdacbffc8e, type: 3}
+  - {fileID: 2100000, guid: 3d3b15983f36a614abad527aeb720d9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +220,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100002, guid: f9ccf53b3443a5b4db5bf1fdacbffc8e, type: 3}
+  - {fileID: 2100000, guid: 750366c6f27c0ba4b8076f1142fcc564, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,6 +291,10 @@ MonoBehaviour:
   baseAttackSpeed: 0
   attackSpeed: 2
   attackAnim: {fileID: 0}
+  turretParts:
+  - {fileID: 1011873692479624}
+  - {fileID: 1263620348892632}
+  - {fileID: 1056643738950058}
   targets: []
   turret: {fileID: 1263620348892632}
   gun: {fileID: 1056643738950058}
