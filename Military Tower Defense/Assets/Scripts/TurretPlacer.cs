@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TurretPlacer : MonoBehaviour {
     public bool placing;
+    public LayerMask detectable;
     public Color[] placementColors;
     public GameObject placingObject;
-    Material ogMaterial;
-    Material fakeMaterial;
-	// Use this for initialization
-	void Start () {
+    public Material[] ogMaterials;
+    public Material[] fakeMaterials;
+    public Collider[] colls;
+    bool canPlace;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,15 +26,8 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if(hits[i].transform.tag == "TowerTerrain")
                 {
-                    if (CanPlace())
-                    {
-                        placingObject.transform.position = hits[i].point;
-                        break;
-                    }
-                    else
-                    {
-                        print("NO");
-                    }
+                    placingObject.transform.position = hits[i].point;
+                    CanPlace();
                 }
             }
             if (Input.GetButtonDown("Fire1"))
@@ -42,14 +38,21 @@ public class TurretPlacer : MonoBehaviour {
                 {
                     turretColliders[i].enabled = true;
                 }
+                for(int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+                {
+                    placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = ogMaterials[i];
+                }
                 placingObject = null;
                 placing = false;
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                placing = false;
-                Destroy(placingObject);
-                placingObject = null;
+                if (canPlace)
+                {
+                    placing = false;
+                    Destroy(placingObject);
+                    placingObject = null;
+                }
             }
         }
 	}
@@ -57,21 +60,40 @@ public class TurretPlacer : MonoBehaviour {
     {
         placing = true;
         placingObject = Instantiate(turret, Vector3.zero, Quaternion.identity);
+        ogMaterials = new Material[placingObject.GetComponent<Turret>().turretParts.Length];
+        for(int i = 0; i < ogMaterials.Length; i++)
+        {
+            ogMaterials[i] = placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material;
+        }
+        for(int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+        {
+            fakeMaterials[i].CopyPropertiesFromMaterial(ogMaterials[i]);
+        }
+        for (int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+        {
+            placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = fakeMaterials[i];
+        }
     }
-    bool CanPlace()
+    void CanPlace()
     {
-        Collider[] colls = Physics.OverlapBox(placingObject.GetComponent<BoxCollider>().center, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, 11, QueryTriggerInteraction.Ignore);
+        colls = Physics.OverlapBox(placingObject.transform.position, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, detectable, QueryTriggerInteraction.Ignore);
         for(int i = 0; i < colls.Length; i++)
         {
             if(colls[i].tag != "TowerTerrain" && !colls[i].isTrigger)
             {
-                return false;
+                for (int q = 0; q < placingObject.GetComponent<Turret>().turretParts.Length; q++)
+                {
+                    fakeMaterials[q].color = placementColors[0];
+                }
+                canPlace = false;
+                return;
             }
         }
         for(int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
         {
-            placingObject.GetComponent<Turret>().turretParts[i].GetComponent<MeshRenderer>
+            fakeMaterials[i].color = placementColors[1];
         }
-        return true;
+        canPlace = true;
+        return;
     }
 }

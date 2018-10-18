@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 114704113503297746}
   - component: {fileID: 65021310563253870}
   - component: {fileID: 135641899909496472}
+  - component: {fileID: 195275889958369494}
   m_Layer: 9
   m_Name: MachineGunTower
   m_TagString: Turret
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324358213501132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.330345, y: 0, z: 12.592297}
+  m_LocalPosition: {x: 99.749825, y: 0, z: 22.809813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4562525516121708}
@@ -271,25 +272,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 3.107029, z: 1.4906616}
-  m_Center: {x: 0.000000059604645, y: 0.5535146, z: -0.24533081}
+  m_Size: {x: 1.6022491, y: 2.6358867, z: 1.6367321}
+  m_Center: {x: 0.0040512085, y: 1.2940948, z: 0.000031471252}
 --- !u!114 &114704113503297746
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324358213501132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96c0a58cde2db4d4a96e49056ea6a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objName: Machinegun
-  description: Shoots very fast.
+  objName: MachineGun
+  description: PEWPEWPEW
   baseDamage: 10
-  damage: 10
-  baseAttackSpeed: 0
-  attackSpeed: 2
+  damage: 0
+  baseAttackSpeed: 0.1
+  attackSpeed: 0
   attackAnim: {fileID: 0}
   turretParts:
   - {fileID: 1011873692479624}
@@ -310,3 +311,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.6
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!195 &195275889958369494
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324358213501132}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
