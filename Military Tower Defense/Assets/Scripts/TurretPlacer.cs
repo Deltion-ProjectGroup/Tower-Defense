@@ -27,32 +27,32 @@ public class TurretPlacer : MonoBehaviour {
                 if(hits[i].transform.tag == "TowerTerrain")
                 {
                     placingObject.transform.position = hits[i].point;
-                    CanPlace();
+                    CanPlace(hits[i].point);
                 }
             }
             if (Input.GetButtonDown("Fire1"))
             {
-                Collider[] turretColliders = placingObject.GetComponents<Collider>();
-                placingObject.GetComponent<Turret>().enabled = true;
-                for(int i = 0; i < turretColliders.Length; i++)
+                if (canPlace)
                 {
-                    turretColliders[i].enabled = true;
+                    Collider[] turretColliders = placingObject.GetComponents<Collider>();
+                    placingObject.GetComponent<Turret>().enabled = true;
+                    for (int i = 0; i < turretColliders.Length; i++)
+                    {
+                        turretColliders[i].enabled = true;
+                    }
+                    for (int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+                    {
+                        placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = ogMaterials[i];
+                    }
+                    placingObject = null;
+                    placing = false;
                 }
-                for(int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
-                {
-                    placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = ogMaterials[i];
-                }
-                placingObject = null;
-                placing = false;
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                if (canPlace)
-                {
-                    placing = false;
-                    Destroy(placingObject);
-                    placingObject = null;
-                }
+                placing = false;
+                Destroy(placingObject);
+                placingObject = null;
             }
         }
 	}
@@ -74,9 +74,9 @@ public class TurretPlacer : MonoBehaviour {
             placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = fakeMaterials[i];
         }
     }
-    void CanPlace()
+    void CanPlace(Vector3 placePos)
     {
-        colls = Physics.OverlapBox(placingObject.transform.position, placingObject.GetComponent<BoxCollider>().size, Quaternion.identity, detectable, QueryTriggerInteraction.Ignore);
+        colls = Physics.OverlapBox(placePos, (placingObject.GetComponent<BoxCollider>().size / 2), Quaternion.identity, detectable, QueryTriggerInteraction.Ignore);
         for(int i = 0; i < colls.Length; i++)
         {
             if(colls[i].tag != "TowerTerrain" && !colls[i].isTrigger)
