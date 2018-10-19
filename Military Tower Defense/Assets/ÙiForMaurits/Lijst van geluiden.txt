@@ -5,7 +5,7 @@ Standaardkreun
 Aanvalskreun
 Doodskreun
 Bijl impact (0)
-Swing geluidjev (0)
+Swing geluidje (0)
 Machete impact (0)
 Kogel impact (0)
 Geweerschot (0)
@@ -28,7 +28,7 @@ Raket impact
 Sniper schot
 Sniper impact (0)
 Verkoop Cha-ching (0)
-Upgrade bouwgeluidjes
+Upgrade bouwgeluidjes (0)
 -------------------
 UI:
 -------------------
