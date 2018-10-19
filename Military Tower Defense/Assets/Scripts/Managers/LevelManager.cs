@@ -152,10 +152,10 @@ public class LevelManager : MonoBehaviour {
         }
         StartCoroutine(SpawnNextWave());
     }
-    public void AddCurrency(int amount)
+    public void AddCurrency(int amount, Vector3 moneyIndSpawn)
     {
         currency += amount;
-        StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateCash(amount, currency));
+        StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateCash(amount, currency, moneyIndSpawn));
     }
     public void CheckWave()
     {

@@ -92,7 +92,7 @@ public class Enemy : Attacker {
             {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
-            LevelManager.levelManager.AddCurrency(worthCurrency);
+            LevelManager.levelManager.AddCurrency(worthCurrency, transform.position);
             GetComponent<Animator>().Play("He_Dead", 0);
             gameObject.GetComponent<Collider>().enabled = false;
             Destroy(gameObject);

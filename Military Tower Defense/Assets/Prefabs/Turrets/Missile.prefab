@@ -98,10 +98,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticles: {fileID: 1187748021940796, guid: 17c48ea766287ee4f870590a679a0ec1,
     type: 2}
-  damage: 10
+  damage: 43.8
   explosionRange: 20
   enemies: []
-  speed: 2
+  targettable:
+    serializedVersion: 2
+    m_Bits: 2048
+  speed: 1.45
+  rotateSpeed: 458.61
+  target: {fileID: 0}
+  owner: {fileID: 0}
 --- !u!136 &136874765226661982
 CapsuleCollider:
   m_ObjectHideFlags: 1

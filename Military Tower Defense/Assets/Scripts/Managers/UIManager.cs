@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour {
     public GameObject roundUI;
     public GameObject informationUI;
     public GameObject addMoneyInd;
-    public GameObject moneyIndHolder;
     public GameObject moneyUI;
     public GameObject[] healthBars;
     public GameObject[] enemyInformation;
@@ -144,22 +143,27 @@ public class UIManager : MonoBehaviour {
             canInfoToggle = true;
         }
     }
-    public IEnumerator UpdateCash(int addedAmt, int newCash)
+    public IEnumerator UpdateCash(int addedAmt, int newCash, Vector3 moneyPos)
     {
-        string addedCash = "k";
-        if(addedAmt < 0)
+        string addedCash = "";
+        GameObject g = Instantiate(addMoneyInd, moneyPos, Quaternion.identity, GameObject.FindGameObjectWithTag("WorldspaceCanvas").transform);
+        if (addedAmt < 0)
         {
-            addedCash = "-";
+            g.GetComponent<Text>().color = Color.red;
         }
         else
         {
+            g.GetComponent<Text>().color = Color.green;
             addedCash = "+";
         }
         addedCash += addedAmt.ToString();
         moneyUI.GetComponent<Text>().text = "$" + newCash.ToString();
-        GameObject g = Instantiate(addMoneyInd, Vector3.zero, Quaternion.identity, moneyIndHolder.transform);
         g.GetComponent<Text>().text = addedCash;
-        yield return new WaitForSeconds(g.GetComponent<Animation>().clip.length);
+        for(int i = 0; i < 40; i++)
+        {
+            g.transform.Translate(new Vector3(0, 0.05f, 0));
+            yield return new WaitForSeconds(0.03f);
+        }
         Destroy(g);
     }
     public void UpdateTimer(int time)

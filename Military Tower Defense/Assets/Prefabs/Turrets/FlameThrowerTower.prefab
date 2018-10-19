@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33494485445978384}
   - component: {fileID: 23455254871449380}
   m_Layer: 9
-  m_Name: Circle
+  m_Name: Base
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 33912739447374446}
   - component: {fileID: 23686245671697194}
   - component: {fileID: 65556994922329924}
+  - component: {fileID: 114948691166267172}
   m_Layer: 9
   m_Name: Gun
   m_TagString: Turret
@@ -146,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220777927942374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.77, y: 0, z: 23.31}
+  m_LocalPosition: {x: 119.19917, y: 0, z: 17.810144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4120906415481308}
@@ -182,7 +183,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100004, guid: a5692df55bc375a46844665c878d73e3, type: 3}
+  - {fileID: 2100000, guid: c8a82fdcc50095d4783f945a2abb7669, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,7 +218,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a5692df55bc375a46844665c878d73e3, type: 3}
+  - {fileID: 2100000, guid: b42f005496a1f4c4ebc84c7345ff5d64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,7 +253,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100002, guid: a5692df55bc375a46844665c878d73e3, type: 3}
+  - {fileID: 2100000, guid: 166856c87564e1e4e8ade3214d2b8154, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -303,8 +304,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.57164, y: 1.9561281, z: 5.8898993}
-  m_Center: {x: -0.0129852295, y: -0.72617435, z: 2.5312114}
+  m_Size: {x: 1.57164, y: 3.1135006, z: 6.50045}
+  m_Center: {x: -0.0129852295, y: -0.14748812, z: 2.8364868}
 --- !u!65 &65795108911296096
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -313,7 +314,7 @@ BoxCollider:
   m_GameObject: {fileID: 1220777927942374}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.4180756, y: 1.8451128, z: 1.5273151}
   m_Center: {x: -0.050086975, y: 0.88887334, z: 0.00278759}
@@ -323,16 +324,16 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220777927942374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b97c60439c8f0ff4c8ab770cd2668e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objName: Flamethrower
   description: BURN BURN BUUUUURNN
-  baseDamage: 10
+  baseDamage: 1
   damage: 0
-  baseAttackSpeed: 0.5
+  baseAttackSpeed: 0
   attackSpeed: 0
   attackAnim: {fileID: 0}
   turretParts:
@@ -342,11 +343,24 @@ MonoBehaviour:
   targets: []
   turret: {fileID: 1765634777456198}
   gun: {fileID: 1704124235462556}
-  hitTargets: []
-  layermask:
+  maxTicks: 20
+  ticksPerSec: 2
+  targettable:
     serializedVersion: 2
     m_Bits: 2048
-  offset: {x: 0, y: 0.85, z: 2.19}
+--- !u!114 &114948691166267172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704124235462556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b52d0ded689ad45998d7bac20f9f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flamethrower: {fileID: 114606269661941996}
+  flames: {fileID: 198829092761807570}
 --- !u!135 &135471038652108242
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -355,9 +369,9 @@ SphereCollider:
   m_GameObject: {fileID: 1220777927942374}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 4.94
+  m_Radius: 5.93
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198829092761807570
 ParticleSystem:

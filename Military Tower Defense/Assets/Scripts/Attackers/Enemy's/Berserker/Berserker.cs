@@ -55,7 +55,7 @@ public class Berserker : Enemy {
             }
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-            LevelManager.levelManager.AddCurrency(worthCurrency);
+            LevelManager.levelManager.AddCurrency(worthCurrency, transform.position);
             GetComponent<Animator>().SetBool("canAttack", false);
             GetComponent<Animator>().SetBool("canWalk", false);
             GetComponent<Animator>().SetBool("canDie", true);

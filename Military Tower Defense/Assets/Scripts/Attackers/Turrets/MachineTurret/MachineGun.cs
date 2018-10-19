@@ -9,17 +9,13 @@ public class MachineGun : Turret {
     public GameObject gun;
     public override IEnumerator Attack()
     {
-        if (targets.Count > 0)
+        while(targets.Count > 0)
         {
             targets[0].GetComponent<Enemy>().health -= baseDamage;
             targets[0].GetComponent<Enemy>().CheckHealth();
             if (targets.Count > 0)
             {
                 yield return new WaitForSeconds(1 / baseAttackSpeed);
-                if (targets.Count > 0)
-                {
-                    StartCoroutine(Attack());
-                }
             }
         }
     }
@@ -28,9 +24,8 @@ public class MachineGun : Turret {
         if (targets.Count > 0)
         {
             Vector3 lookRotation = new Vector3(targets[0].transform.position.x, turret.transform.position.y, targets[0].transform.position.z);
-            turret.transform.LookAt(lookRotation);
-            gun.transform.LookAt(targets[0].transform);
-            Quaternion rotation = gun.transform.rotation;
+            turretParts[1].transform.LookAt(lookRotation);
+            turretParts[2].transform.LookAt(targets[0].transform);
         }
     }
 }

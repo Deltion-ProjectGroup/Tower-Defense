@@ -5,42 +5,65 @@ using UnityEngine;
 public class Flamethrower : Turret {
     public GameObject turret;
     public GameObject gun;
-    public GameObject rangeIndicator;
-    public Collider[] hitTargets;
-    public LayerMask layermask;
+    public int maxTicks;
+    public int ticksPerSec;
+    public LayerMask targettable;
     // Use this for initialization
-
-    public override IEnumerator Attack()
+    private void Start()
     {
-        print("COROTOU");
-        RotateNCheck();
-        if (targets.Count > 0 && hitTargets.Length > 0)
-        {
-            yield return new WaitForSeconds(1 / baseAttackSpeed);
-            if (hitTargets.Length > 0)
-            {
-                for(int i = 0; i < hitTargets.Length; i++)
-                {
-                    print("Attacked");
-                    hitTargets[i].GetComponent<Enemy>().health -= baseDamage;
-                    hitTargets[i].GetComponent<Enemy>().CheckHealth();
-                }
-                StartCoroutine(Attack());
-            }
-        }
+        turretParts[2].GetComponent<FlamethrowerDamageRange>().enabled = true;
     }
     public void Update()
     {
-        RotateNCheck();
-    }
-    void RotateNCheck()
-    {
-        if (targets.Count > 0)
+        RotateTurret();
+        if(targets.Count > 0)
         {
-            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, turret.transform.position.y, targets[0].transform.position.z);
-            turret.transform.LookAt(lookRotation);
-            hitTargets = Physics.OverlapBox(targets[0].transform.position, (rangeIndicator.GetComponent<BoxCollider>().size / 2), Quaternion.LookRotation(targets[0].transform.position - transform.position), layermask, QueryTriggerInteraction.Ignore);
+            for(int i = 0; i < targets.Count; i++)
+            {
+                AddEffect(targets[i]);
+            }
+        }
+    }
+    void RotateTurret()
+    {
+        Collider[] lookTargets = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, targettable, QueryTriggerInteraction.Ignore);
+        if(lookTargets.Length > 0)
+        {
+            Vector3 lookRotation = new Vector3(lookTargets[0].transform.position.x, turret.transform.position.y, lookTargets[0].transform.position.z);
+            turretParts[1].transform.LookAt(lookRotation);
+        }
 
+    }
+    public override void OnEnterEffect(Collider hit)
+    { 
+        //CLEARS THE EFFECT OF DA COLLIDER
+    }
+    public override void OnExitEffect(Collider hit)
+    {
+        //^^^^^^^
+    }
+    void AddEffect(GameObject target)
+    {
+        if(target.GetComponent<DOT>() != null)
+        {
+            if(target.GetComponent<DOT>().dotType == DOT.DOTType.Fire)
+            {
+                target.GetComponent<DOT>().Refresh();
+            }
+            else
+            {
+                DOT dot = target.AddComponent<DOT>();
+                dot.maxTicks = maxTicks;
+                dot.ticksPerSecond = ticksPerSec;
+                dot.damage = (int)baseDamage;
+            }
+        }
+        else
+        {
+            DOT dot = target.AddComponent<DOT>();
+            dot.maxTicks = maxTicks;
+            dot.ticksPerSecond = ticksPerSec;
+            dot.damage = (int)baseDamage;
         }
     }
 }

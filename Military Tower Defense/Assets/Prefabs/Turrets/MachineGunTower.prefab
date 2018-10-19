@@ -287,9 +287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: MachineGun
   description: PEWPEWPEW
-  baseDamage: 10
+  baseDamage: 50
   damage: 0
-  baseAttackSpeed: 0.1
+  baseAttackSpeed: 5
   attackSpeed: 0
   attackAnim: {fileID: 0}
   turretParts:
