@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4953051753894940}
   - component: {fileID: 33281789487928362}
   - component: {fileID: 23742939210978826}
+  - component: {fileID: 65487214624963472}
   m_Layer: 0
   m_Name: PillarBroke2
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940068954913026}
   m_Mesh: {fileID: 4300000, guid: 03f6d89e87fc55d499ed008ec3666cc8, type: 3}
+--- !u!65 &65487214624963472
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1940068954913026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7041555, z: 0.7701806}
+  m_Center: {x: 0, y: -0.0020776843, z: 0.3850903}

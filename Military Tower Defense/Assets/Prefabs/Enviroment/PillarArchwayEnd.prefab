@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4745205461889060}
   - component: {fileID: 33240313462108034}
   - component: {fileID: 23577698149057232}
+  - component: {fileID: 65705334061896414}
   m_Layer: 0
   m_Name: PillarArchwayEnd
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042233534913354}
   m_Mesh: {fileID: 4300000, guid: e9051c4e89e5ddc4687bb3fc8a8d483e, type: 3}
+--- !u!65 &65705334061896414
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042233534913354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.64066374, y: 1.507855, z: 1.2496067}
+  m_Center: {x: 0, y: -0.4339455, z: 0.62480336}

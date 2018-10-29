@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4769255003373218}
   - component: {fileID: 33025036070232822}
   - component: {fileID: 23378239321135820}
+  - component: {fileID: 65902774105924466}
   m_Layer: 0
   m_Name: Pot3Brokest
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695448190324560}
   m_Mesh: {fileID: 4300000, guid: 1f76122316062644ab24289dc0f819a1, type: 3}
+--- !u!65 &65902774105924466
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695448190324560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.536796, y: 0.5863524, z: 0.18910238}
+  m_Center: {x: 0.0006813854, y: 0.0051219775, z: 0.09455119}

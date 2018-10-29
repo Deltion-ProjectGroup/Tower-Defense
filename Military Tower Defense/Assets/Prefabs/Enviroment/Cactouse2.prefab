@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4779544003518034}
   - component: {fileID: 33780605599717872}
   - component: {fileID: 23721775771342926}
+  - component: {fileID: 65101959415123322}
   m_Layer: 0
   m_Name: Cactouse2
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519884837085614}
   m_Mesh: {fileID: 4300000, guid: 977385224e7a79a46a9302d8801dfe06, type: 3}
+--- !u!65 &65101959415123322
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519884837085614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89225453, y: 0.3058209, z: 1.9458227}
+  m_Center: {x: 0.052259833, y: 0.0013957176, z: 0.97291136}

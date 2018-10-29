@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4927166131319064}
   - component: {fileID: 33532675120204258}
   - component: {fileID: 23707371132826904}
+  - component: {fileID: 65360675512434828}
   m_Layer: 0
   m_Name: Pot3
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020333041434270}
   m_Mesh: {fileID: 4300000, guid: fb9679e6404e89348a9ab634b2295d78, type: 3}
+--- !u!65 &65360675512434828
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020333041434270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5999998, y: 0.5999999, z: 0.44981685}
+  m_Center: {x: -0.000000014901161, y: 0, z: 0.22490843}

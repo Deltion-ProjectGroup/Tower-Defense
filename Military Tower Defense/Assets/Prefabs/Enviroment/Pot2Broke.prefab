@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4515583176683804}
   - component: {fileID: 33364446361752642}
   - component: {fileID: 23546723533778354}
+  - component: {fileID: 65506894102060508}
   m_Layer: 0
   m_Name: Pot2Broke
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842345966642184}
   m_Mesh: {fileID: 4300000, guid: 98d6850ac15b1894889c6d0c81d8314e, type: 3}
+--- !u!65 &65506894102060508
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842345966642184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2999999, y: 0.29999995, z: 1.1366519}
+  m_Center: {x: -0.000000007450581, y: 0, z: 0.56832594}
