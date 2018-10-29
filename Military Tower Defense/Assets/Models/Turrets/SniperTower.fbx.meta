@@ -1,14 +1,22 @@
 fileFormatVersion: 2
-guid: 5388bc1c9a55f554c92227dd5450d63b
+guid: 30143f8f3f2d3f54aa118e46a6bfcc2e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Snipper
+    100004: Tower
     400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Circle
+    400002: Snipper
+    400004: Tower
+    2100000: Material.001
+    2100002: Material
+    2300000: Snipper
+    2300002: Tower
+    3300000: Snipper
+    3300002: Tower
+    4300000: Snipper
+    4300002: Tower
   externalObjects: {}
   materials:
     importMaterials: 1

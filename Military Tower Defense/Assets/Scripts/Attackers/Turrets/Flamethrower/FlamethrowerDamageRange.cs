@@ -4,31 +4,23 @@ using UnityEngine;
 
 public class FlamethrowerDamageRange : MonoBehaviour {
     public Flamethrower flamethrower;
-    public ParticleSystem flames;
     private void Start()
     {
         GetComponent<BoxCollider>().enabled = true;
     }
     private void OnTriggerEnter(Collider hit)
     {
-        if (hit.tag == "Enemy")
+        if (hit.tag == "Enemy" && !hit.isTrigger)
         {
+            print("Added");
             flamethrower.AddTarget(hit.gameObject);
-            if(flamethrower.targets.Count == 1)
-            {
-                flames.Play();
-            }
         }
     }
     private void OnTriggerExit(Collider hit)
     {
-        if(hit.tag == "Enemy")
+        if(hit.tag == "Enemy" && !hit.isTrigger)
         {
             flamethrower.CleanTarget(hit.gameObject);
-            if (flamethrower.targets.Count == 0)
-            {
-                flames.Stop();
-            }
         }
     }
 }

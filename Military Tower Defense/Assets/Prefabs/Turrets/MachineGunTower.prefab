@@ -280,7 +280,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324358213501132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96c0a58cde2db4d4a96e49056ea6a182, type: 3}
   m_Name: 
@@ -297,8 +297,6 @@ MonoBehaviour:
   - {fileID: 1263620348892632}
   - {fileID: 1056643738950058}
   targets: []
-  turret: {fileID: 1263620348892632}
-  gun: {fileID: 1056643738950058}
 --- !u!135 &135641899909496472
 SphereCollider:
   m_ObjectHideFlags: 1

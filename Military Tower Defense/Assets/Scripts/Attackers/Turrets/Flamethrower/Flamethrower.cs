@@ -8,6 +8,7 @@ public class Flamethrower : Turret {
     public int maxTicks;
     public int ticksPerSec;
     public LayerMask targettable;
+    public ParticleSystem flames;
     // Use this for initialization
     private void Start()
     {
@@ -33,6 +34,28 @@ public class Flamethrower : Turret {
             turretParts[1].transform.LookAt(lookRotation);
         }
 
+    }
+    public override void CleanTarget(GameObject unit) //virtual because of flamethrower needing to remove the damagetarget instead of targets;
+    {
+        targets.Remove(unit);
+        unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
+        if (targets.Count <= 0)
+        {
+            flames.Stop();
+            StopAllCoroutines();
+        }
+    }
+    public override void AddTarget(GameObject unit)
+    {
+        if (unit != null)
+        {
+            targets.Add(unit);
+            unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
+            if(targets.Count == 1)
+            {
+                flames.Play();
+            }
+        }
     }
     public override void OnEnterEffect(Collider hit)
     { 

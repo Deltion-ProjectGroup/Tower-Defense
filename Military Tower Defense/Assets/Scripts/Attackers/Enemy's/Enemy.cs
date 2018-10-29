@@ -93,7 +93,6 @@ public class Enemy : Attacker {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency, transform.position);
-            gameObject.GetComponent<Collider>().enabled = false;
             StartCoroutine(Death());
         }
     }
@@ -113,6 +112,8 @@ public class Enemy : Attacker {
     }
     IEnumerator Death()
     {
+        gameObject.GetComponent<Collider>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Animator>().SetBool("canAttack", false);
         GetComponent<Animator>().SetBool("canWalk", false);
         GetComponent<Animator>().SetBool("canDie", true);

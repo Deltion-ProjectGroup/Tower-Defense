@@ -821,6 +821,7 @@ MonoBehaviour:
   targettable:
     serializedVersion: 2
     m_Bits: 0
+  flames: {fileID: 0}
 --- !u!1 &66193192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,7 +3827,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a21149ec6d9578f469df2015440a4b5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7457,7 +7458,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 43a63162fbf9c9f4592a9a3bfb300677, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10697,7 +10698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -469.05237, y: -61.56343}
+  m_AnchoredPosition: {x: -469.05237, y: -61.563477}
   m_SizeDelta: {x: -849.25, y: -318.4901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891780658
@@ -12788,7 +12789,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e8de3a611b2bbb0428fca18c134adba6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15392,7 +15393,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ace79054f8eb2254981cf31a3eea594e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15666,7 +15667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68db03c8e6e39a948baee61a8df3acc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 1637666546522530, guid: d5b1bfb0bf21178429680f25a22aef8c, type: 2}
+  turret: {fileID: 1958094544598902, guid: 37cba1a91ddd2c54c922d17975c49a29, type: 2}
   scaler: {x: 0.05, y: 0.05, z: 0.05}
   cost: 0
 --- !u!114 &1259698640
@@ -15799,7 +15800,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3d0f3cd87a27dc64180151f64537ed9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17349,8 +17350,6 @@ MonoBehaviour:
   attackAnim: {fileID: 0}
   turretParts: []
   targets: []
-  turret: {fileID: 0}
-  gun: {fileID: 0}
 --- !u!1 &1382988791
 GameObject:
   m_ObjectHideFlags: 0
@@ -17605,7 +17604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68db03c8e6e39a948baee61a8df3acc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 1269877907215172, guid: d532ae1b2cc54414cad3f4ea9fb87441, type: 2}
+  turret: {fileID: 1001921679773030, guid: d532ae1b2cc54414cad3f4ea9fb87441, type: 2}
   scaler: {x: 0.05, y: 0.05, z: 0.05}
   cost: 0
 --- !u!114 &1401620139

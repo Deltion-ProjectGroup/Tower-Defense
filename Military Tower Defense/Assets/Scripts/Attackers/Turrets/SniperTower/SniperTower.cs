@@ -9,8 +9,6 @@ public class SniperTower : Turret {
     {
         if(targets.Count > 0)
         {
-            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
-            transform.LookAt(lookRotation);
             targets[0].GetComponent<Enemy>().health -= baseDamage;
             targets[0].GetComponent<Enemy>().CheckHealth();
             if (targets.Count > 0)
@@ -27,8 +25,8 @@ public class SniperTower : Turret {
     {
         if (targets.Count > 0)
         {
-            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
-            transform.LookAt(lookRotation);
+            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, turretParts[1].transform.position.y, targets[0].transform.position.z);
+            turretParts[1].transform.LookAt(lookRotation);
         }
     }
 }
