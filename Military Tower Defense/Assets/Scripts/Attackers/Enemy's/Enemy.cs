@@ -48,7 +48,7 @@ public class Enemy : Attacker {
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
         }
-        if (attacking)
+        if (attacking && !dead)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position, Vector3.zero), 1.5f);
         }
@@ -93,9 +93,8 @@ public class Enemy : Attacker {
                 target.GetComponent<Obstacle>().RemoveUnit(gameObject);
             }
             LevelManager.levelManager.AddCurrency(worthCurrency, transform.position);
-            GetComponent<Animator>().Play("He_Dead", 0);
             gameObject.GetComponent<Collider>().enabled = false;
-            Destroy(gameObject);
+            StartCoroutine(Death());
         }
     }
     public override IEnumerator Attack()
@@ -111,5 +110,13 @@ public class Enemy : Attacker {
         StopAllCoroutines();
         gameObject.GetComponent<NavMeshAgent>().isStopped = false;
         attacking = false;
+    }
+    IEnumerator Death()
+    {
+        GetComponent<Animator>().SetBool("canAttack", false);
+        GetComponent<Animator>().SetBool("canWalk", false);
+        GetComponent<Animator>().SetBool("canDie", true);
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }
