@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
-    public ScrollPositions maxHorizontalPos;
-    public ScrollPositions maxVerticalPos;
+    ScrollPositions maxHorizontalPos;
+    ScrollPositions maxVerticalPos;
     public ScrollPositions scrollLimits;
     public int moveBorderWidth;
     public float keepScrollModifier;
@@ -16,10 +16,20 @@ public class CameraManager : MonoBehaviour {
     Vector3 rotateAmount;
     public float movementModifier;
     RaycastHit hitTarget;
+    public GameObject terrain;
 	// Use this for initialization
 	void Awake () {
         EventManager.OnClick += ShowStats;
-	}
+        Vector3 maxBound;
+        Vector3 minBound;
+        maxBound = terrain.GetComponent<MeshCollider>().bounds.max; //105 thinge
+        minBound = terrain.GetComponent<MeshCollider>().bounds.min;
+        maxHorizontalPos.upperBorder = (int)maxBound.x;
+        maxVerticalPos.upperBorder = (int)maxBound.z;
+        maxHorizontalPos.underBorder = (int)minBound.x;
+        maxVerticalPos.underBorder = (int)minBound.z;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

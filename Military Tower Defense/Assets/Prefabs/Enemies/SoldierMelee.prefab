@@ -1118,7 +1118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416095115132042}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.026470184}
+  m_LocalPosition: {x: 0, y: 0.221, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796660226336546}
@@ -1211,7 +1211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813196745434392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.5188, y: 0.00000047683716, z: 53.889194}
+  m_LocalPosition: {x: 99.39606, y: 0.09999741, z: 19.713778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117368027276504}
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   damaged: 0
   dead: 0
   worthCurrency: 1
-  dust: {fileID: 198366209553619410}
+  dust: {fileID: 0}
   enemyType: 1
 --- !u!114 &114555017213756396
 MonoBehaviour:
@@ -1815,8 +1815,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0, g: 0, b: 0, a: 0.38431373}
-      maxColor: {r: 0.1792453, g: 0.12156283, b: 0.039738342, a: 0.73333335}
+      minColor: {r: 0.09433961, g: 0.080833085, b: 0.028034883, a: 0.5254902}
+      maxColor: {r: 0.31132078, g: 0.26613206, b: 0.1013261, a: 0.49803922}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6179,7 +6179,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 51f4772531ee66b4caf7687ee2dc82ca, type: 2}
+  - {fileID: 2100000, guid: 72e0d7a66ffe8ec40b4d74d79f29ad31, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -6199,7 +6199,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 48
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -6211,11 +6211,11 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
+  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
-  m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_VertexStreams: 000304
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
