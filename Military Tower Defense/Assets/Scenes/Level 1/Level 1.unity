@@ -1166,6 +1166,7 @@ MonoBehaviour:
   damaged: 0
   dead: 0
   worthCurrency: 1
+  dust: {fileID: 0}
   enemyType: 2
 --- !u!135 &80480455
 SphereCollider:
@@ -2087,6 +2088,7 @@ MonoBehaviour:
   damaged: 0
   dead: 0
   worthCurrency: 1
+  dust: {fileID: 0}
   enemyType: 0
   enrageBuff:
     rageSpeedBuff: 1
@@ -6754,10 +6756,6 @@ MonoBehaviour:
   waves:
   - enemies:
     - enemy: 1
-      spawnAmount: 1
-    - enemy: 2
-      spawnAmount: 1
-    - enemy: 0
       spawnAmount: 1
   - enemies:
     - enemy: 0
@@ -22863,6 +22861,7 @@ MonoBehaviour:
   damaged: 0
   dead: 0
   worthCurrency: 0
+  dust: {fileID: 0}
   enemyType: 0
 --- !u!195 &1866699720
 NavMeshAgent:

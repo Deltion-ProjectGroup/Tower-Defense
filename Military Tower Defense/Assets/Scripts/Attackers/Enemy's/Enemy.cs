@@ -26,6 +26,7 @@ public class Enemy : Attacker {
     public bool damaged;
     public bool dead;
     public int worthCurrency;
+    public ParticleSystem dust;
     public LevelManager.EnemyType enemyType;
     // Use this for initialization
     private void Awake()
@@ -59,6 +60,7 @@ public class Enemy : Attacker {
         {
             if (hit.tag == "Targettable")
             {
+                dust.Stop();
                 attacking = true;
                 target = hit.transform.gameObject;
                 GetComponent<NavMeshAgent>().isStopped = true;
@@ -82,6 +84,7 @@ public class Enemy : Attacker {
         {
             StopAllCoroutines();
             dead = true;
+            dust.Stop();
             healthbarHolder.SetActive(false);
             while (targettedBy.Count != 0)
             {
@@ -104,6 +107,7 @@ public class Enemy : Attacker {
     }
     public void Repath()
     {
+        dust.Play();
         GetComponent<Animator>().SetBool("canAttack", false);
         GetComponent<Animator>().SetBool("canWalk", true);
         StopAllCoroutines();
