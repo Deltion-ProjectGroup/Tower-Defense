@@ -37,7 +37,7 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if (canPlace)
                 {
-                    GameObject dust = Instantiate(dustParticles, placingObject.transform.position, Quaternion.identity);
+                    GameObject dust = Instantiate(dustParticles, placingObject.transform.position, dustParticles.transform.rotation);
                     Destroy(dust, 2);
                     Collider[] turretColliders = placingObject.GetComponents<Collider>();
                     placingObject.GetComponent<Turret>().enabled = true;
