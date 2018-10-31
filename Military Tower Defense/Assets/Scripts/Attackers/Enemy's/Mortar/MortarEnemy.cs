@@ -11,7 +11,7 @@ public class MortarEnemy : Enemy {
 
     public override IEnumerator Attack()
     {
-        //yield return WaitForSeconds(animation);
+        yield return new WaitForSeconds(attackTimeMarks[0]);
         spawnPosition = transform.position;
         spawnPosition.y += 1.5f;
         float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -20,7 +20,7 @@ public class MortarEnemy : Enemy {
         force.z = distance;
         GameObject shot = Instantiate(ball, spawnPosition, transform.rotation);
         shot.GetComponent<Rigidbody>().AddRelativeForce(force, ForceMode.Impulse);
-        yield return new WaitForSeconds(1 / attackSpeed);
+        yield return new WaitForSeconds((attackTimeMarks[1] - attackTimeMarks[0]) / attackSpeed);
         StartCoroutine(Attack());
     }
 }

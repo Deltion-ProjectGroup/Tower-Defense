@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemy : Enemy {
+public class RangedEnemy : Enemy {
 
     public override IEnumerator Attack()
     {

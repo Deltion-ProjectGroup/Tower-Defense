@@ -8,7 +8,7 @@ public class Berserker : Enemy {
     [Header("RageBuff")]
     public EnrageBuff enrageBuff;
     public GameObject rageParticles;
-    bool enraged;
+    bool enraged = false;
     // Use this for initialization
 
     public override void CheckHealth()
@@ -29,6 +29,7 @@ public class Berserker : Enemy {
             movementspeed += enrageBuff.rageSpeedBuff;
             GetComponent<NavMeshAgent>().speed = movementspeed;
             attackSpeed += enrageBuff.rageAttackspeedBuff;
+            GetComponent<Animator>().SetFloat("AttackSpeed", attackSpeed);
             health += enrageBuff.rageHealthBuff;
             maxHealth += enrageBuff.rageHealthBuff;
             damage += enrageBuff.rageDamageBuff;
@@ -67,10 +68,13 @@ public class Berserker : Enemy {
         base.Attack();
         while (true)
         {
-            //yield return new WaitForSeconds(attackAnim.clip.length);
+            yield return new WaitForSeconds(attackTimeMarks[0] / baseAttackSpeed);
             target.GetComponent<Obstacle>().health -= damage;
             target.GetComponent<Obstacle>().CheckHealth();
-            yield return new WaitForSeconds(1 / attackSpeed);
+            yield return new WaitForSeconds((attackTimeMarks[1] - attackTimeMarks[0]) / baseAttackSpeed);
+            target.GetComponent<Obstacle>().health -= damage;
+            target.GetComponent<Obstacle>().CheckHealth();
+            yield return new WaitForSeconds((attackTimeMarks[2] - (attackTimeMarks[1] + attackTimeMarks[0])) / baseAttackSpeed);
         }
     }
     [System.Serializable]

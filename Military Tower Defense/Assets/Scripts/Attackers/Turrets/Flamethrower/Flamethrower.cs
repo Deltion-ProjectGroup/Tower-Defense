@@ -8,7 +8,6 @@ public class Flamethrower : Turret {
     public int maxTicks;
     public int ticksPerSec;
     public LayerMask targettable;
-    public ParticleSystem flames;
     // Use this for initialization
     private void Start()
     {
@@ -30,7 +29,7 @@ public class Flamethrower : Turret {
         Collider[] lookTargets = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, targettable, QueryTriggerInteraction.Ignore);
         if(lookTargets.Length > 0)
         {
-            Vector3 lookRotation = new Vector3(lookTargets[0].transform.position.x, turret.transform.position.y, lookTargets[0].transform.position.z);
+            Vector3 lookRotation = new Vector3(lookTargets[0].GetComponent<Enemy>().heart.transform.position.x, turret.transform.position.y, lookTargets[0].GetComponent<Enemy>().heart.transform.position.z);
             turretParts[1].transform.LookAt(lookRotation);
         }
 
@@ -41,7 +40,7 @@ public class Flamethrower : Turret {
         unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
         if (targets.Count <= 0)
         {
-            flames.Stop();
+            bulletParticles.Stop();
             StopAllCoroutines();
         }
     }
@@ -53,7 +52,7 @@ public class Flamethrower : Turret {
             unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
             if(targets.Count == 1)
             {
-                flames.Play();
+                bulletParticles.Play();
             }
         }
     }

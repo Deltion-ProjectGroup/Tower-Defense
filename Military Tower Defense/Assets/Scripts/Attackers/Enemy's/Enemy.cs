@@ -20,23 +20,27 @@ public class Enemy : Attacker {
     public GameObject target;
     public GameObject healthbar;
     public GameObject healthbarHolder;
+    public GameObject heart;
     public RaycastHit hitObj;
     public List <GameObject> targettedBy = new List<GameObject>();
     public bool attacking = false;
     public bool damaged;
     public bool dead;
     public int worthCurrency;
+    public float[] attackTimeMarks; // NOTE: if 1st attack is after 1s and the 2nd after 2 s the 2nd one will also be yield return 1 s; 2-1 = 1
     //public ParticleSystem dust;
     public LevelManager.EnemyType enemyType;
     // Use this for initialization
     private void Awake()
     {
+        attackSpeed = baseAttackSpeed;
         health = baseHealth;
         maxHealth = baseHealth;
         movementspeed = baseMovementspeed;
         damage = baseDamage;
         attackSpeed = baseAttackSpeed;
         GetComponent<NavMeshAgent>().speed = movementspeed;
+        GetComponent<Animator>().SetFloat("AttackSpeed", attackSpeed);
     }
     void Start () {
         GetComponent<NavMeshAgent>().SetDestination(LevelManager.levelManager.targetDestination);

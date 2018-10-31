@@ -668,6 +668,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1913904161867256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4905803549206808}
+  - component: {fileID: 65269230220308098}
+  m_Layer: 11
+  m_Name: Heart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1943271845350714
 GameObject:
   m_ObjectHideFlags: 1
@@ -998,13 +1014,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310555159119564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.79995, y: 0, z: 13.198728}
+  m_LocalPosition: {x: 104.516365, y: 0.09999741, z: 19.732784}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4287793853910596}
   - {fileID: 4156829223552094}
   - {fileID: 4792160083535374}
   - {fileID: 224954987217527120}
+  - {fileID: 4905803549206808}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1247,6 +1264,19 @@ Transform:
   m_Father: {fileID: 4193527559926210}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4905803549206808
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913904161867256}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.010932922, y: 0.9630002, z: 0.046432495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4454156001085128}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4944068492399378
 Transform:
   m_ObjectHideFlags: 1
@@ -1406,6 +1436,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &65269230220308098
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913904161867256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95051678556654742
 Animator:
   serializedVersion: 3
@@ -1464,13 +1506,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Berserker
   description: BUFFFFFF
-  baseDamage: 10
+  baseDamage: 50
   damage: 10
-  baseAttackSpeed: 1
+  baseAttackSpeed: 20
   attackSpeed: 1
   attackAnim: {fileID: 0}
-  baseHealth: 100
-  health: 100
+  baseHealth: 410
+  health: 410
   maxHealth: 100
   baseMovementspeed: 1
   movementspeed: 1
@@ -1478,17 +1520,22 @@ MonoBehaviour:
   target: {fileID: 0}
   healthbar: {fileID: 1662175845037126}
   healthbarHolder: {fileID: 1981362393236294}
+  heart: {fileID: 1913904161867256}
   targettedBy: []
   attacking: 0
   damaged: 0
   dead: 0
   worthCurrency: 1
+  attackTimeMarks:
+  - 0.35
+  - 1.1
+  - 1.79
   enemyType: 0
   enrageBuff:
     rageSpeedBuff: 1
     rageHealthBuff: 50
     rageDamageBuff: 20
-    rageAttackspeedBuff: 3
+    rageAttackspeedBuff: 5
   rageParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
     type: 2}
 --- !u!114 &114572587822744354
@@ -1565,7 +1612,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.59
+  m_Radius: 0.92
   m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!136 &136647646426070450
 CapsuleCollider:

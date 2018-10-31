@@ -39,9 +39,9 @@ public class RocketLauncherTower : Turret {
     {
         if (targets.Count > 0)
         {
-            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, turretParts[1].transform.position.y, targets[0].transform.position.z);
+            Vector3 lookRotation = new Vector3(targets[0].GetComponent<Enemy>().heart.transform.position.x, turretParts[1].transform.position.y, targets[0].GetComponent<Enemy>().heart.transform.position.z);
             turretParts[1].transform.LookAt(lookRotation);
-            turretParts[2].transform.LookAt(targets[0].transform);
+            turretParts[2].transform.LookAt(targets[0].GetComponent<Enemy>().heart.transform);
         }
     }
 }

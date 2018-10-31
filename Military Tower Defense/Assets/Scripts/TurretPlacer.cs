@@ -10,6 +10,7 @@ public class TurretPlacer : MonoBehaviour {
     public Material[] ogMaterials;
     public Material[] fakeMaterials;
     public Collider[] colls;
+    public GameObject dustParticles;
     bool canPlace;
     // Use this for initialization
     void Start () {
@@ -26,14 +27,18 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if(hits[i].transform.tag == "TowerTerrain")
                 {
-                    placingObject.transform.position = hits[i].point;
-                    CanPlace(hits[i].point);
+                    Vector3 newPos = hits[i].point;
+                    newPos.y = 0;
+                    placingObject.transform.position = newPos;
+                    CanPlace(newPos);
                 }
             }
             if (Input.GetButtonDown("Fire1"))
             {
                 if (canPlace)
                 {
+                    GameObject dust = Instantiate(dustParticles, placingObject.transform.position, Quaternion.identity);
+                    Destroy(dust, 2);
                     Collider[] turretColliders = placingObject.GetComponents<Collider>();
                     placingObject.GetComponent<Turret>().enabled = true;
                     for (int i = 0; i < turretColliders.Length; i++)

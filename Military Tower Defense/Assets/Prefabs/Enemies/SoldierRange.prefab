@@ -229,6 +229,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1287915572885434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4651440095516606}
+  - component: {fileID: 65349522508376242}
+  m_Layer: 11
+  m_Name: Heart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1312040005236372
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,13 +814,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1079740815967112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.708084, y: 0.09999749, z: 20.188578}
+  m_LocalPosition: {x: 102.7573, y: 0.09999764, z: 21.030216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4243450467175144}
   - {fileID: 4394585080982648}
   - {fileID: 4190789691511026}
   - {fileID: 224920153346015518}
+  - {fileID: 4651440095516606}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1218,6 +1235,19 @@ Transform:
   m_Father: {fileID: 4388609046375444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4651440095516606
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287915572885434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.053, z: -0.067}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4011636932456188}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4654742946260540
 Transform:
   m_ObjectHideFlags: 1
@@ -1492,6 +1522,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &65349522508376242
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287915572885434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95857501047150686
 Animator:
   serializedVersion: 3
@@ -1598,9 +1640,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objName: Ranged troop
   description: Basic troop
-  baseDamage: 20
+  baseDamage: 100
   damage: 0
-  baseAttackSpeed: 0.8
+  baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
   baseHealth: 50
@@ -1612,11 +1654,15 @@ MonoBehaviour:
   target: {fileID: 0}
   healthbar: {fileID: 1015129036096012}
   healthbarHolder: {fileID: 1755752392356198}
+  heart: {fileID: 1287915572885434}
   targettedBy: []
   attacking: 0
   damaged: 0
   dead: 0
   worthCurrency: 1
+  attackTimeMarks:
+  - 0.05
+  - 0.9
   enemyType: 2
 --- !u!114 &114857549144970616
 MonoBehaviour:

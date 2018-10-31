@@ -37,7 +37,7 @@ public class MortarTower : Turret {
     {
         if (targets.Count > 0)
         {
-            Vector3 lookRotation = new Vector3(targets[0].transform.position.x, transform.position.y, targets[0].transform.position.z);
+            Vector3 lookRotation = new Vector3(targets[0].GetComponent<Enemy>().heart.transform.position.x, transform.position.y, targets[0].GetComponent<Enemy>().heart.transform.position.z);
             transform.LookAt(lookRotation);
         }
     }

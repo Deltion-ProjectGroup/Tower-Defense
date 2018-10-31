@@ -5,6 +5,7 @@ using UnityEngine;
 public class Turret : Attacker {
     public GameObject[] turretParts; //This is for placing the turret to make it transparent etc.
     public List <GameObject> targets = new List<GameObject>(); //All the enemies it can target
+    public ParticleSystem bulletParticles;
 
     private void OnTriggerEnter(Collider hit)
     {
@@ -20,6 +21,7 @@ public class Turret : Attacker {
         unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
         if(targets.Count <= 0)
         {
+            bulletParticles.Stop();
             StopAllCoroutines();
         }
     }
@@ -38,6 +40,7 @@ public class Turret : Attacker {
             AddTarget(hit.transform.gameObject);
             if (targets.Count == 1)
             {
+                bulletParticles.Play();
                 StartCoroutine(Attack());
             }
         }
