@@ -15,7 +15,6 @@ public class RocketLauncherTower : Turret {
             rocket.transform.LookAt(targets[0].transform);
             currentMissiles.Add(rocket.GetComponent<Rocket>());
             currentMissiles[currentMissiles.Count - 1].target = targets[0];
-            currentMissiles[currentMissiles.Count - 1].owner = this;
             if (targets.Count > 0)
             {
                 yield return new WaitForSeconds(1 / baseAttackSpeed);
@@ -28,10 +27,13 @@ public class RocketLauncherTower : Turret {
     }
     public override void CleanTarget(GameObject unit)
     {
-        while(currentMissiles.Count > 0)
+        if(unit.GetComponent<Enemy>().health <= 0)
         {
-            currentMissiles[0].target = null;
-            currentMissiles.RemoveAt(0);
+            while (currentMissiles.Count > 0)
+            {
+                currentMissiles[0].target = null;
+                currentMissiles.RemoveAt(0);
+            }
         }
         base.CleanTarget(unit);
     }

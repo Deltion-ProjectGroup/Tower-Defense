@@ -1648,7 +1648,7 @@ MonoBehaviour:
   baseHealth: 50
   health: 50
   maxHealth: 0
-  baseMovementspeed: 1
+  baseMovementspeed: 20
   movementspeed: 0
   attackRange: 0
   target: {fileID: 0}

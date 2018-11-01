@@ -12,6 +12,7 @@ public class Explosive : MonoBehaviour {
 
     public virtual void Explosion()
     {
+        Destroy(Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation), 2);
         enemies = Physics.OverlapSphere(transform.position, explosionRange, targettable, QueryTriggerInteraction.Ignore);
         for (int i = 0; i < enemies.Length; i++)
         {
