@@ -21,13 +21,12 @@ GameObject:
   - component: {fileID: 4101100212664694}
   - component: {fileID: 33756430146055858}
   - component: {fileID: 23099385567042586}
-  - component: {fileID: 65965340835502250}
   m_Layer: 0
   m_Name: Schtone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4101100212664694
 Transform:
@@ -84,15 +83,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818651604392732}
   m_Mesh: {fileID: 4300000, guid: ba25eecb26fb14f40ab4c047e5f80042, type: 3}
---- !u!65 &65965340835502250
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1818651604392732}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.498294, y: 1.7609937, z: 1.5236496}
-  m_Center: {x: 0.05630219, y: 0.056763694, z: 0.7618248}
