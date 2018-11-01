@@ -51,7 +51,6 @@ public class Enemy : Attacker {
 	// Update is called once per frame
 	public virtual void Update ()
     {
-        Debug.DrawRay(heart.transform.position, transform.forward, Color.cyan, 3);
         if (damaged)
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);

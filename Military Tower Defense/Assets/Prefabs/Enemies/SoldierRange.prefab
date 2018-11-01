@@ -1642,13 +1642,13 @@ MonoBehaviour:
   description: Basic troop
   baseDamage: 100
   damage: 0
-  baseAttackSpeed: 20
+  baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
   baseHealth: 50
   health: 50
   maxHealth: 0
-  baseMovementspeed: 20
+  baseMovementspeed: 1
   movementspeed: 0
   attackRange: 0
   target: {fileID: 0}
@@ -1663,7 +1663,7 @@ MonoBehaviour:
   attackTimeMarks:
   - 0.05
   - 0.9
-  impactParticle: {fileID: 1792776920206164, guid: 96d4bd9eba1ffd04c9b2f2e1fc3f8171,
+  impactParticle: {fileID: 1432279360226266, guid: c2cd27fd3e9739c43b31efb5aac0f026,
     type: 2}
   targettable:
     serializedVersion: 2
