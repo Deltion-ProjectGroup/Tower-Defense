@@ -36,18 +36,6 @@ public class Berserker : Enemy {
         }
         if (health <= 0 && !dead)
         {
-            dead = true;
-            healthbarHolder.SetActive(false);
-            while (targettedBy.Count != 0)
-            {
-                targettedBy[0].GetComponent<Turret>().CleanTarget(gameObject);
-            }
-            LevelManager.levelManager.RemoveEnemy(gameObject);
-            if (attacking)
-            {
-                target.GetComponent<Obstacle>().RemoveUnit(gameObject);
-            }
-            StopAllCoroutines();
             //gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             Collider[] colliders = GetComponents<Collider>();
             for(int i = 0; i < colliders.Length; i++)
@@ -60,7 +48,7 @@ public class Berserker : Enemy {
             GetComponent<Animator>().SetBool("canAttack", false);
             GetComponent<Animator>().SetBool("canWalk", false);
             GetComponent<Animator>().SetBool("canDie", true);
-            Destroy(gameObject, gameObject.GetComponentInChildren<ParticleSystem>().startLifetime);
+            StartCoroutine(Death());
         }
     }
     public override IEnumerator Attack()

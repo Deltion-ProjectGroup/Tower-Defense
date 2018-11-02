@@ -1014,7 +1014,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310555159119564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.516365, y: 0.09999741, z: 19.732784}
+  m_LocalPosition: {x: 101.800766, y: 0.09999744, z: 19.878563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4287793853910596}
@@ -1271,7 +1271,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1913904161867256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010932922, y: 0.9630002, z: 0.046432495}
+  m_LocalPosition: {x: 0.010932922, y: 0.782, z: 0.046432495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4454156001085128}
@@ -1530,6 +1530,13 @@ MonoBehaviour:
   - 0.35
   - 1.1
   - 1.79
+  impactParticle: {fileID: 1687519809797404, guid: c2cd27fd3e9739c43b31efb5aac0f026,
+    type: 2}
+  deathParticles: {fileID: 1578716437752294, guid: 560909304af717f4d80602e2b695081d,
+    type: 2}
+  targettable:
+    serializedVersion: 2
+    m_Bits: 0
   enemyType: 0
   enrageBuff:
     rageSpeedBuff: 1
