@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class RocketLauncherTower : Turret {
     public GameObject missile;
-    public Vector3 spawnModifier;
+    public Transform[] spawnPoints;
     [HideInInspector]
     public List<Rocket> currentMissiles = new List<Rocket>();
     public override IEnumerator Attack()
     {
         if(targets.Count > 0)
         {
-            GameObject rocket = Instantiate(missile, spawnModifier + transform.position, Quaternion.identity);
-            rocket.transform.LookAt(targets[0].transform);
-            currentMissiles.Add(rocket.GetComponent<Rocket>());
-            currentMissiles[currentMissiles.Count - 1].target = targets[0];
+            for(int i = 0; i < spawnPoints.Length; i++)
+            {
+                GameObject rocket = Instantiate(missile, spawnPoints[i].position, Quaternion.identity);
+                rocket.transform.LookAt(targets[0].transform);
+                currentMissiles.Add(rocket.GetComponent<Rocket>());
+                currentMissiles[currentMissiles.Count - 1].target = targets[0];
+            }
             if (targets.Count > 0)
             {
                 yield return new WaitForSeconds(1 / baseAttackSpeed);

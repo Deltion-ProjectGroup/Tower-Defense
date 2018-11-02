@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 135618115279408430}
   - component: {fileID: 54024695975768128}
   - component: {fileID: 114438679984245194}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Cannonball
-  m_TagString: Untagged
+  m_TagString: Explodable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,11 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12202301298ae2b4985091a7ebf95df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticles: {fileID: 1187748021940796, guid: 17c48ea766287ee4f870590a679a0ec1,
+  explosionParticles: {fileID: 1792776920206164, guid: 96d4bd9eba1ffd04c9b2f2e1fc3f8171,
     type: 2}
   damage: 10
   explosionRange: 0
   enemies: []
+  targettable:
+    serializedVersion: 2
+    m_Bits: 1024
   isFromEnemy: 1
 --- !u!135 &135618115279408430
 SphereCollider:

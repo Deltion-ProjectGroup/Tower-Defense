@@ -72,6 +72,8 @@ public class Enemy : Attacker {
                 target = hit.transform.gameObject;
                 GetComponent<NavMeshAgent>().isStopped = true;
                 target.GetComponent<Obstacle>().AddUnit(gameObject);
+                GetComponent<Animator>().SetBool("canWalk", false);
+                GetComponent<Animator>().SetBool("canAttack", true);
                 StartCoroutine(Attack());
             }
         }
@@ -95,8 +97,6 @@ public class Enemy : Attacker {
     }
     public override IEnumerator Attack()
     {
-        GetComponent<Animator>().SetBool("canWalk", false);
-        GetComponent<Animator>().SetBool("canAttack", true);
         return base.Attack();
     }
     public void Repath()

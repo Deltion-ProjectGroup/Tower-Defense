@@ -8,17 +8,20 @@ public class CannonBall : Explosive {
 
     public void OnTriggerEnter(Collider hit)
     {
-        if (!hit.isTrigger)
+        if (!hit.isTrigger && hit.gameObject.transform.tag != "Explodable")
         {
             if (isFromEnemy)
             {
-                if (hit.gameObject.transform.tag == "Targettable")
+                if(hit.transform.tag != "Enemy")
                 {
                     GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                    hit.gameObject.GetComponent<Obstacle>().health -= damage;
-                    hit.gameObject.GetComponent<Obstacle>().CheckHealth();
+                    if (hit.gameObject.transform.tag == "Targettable")
+                    {
+                        hit.gameObject.GetComponent<Obstacle>().health -= damage;
+                        hit.gameObject.GetComponent<Obstacle>().CheckHealth();
+                        Destroy(gameObject);
+                    }
                     Destroy(explosion, 3);
-                    Destroy(gameObject);
                 }
             }
             else

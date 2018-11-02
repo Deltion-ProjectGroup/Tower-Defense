@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4328975186285104}
   - component: {fileID: 198063831826648946}
   - component: {fileID: 199720731060700506}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4482349533690886}
   - component: {fileID: 198389717527278400}
   - component: {fileID: 199146650550723834}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4478648997336780}
   - component: {fileID: 198820121307439826}
   - component: {fileID: 199497581886531828}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4882205657829790}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MissileParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,9 +89,9 @@ GameObject:
   - component: {fileID: 23964955290303364}
   - component: {fileID: 136874765226661982}
   - component: {fileID: 114079741898036414}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Missile
-  m_TagString: Untagged
+  m_TagString: WorldspaceCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

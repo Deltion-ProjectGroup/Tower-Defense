@@ -31,7 +31,7 @@ public class Rocket : Explosive {
 	}
     private void OnTriggerEnter(Collider hit)
     {
-        if(!hit.isTrigger && hit.tag != "Turret")
+        if(!hit.isTrigger && hit.tag != "Turret" && hit.tag != "Explodable")
         {
             Explosion();
         }
