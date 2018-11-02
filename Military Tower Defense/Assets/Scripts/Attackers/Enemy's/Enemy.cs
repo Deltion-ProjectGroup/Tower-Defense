@@ -28,6 +28,8 @@ public class Enemy : Attacker {
     public bool dead;
     public int worthCurrency;
     public float[] attackTimeMarks; // NOTE: if 1st attack is after 1s and the 2nd after 2 s the 2nd one will also be yield return 1 s; 2-1 = 1
+    public GameObject impactParticle;
+    public LayerMask targettable;
     //public ParticleSystem dust;
     public LevelManager.EnemyType enemyType;
     // Use this for initialization

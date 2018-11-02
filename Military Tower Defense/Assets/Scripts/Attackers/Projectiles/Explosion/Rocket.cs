@@ -5,9 +5,7 @@ using UnityEngine;
 public class Rocket : Explosive {
     public float speed;
     public float rotateSpeed;
-    [HideInInspector]
     public GameObject target;
-    public RocketLauncherTower owner;
     bool destructing = false;
 	// Use this for initialization
 	void Start () {
@@ -25,6 +23,7 @@ public class Rocket : Explosive {
             if (!destructing)
             {
                 destructing = true;
+                Explosion();
                 Destroy(gameObject, 3);
             }
         }
@@ -34,7 +33,6 @@ public class Rocket : Explosive {
     {
         if(!hit.isTrigger && hit.tag != "Turret")
         {
-            print(hit);
             Explosion();
         }
     }

@@ -814,7 +814,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1079740815967112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102.7573, y: 0.09999764, z: 21.030216}
+  m_LocalPosition: {x: 100.821144, y: 0, z: 24.334759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4243450467175144}
@@ -1663,6 +1663,11 @@ MonoBehaviour:
   attackTimeMarks:
   - 0.05
   - 0.9
+  impactParticle: {fileID: 1432279360226266, guid: c2cd27fd3e9739c43b31efb5aac0f026,
+    type: 2}
+  targettable:
+    serializedVersion: 2
+    m_Bits: 1024
   enemyType: 2
 --- !u!114 &114857549144970616
 MonoBehaviour:
