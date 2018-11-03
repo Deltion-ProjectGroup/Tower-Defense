@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33625068499124006}
   - component: {fileID: 23199456945689232}
   - component: {fileID: 65526874313511420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pot1Brokest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4061617342536404
 Transform:

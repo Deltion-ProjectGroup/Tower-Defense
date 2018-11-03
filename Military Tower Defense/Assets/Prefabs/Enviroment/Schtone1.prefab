@@ -21,12 +21,12 @@ GameObject:
   - component: {fileID: 4101100212664694}
   - component: {fileID: 33756430146055858}
   - component: {fileID: 23099385567042586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Schtone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4101100212664694
 Transform:

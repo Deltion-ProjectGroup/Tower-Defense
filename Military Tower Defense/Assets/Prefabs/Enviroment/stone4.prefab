@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33027227994944430}
   - component: {fileID: 23245763056071914}
   - component: {fileID: 65327554702003898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: stone4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4009375631520710
 Transform:

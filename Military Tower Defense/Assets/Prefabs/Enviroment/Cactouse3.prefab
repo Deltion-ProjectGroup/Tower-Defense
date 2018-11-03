@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33078112039471430}
   - component: {fileID: 23705503214949272}
   - component: {fileID: 65621707018499174}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cactouse3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4761249748038568
 Transform:
