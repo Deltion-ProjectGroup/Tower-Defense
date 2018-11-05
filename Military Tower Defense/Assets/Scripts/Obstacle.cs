@@ -38,12 +38,7 @@ public class Obstacle : MonoBehaviour
             healthbar.GetComponent<Image>().fillAmount = (1 / maxHealth) * health;
             if (health <= 0)
             {
-                for (int i = 0; i < targettedBy.Count; i++)
-                {
-                    targettedBy[i].GetComponent<Enemy>().Repath();
-                }
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().CheckIfTracked(gameObject);
-                Destroy(gameObject);
+                Death();
             }
         }
     }
@@ -54,5 +49,14 @@ public class Obstacle : MonoBehaviour
     public void AddUnit(GameObject unit)
     {
         targettedBy.Add(unit);
+    }
+    public virtual void Death()
+    {
+        for (int i = 0; i < targettedBy.Count; i++)
+        {
+            targettedBy[i].GetComponent<Enemy>().Repath();
+        }
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().CheckIfTracked(gameObject);
+        Destroy(gameObject);
     }
 }

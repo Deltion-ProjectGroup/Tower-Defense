@@ -23,7 +23,7 @@ public class Rocket : Explosive {
             if (!destructing)
             {
                 destructing = true;
-                Explosion();
+                Explosion(false);
                 Destroy(gameObject, 3);
             }
         }
@@ -33,12 +33,7 @@ public class Rocket : Explosive {
     {
         if(!hit.isTrigger && hit.tag != "Turret" && hit.tag != "Explodable")
         {
-            Explosion();
+            Explosion(false);
         }
-    }
-    public override void Explosion()
-    {
-        //Instantiate(explosionParticles);
-        base.Explosion();
     }
 }

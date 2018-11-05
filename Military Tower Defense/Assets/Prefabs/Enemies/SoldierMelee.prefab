@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 136799933636009630}
   - component: {fileID: 114439724996669242}
   - component: {fileID: 195497676622711086}
+  - component: {fileID: 82186417108158190}
   m_Layer: 11
   m_Name: SoldierMelee
   m_TagString: Enemy
@@ -1197,7 +1198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813196745434392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.791916, y: 0.09999738, z: 19.563154}
+  m_LocalPosition: {x: 56.64959, y: 0.097094454, z: 49.981926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117368027276504}
@@ -1376,6 +1377,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82186417108158190
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813196745434392}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95160520989934274
 Animator:
   serializedVersion: 3
@@ -1436,7 +1532,7 @@ MonoBehaviour:
   description: Basic troop
   baseDamage: 10
   damage: 0
-  baseAttackSpeed: 1
+  baseAttackSpeed: 20
   attackSpeed: 0
   attackAnim: {fileID: 0}
   baseHealth: 50
@@ -1464,6 +1560,26 @@ MonoBehaviour:
   targettable:
     serializedVersion: 2
     m_Bits: 0
+  attackSounds:
+  - {fileID: 8300000, guid: bdb2e67c9f17daa438bf2fc02b72615e, type: 3}
+  - {fileID: 8300000, guid: f43868483ae8acb47a7af06d5ac2e3f7, type: 3}
+  - {fileID: 8300000, guid: 212646bf158cd07449aa9ff1170f012b, type: 3}
+  - {fileID: 8300000, guid: a75a63f510a6c9e429d984c967d4fa66, type: 3}
+  - {fileID: 8300000, guid: f0f7bc249d59a3d4d91e2dfb5ca71a0e, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 04380c6c4a85aeb4c889aee1d69779fb, type: 3}
+  - {fileID: 8300000, guid: 832261e6b983e2642b90f02d220a31c5, type: 3}
+  - {fileID: 8300000, guid: 6e5487d42ac3ad4429157fcf0dcb1a34, type: 3}
+  - {fileID: 8300000, guid: afc7ada18e0137a46ae3f5e3c161d9ae, type: 3}
+  - {fileID: 8300000, guid: 7ac503dba2019a440a909194a9dbc176, type: 3}
+  gruntSounds:
+  - {fileID: 8300000, guid: e751b2cc433856946868b5845b32730e, type: 3}
+  - {fileID: 8300000, guid: 06927fb1547ab6f41b672c9117c12294, type: 3}
+  - {fileID: 8300000, guid: 8e3b5ec7ff19d5b43ba7fd91ed1952e9, type: 3}
+  - {fileID: 8300000, guid: a5e07eb250d78754a89898bbfa5cc4ad, type: 3}
+  - {fileID: 8300000, guid: 11b4b5d9cf4fd36489f9f86c5e662efe, type: 3}
+  audioSources:
+  - {fileID: 82186417108158190}
   enemyType: 1
 --- !u!114 &114555017213756396
 MonoBehaviour:

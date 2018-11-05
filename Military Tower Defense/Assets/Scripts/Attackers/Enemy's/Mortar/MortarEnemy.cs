@@ -12,6 +12,8 @@ public class MortarEnemy : Enemy {
     public override IEnumerator Attack()
     {
         yield return new WaitForSeconds(attackTimeMarks[0]);
+        audioSources[0].clip = attackSounds[Random.Range(0, attackSounds.Length)];
+        audioSources[0].Play();
         spawnPosition = transform.position;
         spawnPosition.y += 1.5f;
         float distance = Vector3.Distance(target.transform.position, transform.position);

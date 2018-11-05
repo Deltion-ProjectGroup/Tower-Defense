@@ -24,6 +24,7 @@ public class Berserker : Enemy {
         }
         if (health <= maxHealth * 0.2f && !enraged)
         {
+            audioSources[1].Play();
             enraged = true;
             Instantiate(rageParticles, transform.position, Quaternion.identity, gameObject.transform);
             movementspeed += enrageBuff.rageSpeedBuff;
@@ -57,9 +58,13 @@ public class Berserker : Enemy {
         while (true)
         {
             yield return new WaitForSeconds(attackTimeMarks[0] / baseAttackSpeed);
+            audioSources[0].clip = attackSounds[Random.Range(0, attackSounds.Length)];
+            audioSources[0].Play();
             target.GetComponent<Obstacle>().health -= damage;
             target.GetComponent<Obstacle>().CheckHealth();
             yield return new WaitForSeconds((attackTimeMarks[1] - attackTimeMarks[0]) / baseAttackSpeed);
+            audioSources[0].clip = attackSounds[Random.Range(0, attackSounds.Length)];
+            audioSources[0].Play();
             target.GetComponent<Obstacle>().health -= damage;
             target.GetComponent<Obstacle>().CheckHealth();
             yield return new WaitForSeconds((attackTimeMarks[2] - (attackTimeMarks[1] + attackTimeMarks[0])) / baseAttackSpeed);

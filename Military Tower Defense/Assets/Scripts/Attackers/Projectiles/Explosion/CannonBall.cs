@@ -15,12 +15,7 @@ public class CannonBall : Explosive {
                 if(hit.transform.tag != "Enemy")
                 {
                     GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                    if (hit.gameObject.transform.tag == "Targettable")
-                    {
-                        hit.gameObject.GetComponent<Obstacle>().health -= damage;
-                        hit.gameObject.GetComponent<Obstacle>().CheckHealth();
-                        Destroy(gameObject);
-                    }
+                    Explosion(isFromEnemy);
                     Destroy(explosion, 3);
                 }
             }
@@ -29,7 +24,7 @@ public class CannonBall : Explosive {
                 if (hit.gameObject.transform.tag != "Turret")
                 {
                     GameObject explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                    Explosion();
+                    Explosion(isFromEnemy);
                     Destroy(explosion, 3);
                 }
             }

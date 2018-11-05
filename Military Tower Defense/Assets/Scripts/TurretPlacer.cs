@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretPlacer : MonoBehaviour {
     public bool placing;
+    public int cost;
     public LayerMask detectable;
     public Color[] placementColors;
     public GameObject placingObject;
@@ -37,6 +38,7 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if (canPlace)
                 {
+                    GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().AddCurrency(-cost, placingObject.transform.position);
                     GameObject dust = Instantiate(dustParticles, placingObject.transform.position, dustParticles.transform.rotation);
                     Destroy(dust, 2);
                     Collider[] turretColliders = placingObject.GetComponents<Collider>();
@@ -84,7 +86,7 @@ public class TurretPlacer : MonoBehaviour {
         colls = Physics.OverlapBox(placePos, (placingObject.GetComponent<BoxCollider>().size / 2), Quaternion.identity, detectable, QueryTriggerInteraction.Ignore);
         for(int i = 0; i < colls.Length; i++)
         {
-            if(colls[i].tag != "TowerTerrain" && !colls[i].isTrigger)
+            if(colls[i].tag != "TowerTerrain"  && !colls[i].isTrigger)
             {
                 for (int q = 0; q < placingObject.GetComponent<Turret>().turretParts.Length; q++)
                 {

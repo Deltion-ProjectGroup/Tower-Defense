@@ -16,6 +16,7 @@ public class CameraManager : MonoBehaviour {
     Vector3 rotateAmount;
     public float movementModifier;
     RaycastHit hitTarget;
+    public LayerMask targettableForInfo;
     public GameObject terrain;
 	// Use this for initialization
 	void Awake () {
@@ -83,7 +84,7 @@ public class CameraManager : MonoBehaviour {
     }
     public void ShowStats()
     {
-        if (Physics.Raycast(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hitTarget))
+        if (Physics.Raycast(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition), out hitTarget, 100, targettableForInfo, QueryTriggerInteraction.Ignore))
         {
             StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(hitTarget.transform.gameObject));
         }

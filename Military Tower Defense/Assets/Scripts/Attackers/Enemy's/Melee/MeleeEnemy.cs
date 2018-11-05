@@ -9,12 +9,14 @@ public class MeleeEnemy : Enemy {
         while (true)
         {
             yield return new WaitForSeconds(attackTimeMarks[0] / baseAttackSpeed);
+            audioSources[0].clip = attackSounds[Random.Range(0, attackSounds.Length)];
+            audioSources[0].Play();
             RaycastHit hit;
             //Vector3 hitpoint = new Vector3(Random.Range((target.transform.position.x - hitScatterModifier), (target.transform.position.x + hitScatterModifier)), Random.Range((target.transform.position.y - hitScatterModifier), (target.transform.position.y + hitScatterModifier)), target.transform.position.z);
             if (Physics.Raycast(heart.transform.position, transform.forward, out hit, 1000000, targettable, QueryTriggerInteraction.Ignore))
             {
-                GameObject boom = Instantiate(impactParticle, hit.point, impactParticle.transform.rotation);
-                Destroy(boom, 3);
+                GameObject hitEffect = Instantiate(impactParticle, hit.point, impactParticle.transform.rotation);
+                Destroy(hitEffect, 3);
             }
             target.GetComponent<Obstacle>().health -= damage;
             target.GetComponent<Obstacle>().CheckHealth();

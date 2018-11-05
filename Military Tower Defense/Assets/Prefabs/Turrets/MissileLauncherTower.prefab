@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65492929020187524}
   - component: {fileID: 135498156108477554}
   - component: {fileID: 114704715285828520}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: MissileLauncherTower
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4620258396772726}
   - component: {fileID: 198208100642797492}
   - component: {fileID: 199353082577249694}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Flames (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714134028949284}
   - component: {fileID: 65442690634600354}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4996840195371542}
   - component: {fileID: 33771007909797734}
   - component: {fileID: 23189305884281464}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4007771210494140}
   - component: {fileID: 65281475784611312}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4532122362888074}
   - component: {fileID: 33174213080092352}
   - component: {fileID: 23203283252033508}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: BaseTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056140901902216}
   - component: {fileID: 65779423844306110}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4921086526420402}
   - component: {fileID: 65064421005096770}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4676657784518600}
   - component: {fileID: 33428214463761302}
   - component: {fileID: 23333337381606958}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: TurnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001921679773030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.16423, y: 0.00000023841858, z: 17.216042}
+  m_LocalPosition: {x: 94.698845, y: 0, z: 23.063509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4532122362888074}
@@ -496,8 +496,12 @@ MonoBehaviour:
   - {fileID: 1075142778453078}
   targets: []
   bulletParticles: {fileID: 198208100642797492}
-  missile: {fileID: 1913791838300316, guid: 635b9740462ca21488750939826a2ea2, type: 2}
-  spawnPoints: []
+  missile: {fileID: 1004716220788328, guid: 7b754c4147dda62438e1d7310fe902a8, type: 2}
+  spawnPoints:
+  - {fileID: 4714134028949284}
+  - {fileID: 4007771210494140}
+  - {fileID: 4056140901902216}
+  - {fileID: 4921086526420402}
   currentMissiles: []
 --- !u!135 &135498156108477554
 SphereCollider:

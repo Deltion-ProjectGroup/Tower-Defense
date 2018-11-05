@@ -6,19 +6,37 @@ public class Explosive : MonoBehaviour {
     public GameObject explosionParticles;
     public float damage;
     public float explosionRange;
-    public Collider[] enemies;
-    public LayerMask targettable;
+    public Collider[] targets;
+    public LayerMask targettableEnemies;
+    public LayerMask targettableObstacles;
     // Use this for initialization
 
-    public virtual void Explosion()
+    public void Explosion(bool fromEnemy)
     {
-        Destroy(Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation), 2);
-        enemies = Physics.OverlapSphere(transform.position, explosionRange, targettable, QueryTriggerInteraction.Ignore);
-        for (int i = 0; i < enemies.Length; i++)
+        GetComponent<AudioSource>().Play();
+        if (fromEnemy)
         {
-            enemies[i].GetComponent<Enemy>().health -= damage;
-            enemies[i].GetComponent<Enemy>().CheckHealth();
+            Destroy(Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation), 2);
+            targets = Physics.OverlapSphere(transform.position, explosionRange, targettableObstacles, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < targets.Length; i++)
+            {
+                targets[i].GetComponent<Obstacle>().health -= damage;
+                targets[i].GetComponent<Obstacle>().CheckHealth();
+            }
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(Instantiate(explosionParticles, transform.position, explosionParticles.transform.rotation), 2);
+            targets = Physics.OverlapSphere(transform.position, explosionRange, targettableEnemies, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < targets.Length; i++)
+            {
+                targets[i].GetComponent<Enemy>().health -= damage;
+                targets[i].GetComponent<Enemy>().CheckHealth();
+            }
+        }
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Rigidbody>().useGravity = false;
+        Destroy(gameObject, GetComponent<AudioSource>().clip.length);
     }
 }

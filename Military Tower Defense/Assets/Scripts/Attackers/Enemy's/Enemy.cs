@@ -31,6 +31,10 @@ public class Enemy : Attacker {
     public GameObject impactParticle;
     public GameObject deathParticles;
     public LayerMask targettable;
+    public AudioClip[] attackSounds;
+    public AudioClip[] deathSounds;
+    public AudioClip[] gruntSounds;
+    public AudioSource[] audioSources;
     //public ParticleSystem dust;
     public LevelManager.EnemyType enemyType;
     // Use this for initialization
@@ -47,6 +51,7 @@ public class Enemy : Attacker {
     }
     void Start () {
         GetComponent<NavMeshAgent>().SetDestination(LevelManager.levelManager.targetDestination);
+        StartCoroutine(Grunts());
 	}
 	
 	// Update is called once per frame
@@ -68,6 +73,7 @@ public class Enemy : Attacker {
             if (hit.tag == "Targettable")
             {
                 //dust.Stop();
+                StopAllCoroutines();
                 attacking = true;
                 target = hit.transform.gameObject;
                 GetComponent<NavMeshAgent>().isStopped = true;
@@ -99,9 +105,19 @@ public class Enemy : Attacker {
     {
         return base.Attack();
     }
+    IEnumerator Grunts()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 11));
+            audioSources[0].clip = gruntSounds[Random.Range(0, gruntSounds.Length)];
+            audioSources[0].Play();
+        }
+    }
     public void Repath()
     {
         //dust.Play();
+        StartCoroutine(Grunts());
         GetComponent<Animator>().SetBool("canAttack", false);
         GetComponent<Animator>().SetBool("canWalk", true);
         StopAllCoroutines();
@@ -110,6 +126,8 @@ public class Enemy : Attacker {
     }
     public IEnumerator Death()
     {
+        audioSources[0].clip = deathSounds[Random.Range(0, deathSounds.Length)];
+        audioSources[0].Play();
         dead = true;
         //dust.Stop();
         healthbarHolder.SetActive(false);
