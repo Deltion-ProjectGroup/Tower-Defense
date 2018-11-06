@@ -13,41 +13,39 @@ ModelImporter:
     100014: Armature.007
     100016: Armature.008
     100018: Armature.009
-    100020: Armature.010
-    100022: Bone
-    100024: Bone 1
-    100026: Bone 2
-    100028: Bone 3
-    100030: Bone 4
-    100032: Bone 5
-    100034: Bone 6
-    100036: Bone 7
-    100038: Bone 8
-    100040: Bone 9
-    100042: Bone_end
-    100044: Bone_end 1
-    100046: Bone_end 2
-    100048: Bone_end 3
-    100050: Bone_end 4
-    100052: Bone_end 5
-    100054: Bone_end 6
-    100056: Bone_end 7
-    100058: Bone_end 8
-    100060: Bone_end 9
-    100062: Circle.000
-    100064: Circle.001
-    100066: Circle.002
-    100068: Circle.003
-    100070: Circle.004
-    100072: Circle.005
-    100074: Circle.006
-    100076: Circle.007
-    100078: Circle.008
-    100080: Circle.009
-    100082: Cube
-    100084: Cube.001
-    100086: Cube.002
-    100088: //RootNode
+    100020: Bone
+    100022: Bone 1
+    100024: Bone 2
+    100026: Bone 3
+    100028: Bone 4
+    100030: Bone 5
+    100032: Bone 6
+    100034: Bone 7
+    100036: Bone 8
+    100038: Bone 9
+    100040: Bone_end
+    100042: Bone_end 1
+    100044: Bone_end 2
+    100046: Bone_end 3
+    100048: Bone_end 4
+    100050: Bone_end 5
+    100052: Bone_end 6
+    100054: Bone_end 7
+    100056: Bone_end 8
+    100058: Bone_end 9
+    100060: Circle.000
+    100062: Circle.001
+    100064: Circle.002
+    100066: Circle.003
+    100068: Circle.004
+    100070: Circle.005
+    100072: Circle.006
+    100074: Circle.007
+    100076: Circle.008
+    100078: Circle.009
+    100080: Cube.001
+    100082: Cube.002
+    100084: //RootNode
     400000: Armature
     400002: Armature.001
     400004: Armature.002
@@ -58,64 +56,158 @@ ModelImporter:
     400014: Armature.007
     400016: Armature.008
     400018: Armature.009
-    400020: Armature.010
-    400022: Bone
-    400024: Bone 1
-    400026: Bone 2
-    400028: Bone 3
-    400030: Bone 4
-    400032: Bone 5
-    400034: Bone 6
-    400036: Bone 7
-    400038: Bone 8
-    400040: Bone 9
-    400042: Bone_end
-    400044: Bone_end 1
-    400046: Bone_end 2
-    400048: Bone_end 3
-    400050: Bone_end 4
-    400052: Bone_end 5
-    400054: Bone_end 6
-    400056: Bone_end 7
-    400058: Bone_end 8
-    400060: Bone_end 9
-    400062: Circle.000
-    400064: Circle.001
-    400066: Circle.002
-    400068: Circle.003
-    400070: Circle.004
-    400072: Circle.005
-    400074: Circle.006
-    400076: Circle.007
-    400078: Circle.008
-    400080: Circle.009
-    400082: Cube
-    400084: Cube.001
-    400086: Cube.002
-    400088: //RootNode
-    2100000: Material.003
-    2100002: Material.002
-    2100004: Material.001
-    2100006: Material
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cube.002
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cube.002
-    4300000: Cube.002
-    4300002: Circle.004
-    4300004: Cube
-    4300006: Cube.001
-    4300008: Circle.000
-    4300010: Circle.001
-    4300012: Circle.002
-    4300014: Circle.003
-    4300016: Circle.005
-    4300018: Circle.006
-    4300020: Circle.007
-    4300022: Circle.008
-    4300024: Circle.009
+    400020: Bone
+    400022: Bone 1
+    400024: Bone 2
+    400026: Bone 3
+    400028: Bone 4
+    400030: Bone 5
+    400032: Bone 6
+    400034: Bone 7
+    400036: Bone 8
+    400038: Bone 9
+    400040: Bone_end
+    400042: Bone_end 1
+    400044: Bone_end 2
+    400046: Bone_end 3
+    400048: Bone_end 4
+    400050: Bone_end 5
+    400052: Bone_end 6
+    400054: Bone_end 7
+    400056: Bone_end 8
+    400058: Bone_end 9
+    400060: Circle.000
+    400062: Circle.001
+    400064: Circle.002
+    400066: Circle.003
+    400068: Circle.004
+    400070: Circle.005
+    400072: Circle.006
+    400074: Circle.007
+    400076: Circle.008
+    400078: Circle.009
+    400080: Cube.001
+    400082: Cube.002
+    400084: //RootNode
+    2100000: Material.004
+    2100002: Material.003
+    2100004: Material
+    2300000: Cube.001
+    2300002: Cube.002
+    3300000: Cube.001
+    3300002: Cube.002
+    4300000: Circle.000
+    4300002: Cube.002
+    4300004: Cube.001
+    4300006: Circle.001
+    4300008: Circle.003
+    4300010: Circle.004
+    4300012: Circle.005
+    4300014: Circle.002
+    4300016: Circle.006
+    4300018: Circle.007
+    4300020: Circle.008
+    4300022: Circle.009
+    7400000: Armature|Armature.001Action
+    7400002: Armature|Armature.002Action
+    7400004: Armature|Armature.003Action
+    7400006: Armature|Armature.004Action
+    7400008: Armature|Armature.005Action
+    7400010: Armature|Armature.006Action
+    7400012: Armature|Armature.007Action
+    7400014: Armature|Armature.008Action
+    7400016: Armature|Armature.009Action
+    7400018: Armature|ArmatureAction
+    7400020: Armature.001|Armature.001Action
+    7400022: Armature.001|Armature.002Action
+    7400024: Armature.001|Armature.003Action
+    7400026: Armature.001|Armature.004Action
+    7400028: Armature.001|Armature.005Action
+    7400030: Armature.001|Armature.006Action
+    7400032: Armature.001|Armature.007Action
+    7400034: Armature.001|Armature.008Action
+    7400036: Armature.001|Armature.009Action
+    7400038: Armature.001|ArmatureAction
+    7400040: Armature.002|Armature.001Action
+    7400042: Armature.002|Armature.002Action
+    7400044: Armature.002|Armature.003Action
+    7400046: Armature.002|Armature.004Action
+    7400048: Armature.002|Armature.005Action
+    7400050: Armature.002|Armature.006Action
+    7400052: Armature.002|Armature.007Action
+    7400054: Armature.002|Armature.008Action
+    7400056: Armature.002|Armature.009Action
+    7400058: Armature.002|ArmatureAction
+    7400060: Armature.003|Armature.001Action
+    7400062: Armature.003|Armature.002Action
+    7400064: Armature.003|Armature.003Action
+    7400066: Armature.003|Armature.004Action
+    7400068: Armature.003|Armature.005Action
+    7400070: Armature.003|Armature.006Action
+    7400072: Armature.003|Armature.007Action
+    7400074: Armature.003|Armature.008Action
+    7400076: Armature.003|Armature.009Action
+    7400078: Armature.003|ArmatureAction
+    7400080: Armature.004|Armature.001Action
+    7400082: Armature.004|Armature.002Action
+    7400084: Armature.004|Armature.003Action
+    7400086: Armature.004|Armature.004Action
+    7400088: Armature.004|Armature.005Action
+    7400090: Armature.004|Armature.006Action
+    7400092: Armature.004|Armature.007Action
+    7400094: Armature.004|Armature.008Action
+    7400096: Armature.004|Armature.009Action
+    7400098: Armature.004|ArmatureAction
+    7400100: Armature.005|Armature.001Action
+    7400102: Armature.005|Armature.002Action
+    7400104: Armature.005|Armature.003Action
+    7400106: Armature.005|Armature.004Action
+    7400108: Armature.005|Armature.005Action
+    7400110: Armature.005|Armature.006Action
+    7400112: Armature.005|Armature.007Action
+    7400114: Armature.005|Armature.008Action
+    7400116: Armature.005|Armature.009Action
+    7400118: Armature.005|ArmatureAction
+    7400120: Armature.006|Armature.001Action
+    7400122: Armature.006|Armature.002Action
+    7400124: Armature.006|Armature.003Action
+    7400126: Armature.006|Armature.004Action
+    7400128: Armature.006|Armature.005Action
+    7400130: Armature.006|Armature.006Action
+    7400132: Armature.006|Armature.007Action
+    7400134: Armature.006|Armature.008Action
+    7400136: Armature.006|Armature.009Action
+    7400138: Armature.006|ArmatureAction
+    7400140: Armature.007|Armature.001Action
+    7400142: Armature.007|Armature.002Action
+    7400144: Armature.007|Armature.003Action
+    7400146: Armature.007|Armature.004Action
+    7400148: Armature.007|Armature.005Action
+    7400150: Armature.007|Armature.006Action
+    7400152: Armature.007|Armature.007Action
+    7400154: Armature.007|Armature.008Action
+    7400156: Armature.007|Armature.009Action
+    7400158: Armature.007|ArmatureAction
+    7400160: Armature.008|Armature.001Action
+    7400162: Armature.008|Armature.002Action
+    7400164: Armature.008|Armature.003Action
+    7400166: Armature.008|Armature.004Action
+    7400168: Armature.008|Armature.005Action
+    7400170: Armature.008|Armature.006Action
+    7400172: Armature.008|Armature.007Action
+    7400174: Armature.008|Armature.008Action
+    7400176: Armature.008|Armature.009Action
+    7400178: Armature.008|ArmatureAction
+    7400180: Armature.009|Armature.001Action
+    7400182: Armature.009|Armature.002Action
+    7400184: Armature.009|Armature.003Action
+    7400186: Armature.009|Armature.004Action
+    7400188: Armature.009|Armature.005Action
+    7400190: Armature.009|Armature.006Action
+    7400192: Armature.009|Armature.007Action
+    7400194: Armature.009|Armature.008Action
+    7400196: Armature.009|Armature.009Action
+    7400198: Armature.009|ArmatureAction
     9500000: //RootNode
     13700000: Circle.000
     13700002: Circle.001

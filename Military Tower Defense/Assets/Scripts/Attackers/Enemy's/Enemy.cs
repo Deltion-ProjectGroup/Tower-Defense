@@ -107,7 +107,7 @@ public class Enemy : Attacker {
     }
     IEnumerator Grunts()
     {
-        while (true)
+        while (true && gruntSounds.Length > 0)
         {
             yield return new WaitForSeconds(Random.Range(1, 11));
             audioSources[0].clip = gruntSounds[Random.Range(0, gruntSounds.Length)];
