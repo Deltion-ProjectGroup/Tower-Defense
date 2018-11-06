@@ -1707,6 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: Tank
+  icon: {fileID: 21300000, guid: 9390028c518d2d54eaebbcbc7af9695e, type: 3}
   description: Very high damage boio
   baseDamage: 50
   damage: 50

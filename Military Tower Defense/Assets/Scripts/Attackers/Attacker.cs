@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour {
     public string objName;
+    public Sprite icon;
     public string description;
     [Header("Damage")]
     public float baseDamage;

@@ -89,6 +89,7 @@ public class UIManager : MonoBehaviour {
         switch (trackingObj.tag)
         {
             case "Enemy":
+                enemyInformation[1].GetComponent<Image>().sprite = trackingObj.GetComponent<Attacker>().icon;
                 enemyInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().objName;
                 enemyInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().health.ToString() + "/" + trackingObj.GetComponent<Enemy>().maxHealth;
                 enemyInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Enemy>().attackSpeed.ToString();
@@ -233,10 +234,5 @@ public class UIManager : MonoBehaviour {
     public void RemoveWafeInfo()
     {
         waveInformation[0].SetActive(false);
-    }
-    public void UpdateObstHpBar(Obstacle obstacle)
-    {
-        obstacle.mainUIHealthbar.GetComponent<Image>().fillAmount = 1 / obstacle.maxHealth * obstacle.health;
-        obstacle.mainUIHealthbar.GetComponentInChildren<Text>().text = obstacle.health.ToString() + "/" + obstacle.maxHealth.ToString();
     }
 }

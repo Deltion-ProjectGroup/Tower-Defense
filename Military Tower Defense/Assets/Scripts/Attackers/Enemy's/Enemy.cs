@@ -61,7 +61,7 @@ public class Enemy : Attacker {
         {
             healthbarHolder.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
         }
-        if (attacking && !dead)
+        if (attacking && !dead && target != null)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position, Vector3.zero), 1.5f);
         }
@@ -116,13 +116,12 @@ public class Enemy : Attacker {
     }
     public void Repath()
     {
-        //dust.Play();
+        attacking = false;
         StartCoroutine(Grunts());
         GetComponent<Animator>().SetBool("canAttack", false);
         GetComponent<Animator>().SetBool("canWalk", true);
         StopAllCoroutines();
         gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-        attacking = false;
     }
     public IEnumerator Death()
     {

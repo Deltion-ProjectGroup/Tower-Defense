@@ -1529,6 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: Melee troop
+  icon: {fileID: 21300000, guid: 7c87c822c13699048aa51ffa62c2f021, type: 3}
   description: Basic troop
   baseDamage: 10
   damage: 0

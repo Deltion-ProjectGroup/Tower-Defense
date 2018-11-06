@@ -1699,6 +1699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: Berserker
+  icon: {fileID: 21300000, guid: 62db1f5ef264d1d4ca4aaa51ddc358d9, type: 3}
   description: BUFFFFFF
   baseDamage: 50
   damage: 10

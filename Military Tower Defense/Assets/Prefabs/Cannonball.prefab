@@ -216,10 +216,10 @@ MonoBehaviour:
   targets: []
   targettableEnemies:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   targettableObstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   isFromEnemy: 1
 --- !u!135 &135618115279408430
 SphereCollider:

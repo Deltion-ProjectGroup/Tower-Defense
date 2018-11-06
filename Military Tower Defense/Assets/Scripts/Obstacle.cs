@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Obstacle : MonoBehaviour
 {
+    public Sprite icon;
     public float health;
     public float maxHealth;
     public string objName;
     public string description;
     public GameObject healthbarHolder;
     public GameObject healthbar;
-    public GameObject mainUIHealthbar;
     bool damaged;
     public List<GameObject> targettedBy = new List<GameObject>();
     // Use this for initialization
@@ -34,7 +34,6 @@ public class Obstacle : MonoBehaviour
                 damaged = true;
                 healthbarHolder.SetActive(true);
             }
-            GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().UpdateObstHpBar(this);
             healthbar.GetComponent<Image>().fillAmount = (1 / maxHealth) * health;
             if (health <= 0)
             {
@@ -52,6 +51,7 @@ public class Obstacle : MonoBehaviour
     }
     public virtual void Death()
     {
+        GetComponent<Collider>().enabled = false;
         for (int i = 0; i < targettedBy.Count; i++)
         {
             targettedBy[i].GetComponent<Enemy>().Repath();
