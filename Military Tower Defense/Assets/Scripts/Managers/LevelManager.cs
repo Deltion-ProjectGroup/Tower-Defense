@@ -108,13 +108,19 @@ public class LevelManager : MonoBehaviour {
     {
         //Rotate by 60;
         //Put S always first
-        while(roundBullets[currentBullet].transform.localScale.x > 0)
+        GetComponent<AudioSource>().clip = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().audioclips[2];
+        GetComponent<AudioSource>().Play();
+        while (roundBullets[currentBullet].transform.localScale.x > 0)
         {
             roundBullets[currentBullet].transform.localScale -= bulletScaler;
             yield return new WaitForEndOfFrame();
         }
         roundBullets[currentBullet].transform.localScale = new Vector3(0, 0, 0);
-        for(int i = 0; i < 60; i++)
+        yield return new WaitForSeconds(1);
+        GetComponent<AudioSource>().clip = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().audioclips[3];
+        GetComponent<AudioSource>().Play();
+
+        for (int i = 0; i < 60; i++)
         {
             transform.Rotate(new Vector3(0, 0, -1));
             yield return new WaitForEndOfFrame();

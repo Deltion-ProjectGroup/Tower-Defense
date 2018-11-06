@@ -13,6 +13,7 @@ public class RocketLauncherTower : Turret {
         {
             for(int i = 0; i < spawnPoints.Length; i++)
             {
+                GetComponent<AudioSource>().Play();
                 GameObject rocket = Instantiate(missile, spawnPoints[i].position, Quaternion.identity);
                 rocket.transform.LookAt(targets[0].transform);
                 currentMissiles.Add(rocket.GetComponent<Rocket>());

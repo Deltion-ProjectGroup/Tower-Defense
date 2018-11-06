@@ -6,6 +6,7 @@ public class Turret : Attacker {
     public GameObject[] turretParts; //This is for placing the turret to make it transparent etc.
     public List <GameObject> targets = new List<GameObject>(); //All the enemies it can target
     public ParticleSystem bulletParticles;
+    public int sellValue;
 
     private void OnTriggerEnter(Collider hit)
     {

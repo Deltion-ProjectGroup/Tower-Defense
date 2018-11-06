@@ -7,6 +7,7 @@ public class Rocket : Explosive {
     public float rotateSpeed;
     public GameObject target;
     bool destructing = false;
+    public AudioClip explosionSound;
 	// Use this for initialization
 	void Start () {
 		
@@ -33,6 +34,8 @@ public class Rocket : Explosive {
     {
         if(!hit.isTrigger && hit.tag != "Turret" && hit.tag != "Explodable")
         {
+            GetComponent<AudioSource>().clip = explosionSound;
+            GetComponent<AudioSource>().loop = false;
             Explosion(false);
         }
     }

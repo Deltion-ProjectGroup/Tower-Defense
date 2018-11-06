@@ -40,6 +40,7 @@ public class Flamethrower : Turret {
         unit.GetComponent<Enemy>().targettedBy.Remove(gameObject);
         if (targets.Count <= 0)
         {
+            GetComponent<AudioSource>().Stop();
             bulletParticles.Stop();
             StopAllCoroutines();
         }
@@ -52,6 +53,7 @@ public class Flamethrower : Turret {
             unit.GetComponent<Enemy>().targettedBy.Add(gameObject);
             if(targets.Count == 1)
             {
+                GetComponent<AudioSource>().Play();
                 bulletParticles.Play();
             }
         }

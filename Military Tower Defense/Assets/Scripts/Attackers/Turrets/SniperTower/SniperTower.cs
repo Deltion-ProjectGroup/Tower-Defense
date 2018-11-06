@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SniperTower : Turret {
-
+    public AudioSource[] audioSources;
     // Use this for initialization
     public override IEnumerator Attack()
     {
         bulletParticles.Play();
         if(targets.Count > 0)
         {
+            audioSources[0].Play();
+            audioSources[1].Play();
             targets[0].GetComponent<Enemy>().health -= baseDamage;
             targets[0].GetComponent<Enemy>().CheckHealth();
             if (targets.Count > 0)

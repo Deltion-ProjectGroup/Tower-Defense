@@ -37,6 +37,7 @@ public class Berserker : Enemy {
         }
         if (health <= 0 && !dead)
         {
+            StopAllCoroutines();
             //gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             Collider[] colliders = GetComponents<Collider>();
             for(int i = 0; i < colliders.Length; i++)

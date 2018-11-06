@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour {
     public bool isTracking;
     bool canInfoToggle = true;
     public GameObject trackingObj;
+    public AudioClip[] audioclips;
 	// Use this for initialization
 	void Start () {
 		
@@ -67,6 +68,8 @@ public class UIManager : MonoBehaviour {
                 UpdateStats();
                 if (!isTracking && canInfoToggle)
                 {
+                    informationUI.GetComponent<AudioSource>().clip = audioclips[0];
+                    informationUI.GetComponent<AudioSource>().Play();
                     canInfoToggle = false;
                     isTracking = true;
                     informationUI.GetComponent<Animation>().Play();
@@ -113,6 +116,7 @@ public class UIManager : MonoBehaviour {
                 turretInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().attackSpeed.ToString();
                 turretInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().damage.ToString();
                 turretInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().description;
+                turretInformation[6].GetComponent<Text>().text = "+" + trackingObj.GetComponent<Turret>().sellValue.ToString();
                 break;
             case "Targettable":
                 obstacleInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Obstacle>().objName;
@@ -133,6 +137,8 @@ public class UIManager : MonoBehaviour {
     {
         if (canInfoToggle && isTracking)
         {
+            informationUI.GetComponent<AudioSource>().clip = audioclips[1];
+            informationUI.GetComponent<AudioSource>().Play();
             canInfoToggle = false;
             informationUI.GetComponent<Animation>().Play("StatbarRemove");
             yield return new WaitForSeconds(informationUI.GetComponent<Animation>().GetClip("StatbarRemove").length);
@@ -198,6 +204,14 @@ public class UIManager : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void Sell()
+    {
+        GetComponent<AudioSource>().Play();
+        trackingObj.GetComponent<BoxCollider>().enabled = false;
+        LevelManager.levelManager.AddCurrency(trackingObj.GetComponent<Turret>().sellValue, trackingObj.transform.position);
+        CheckIfTracked(trackingObj);
+        Destroy(trackingObj);
     }
     public void PauseGame(bool resume = false)
     {

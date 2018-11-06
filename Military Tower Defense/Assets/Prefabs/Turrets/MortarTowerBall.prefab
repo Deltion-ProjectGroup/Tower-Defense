@@ -112,7 +112,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243764950510222742, guid: dea1ad1ccbe7ebc4e81861ecf85782b8,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 032ff9809a7bd794ba428991bc6d7913, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fe939db45bc12ee49922ffcfcab446cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -216,10 +216,10 @@ MonoBehaviour:
   targets: []
   targettableEnemies:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   targettableObstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   isFromEnemy: 0
 --- !u!135 &135618115279408430
 SphereCollider:

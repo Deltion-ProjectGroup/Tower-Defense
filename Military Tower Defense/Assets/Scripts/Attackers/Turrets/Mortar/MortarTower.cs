@@ -21,6 +21,7 @@ public class MortarTower : Turret {
             distance *= 0.283f;
             force.y = 17;
             force.z = distance;
+            GetComponent<AudioSource>().Play();
             GameObject shot = Instantiate(ball, spawnPoint.position, turretParts[1].transform.rotation);
             shot.GetComponent<Rigidbody>().AddRelativeForce(force, ForceMode.Impulse);
             //shot.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
