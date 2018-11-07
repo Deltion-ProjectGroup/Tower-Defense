@@ -1645,13 +1645,13 @@ MonoBehaviour:
   objName: Mortar
   icon: {fileID: 21300000, guid: fbe13ffde321b6840a05226971778a02, type: 3}
   description: Boom
-  baseDamage: 25
+  baseDamage: 60
   damage: 0
   baseAttackSpeed: 0.2
   attackSpeed: 0
   attackAnim: {fileID: 0}
-  baseHealth: 150
-  health: 150
+  baseHealth: 600
+  health: 600
   maxHealth: 0
   baseMovementspeed: 0.8
   movementspeed: 0
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 25
+  worthCurrency: 14
   attackTimeMarks:
   - 0.1
   - 0.82
@@ -1772,7 +1772,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.67
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136758416105937996
 CapsuleCollider:

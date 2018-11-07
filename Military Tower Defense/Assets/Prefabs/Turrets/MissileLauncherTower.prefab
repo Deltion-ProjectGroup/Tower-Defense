@@ -594,7 +594,7 @@ MonoBehaviour:
   - {fileID: 1075142778453078}
   targets: []
   bulletParticles: {fileID: 198792587628630972}
-  sellValue: 0
+  sellValue: 75
   missile: {fileID: 1004716220788328, guid: 7b754c4147dda62438e1d7310fe902a8, type: 2}
   spawnPoints:
   - {fileID: 4714134028949284}

@@ -1714,8 +1714,8 @@ MonoBehaviour:
   baseAttackSpeed: 2.5
   attackSpeed: 3
   attackAnim: {fileID: 0}
-  baseHealth: 750
-  health: 750
+  baseHealth: 1500
+  health: 1500
   maxHealth: 1000
   baseMovementspeed: 0.25
   movementspeed: 0.3
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 200
+  worthCurrency: 50
   attackTimeMarks: []
   impactParticle: {fileID: 1792776920206164, guid: 96d4bd9eba1ffd04c9b2f2e1fc3f8171,
     type: 2}

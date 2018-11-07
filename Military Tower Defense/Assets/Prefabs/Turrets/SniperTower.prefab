@@ -480,7 +480,7 @@ MonoBehaviour:
   - {fileID: 1555322904740190}
   targets: []
   bulletParticles: {fileID: 198266795678400240}
-  sellValue: 0
+  sellValue: 100
   audioSources: []
 --- !u!135 &135668145675089452
 SphereCollider:
@@ -492,7 +492,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198242030189160480
 ParticleSystem:

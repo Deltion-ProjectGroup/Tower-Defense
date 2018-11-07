@@ -1706,8 +1706,8 @@ MonoBehaviour:
   baseAttackSpeed: 1.2
   attackSpeed: 1
   attackAnim: {fileID: 0}
-  baseHealth: 300
-  health: 300
+  baseHealth: 600
+  health: 600
   maxHealth: 100
   baseMovementspeed: 1.2
   movementspeed: 1
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 50
+  worthCurrency: 24
   attackTimeMarks:
   - 0.35
   - 1.1
@@ -1757,8 +1757,8 @@ MonoBehaviour:
   enrageBuff:
     rageSpeedBuff: 1
     rageHealthBuff: 50
-    rageDamageBuff: 20
-    rageAttackspeedBuff: 5
+    rageDamageBuff: 12
+    rageAttackspeedBuff: 4
   rageParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
     type: 2}
 --- !u!114 &114572587822744354

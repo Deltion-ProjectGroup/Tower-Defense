@@ -1840,8 +1840,8 @@ MonoBehaviour:
   baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
-  baseHealth: 100
-  health: 100
+  baseHealth: 110
+  health: 110
   maxHealth: 0
   baseMovementspeed: 0.9
   movementspeed: 0

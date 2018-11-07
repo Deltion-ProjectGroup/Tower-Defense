@@ -429,7 +429,7 @@ MonoBehaviour:
   objName: Flamethrower
   icon: {fileID: 0}
   description: BURN BURN BUUUUURNN
-  baseDamage: 4
+  baseDamage: 3
   damage: 0
   baseAttackSpeed: 1
   attackSpeed: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 1704124235462556}
   targets: []
   bulletParticles: {fileID: 198829092761807570}
-  sellValue: 0
+  sellValue: 38
   turret: {fileID: 1765634777456198}
   gun: {fileID: 1704124235462556}
   maxTicks: 20
