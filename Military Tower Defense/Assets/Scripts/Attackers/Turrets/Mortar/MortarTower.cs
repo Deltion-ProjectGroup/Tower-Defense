@@ -13,7 +13,7 @@ public class MortarTower : Turret {
     {
         if(targets.Count > 0)
         {
-            //yield return WaitForSeconds(animation);
+            yield return null;
             spawnPosition = transform.position;
             spawnPosition.y += 1.5f;
             float distance = Vector3.Distance(targets[0].transform.position, transform.position);
