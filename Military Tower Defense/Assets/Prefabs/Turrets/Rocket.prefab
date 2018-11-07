@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004716220788328}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.35224, y: 0.065090045, z: 22.434595}
+  m_LocalPosition: {x: 99.27384, y: 0.16508746, z: 19.486158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4331619607044720}
@@ -357,7 +357,11 @@ MonoBehaviour:
   speed: 10
   rotateSpeed: 458.61
   target: {fileID: 0}
-  explosionSound: {fileID: 0}
+  particles:
+  - {fileID: 198510794599443984}
+  - {fileID: 198758908084280962}
+  - {fileID: 198761986334455928}
+  explosionSound: {fileID: 8300000, guid: 032ff9809a7bd794ba428991bc6d7913, type: 3}
 --- !u!198 &198510794599443984
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class Rocket : Explosive {
     public float speed;
     public float rotateSpeed;
     public GameObject target;
+    public ParticleSystem[] particles;
     bool destructing = false;
     public AudioClip explosionSound;
 	// Use this for initialization
@@ -36,6 +37,10 @@ public class Rocket : Explosive {
         {
             GetComponent<AudioSource>().clip = explosionSound;
             GetComponent<AudioSource>().loop = false;
+            for(int i = 0; i < particles.Length; i++)
+            {
+                particles[i].Stop();
+            }
             Explosion(false);
         }
     }
