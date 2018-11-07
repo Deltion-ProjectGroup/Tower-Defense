@@ -1714,8 +1714,8 @@ MonoBehaviour:
   baseAttackSpeed: 2.5
   attackSpeed: 3
   attackAnim: {fileID: 0}
-  baseHealth: 1500
-  health: 1500
+  baseHealth: 1000
+  health: 1000
   maxHealth: 1000
   baseMovementspeed: 0.25
   movementspeed: 0.3
