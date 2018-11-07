@@ -270,8 +270,8 @@ GameObject:
   - component: {fileID: 4867174413710286}
   - component: {fileID: 95174289437427872}
   - component: {fileID: 54863840475945906}
-  - component: {fileID: 135973216940299350}
   - component: {fileID: 65892450910741362}
+  - component: {fileID: 135973216940299350}
   - component: {fileID: 82271407454318460}
   - component: {fileID: 82386907726086828}
   - component: {fileID: 114090559710705192}
@@ -1711,13 +1711,13 @@ MonoBehaviour:
   description: Very high damage boio
   baseDamage: 50
   damage: 50
-  baseAttackSpeed: 0.5
+  baseAttackSpeed: 2.5
   attackSpeed: 3
   attackAnim: {fileID: 0}
-  baseHealth: 100
-  health: 100
+  baseHealth: 750
+  health: 750
   maxHealth: 1000
-  baseMovementspeed: 0.3
+  baseMovementspeed: 0.25
   movementspeed: 0.3
   attackRange: 200
   target: {fileID: 0}
@@ -1728,7 +1728,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 1
+  worthCurrency: 200
   attackTimeMarks: []
   impactParticle: {fileID: 1792776920206164, guid: 96d4bd9eba1ffd04c9b2f2e1fc3f8171,
     type: 2}
@@ -1860,7 +1860,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.78
+  m_Radius: 8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137018325654133496
 SkinnedMeshRenderer:

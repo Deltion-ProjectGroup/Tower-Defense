@@ -347,8 +347,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: MachineGun
+  icon: {fileID: 0}
   description: PEWPEWPEW
-  baseDamage: 50
+  baseDamage: 3
   damage: 0
   baseAttackSpeed: 5
   attackSpeed: 0
@@ -359,6 +360,7 @@ MonoBehaviour:
   - {fileID: 1433439309503522}
   targets: []
   bulletParticles: {fileID: 198873559765927028}
+  sellValue: 0
 --- !u!135 &135841414767713728
 SphereCollider:
   m_ObjectHideFlags: 1

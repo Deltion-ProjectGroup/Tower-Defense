@@ -263,8 +263,8 @@ GameObject:
   - component: {fileID: 4454156001085128}
   - component: {fileID: 95051678556654742}
   - component: {fileID: 54524501004329432}
-  - component: {fileID: 135373604136176912}
   - component: {fileID: 136647646426070450}
+  - component: {fileID: 135373604136176912}
   - component: {fileID: 114475312072056340}
   - component: {fileID: 195395476843491902}
   - component: {fileID: 82296760088211428}
@@ -1701,15 +1701,15 @@ MonoBehaviour:
   objName: Berserker
   icon: {fileID: 21300000, guid: 62db1f5ef264d1d4ca4aaa51ddc358d9, type: 3}
   description: BUFFFFFF
-  baseDamage: 50
+  baseDamage: 8
   damage: 10
-  baseAttackSpeed: 1
+  baseAttackSpeed: 1.2
   attackSpeed: 1
   attackAnim: {fileID: 0}
-  baseHealth: 410
-  health: 410
+  baseHealth: 300
+  health: 300
   maxHealth: 100
-  baseMovementspeed: 1
+  baseMovementspeed: 1.2
   movementspeed: 1
   attackRange: 1
   target: {fileID: 0}
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 1
+  worthCurrency: 50
   attackTimeMarks:
   - 0.35
   - 1.1

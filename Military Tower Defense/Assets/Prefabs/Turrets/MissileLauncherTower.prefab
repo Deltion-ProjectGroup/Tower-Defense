@@ -581,10 +581,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: RocketLauncher
+  icon: {fileID: 0}
   description: Shoot em up
   baseDamage: 0
   damage: 0
-  baseAttackSpeed: 2.01
+  baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
   turretParts:
@@ -593,6 +594,7 @@ MonoBehaviour:
   - {fileID: 1075142778453078}
   targets: []
   bulletParticles: {fileID: 198792587628630972}
+  sellValue: 0
   missile: {fileID: 1004716220788328, guid: 7b754c4147dda62438e1d7310fe902a8, type: 2}
   spawnPoints:
   - {fileID: 4714134028949284}
@@ -610,7 +612,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 5.54
+  m_Radius: 6
   m_Center: {x: 0, y: 1.46, z: 0}
 --- !u!198 &198792587628630972
 ParticleSystem:

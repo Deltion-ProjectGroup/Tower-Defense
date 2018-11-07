@@ -68,8 +68,8 @@ GameObject:
   - component: {fileID: 4011636932456188}
   - component: {fileID: 95857501047150686}
   - component: {fileID: 54878833476568232}
-  - component: {fileID: 135064982498875730}
   - component: {fileID: 136083114371981428}
+  - component: {fileID: 135064982498875730}
   - component: {fileID: 195333716868737166}
   - component: {fileID: 82962849316423598}
   - component: {fileID: 82479882878445524}
@@ -1835,15 +1835,15 @@ MonoBehaviour:
   objName: Ranged Troop
   icon: {fileID: 21300000, guid: 5b22b0bc228759146a49b57c8222c6ef, type: 3}
   description: Basic Troop
-  baseDamage: 100
+  baseDamage: 5
   damage: 0
-  baseAttackSpeed: 20
+  baseAttackSpeed: 1
   attackSpeed: 0
   attackAnim: {fileID: 0}
-  baseHealth: 50
-  health: 50
+  baseHealth: 100
+  health: 100
   maxHealth: 0
-  baseMovementspeed: 1
+  baseMovementspeed: 0.9
   movementspeed: 0
   attackRange: 0
   target: {fileID: 0}
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 1
+  worthCurrency: 8
   attackTimeMarks:
   - 0.05
   - 0.9
@@ -1913,7 +1913,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.96
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136083114371981428
 CapsuleCollider:
