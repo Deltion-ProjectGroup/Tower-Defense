@@ -468,7 +468,7 @@ MonoBehaviour:
   - {fileID: 1158419770558740}
   targets: []
   bulletParticles: {fileID: 198327382058283310}
-  sellValue: 125
+  sellValue: 110
   ball: {fileID: 1141815893873552, guid: cc2307d0b0fb60f4b92c0f51c27abd9f, type: 2}
   spawnPoint: {fileID: 4179608398938180}
 --- !u!135 &135540886658484186

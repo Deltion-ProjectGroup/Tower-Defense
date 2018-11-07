@@ -360,7 +360,7 @@ MonoBehaviour:
   - {fileID: 1433439309503522}
   targets: []
   bulletParticles: {fileID: 198873559765927028}
-  sellValue: 20
+  sellValue: 30
 --- !u!135 &135841414767713728
 SphereCollider:
   m_ObjectHideFlags: 1

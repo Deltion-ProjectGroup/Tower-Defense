@@ -472,7 +472,7 @@ MonoBehaviour:
   description: Long ranged tower
   baseDamage: 30
   damage: 0
-  baseAttackSpeed: 0.5
+  baseAttackSpeed: 0.4
   attackSpeed: 0
   attackAnim: {fileID: 0}
   turretParts:
@@ -480,7 +480,7 @@ MonoBehaviour:
   - {fileID: 1555322904740190}
   targets: []
   bulletParticles: {fileID: 198266795678400240}
-  sellValue: 100
+  sellValue: 90
   audioSources:
   - {fileID: 82233080205344624}
   - {fileID: 82604121047972028}

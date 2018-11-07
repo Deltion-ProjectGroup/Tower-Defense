@@ -1720,7 +1720,7 @@ MonoBehaviour:
   attacking: 0
   damaged: 0
   dead: 0
-  worthCurrency: 24
+  worthCurrency: 16
   attackTimeMarks:
   - 0.35
   - 1.1

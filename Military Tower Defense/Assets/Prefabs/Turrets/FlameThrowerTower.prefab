@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 1704124235462556}
   targets: []
   bulletParticles: {fileID: 198829092761807570}
-  sellValue: 40
+  sellValue: 50
   turret: {fileID: 1765634777456198}
   gun: {fileID: 1704124235462556}
   maxTicks: 10
