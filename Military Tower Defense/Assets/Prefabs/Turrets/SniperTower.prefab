@@ -481,7 +481,9 @@ MonoBehaviour:
   targets: []
   bulletParticles: {fileID: 198266795678400240}
   sellValue: 100
-  audioSources: []
+  audioSources:
+  - {fileID: 82233080205344624}
+  - {fileID: 82604121047972028}
 --- !u!135 &135668145675089452
 SphereCollider:
   m_ObjectHideFlags: 1
