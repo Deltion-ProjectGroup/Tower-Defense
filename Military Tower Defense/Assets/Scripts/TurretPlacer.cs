@@ -106,6 +106,9 @@ public class TurretPlacer : MonoBehaviour {
         }
         placingObject = null;
         placing = false;
-        EventManager.OnTurretPlaced();
+        if(EventManager.OnTurretPlaced != null)
+        {
+            EventManager.OnTurretPlaced();
+        }
     }
 }

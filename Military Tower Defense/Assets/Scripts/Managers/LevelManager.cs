@@ -64,36 +64,44 @@ public class LevelManager : MonoBehaviour {
 	}
     public IEnumerator SpawnNextWave()
     {
-        int waveBackup = nextWave;
-        StartCoroutine(SpinBarrel(nextWave));
-        nextWave++;
-        doneSpawning = false;
-        UIManager uiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
-        string waveText = newRoundText + " " + (nextWave).ToString();
-        uiManager.ShowText(waveText);
-        yield return new WaitForSeconds(uiManager.roundUI.GetComponent<Animation>().clip.length);
-        for(int i = 0; i < waves[waveBackup].enemies.Length; i++)
+        if(nextWave >= waves.Length)
         {
-            for(int q = 0; q < waves[waveBackup].enemies[i].spawnAmount; q++)
+            print("FINISHED");
+            StartCoroutine(SpinBarrel(nextWave));
+        }
+        else
+        {
+            int waveBackup = nextWave;
+            StartCoroutine(SpinBarrel(nextWave));
+            nextWave++;
+            doneSpawning = false;
+            UIManager uiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>();
+            string waveText = newRoundText + " " + (nextWave).ToString();
+            uiManager.ShowText(waveText);
+            yield return new WaitForSeconds(uiManager.roundUI.GetComponent<Animation>().clip.length);
+            for (int i = 0; i < waves[waveBackup].enemies.Length; i++)
             {
-                yield return new WaitForSeconds(spawnDelay);
-                switch (waves[waveBackup].enemies[i].enemy)
+                for (int q = 0; q < waves[waveBackup].enemies[i].spawnAmount; q++)
                 {
-                    case EnemyType.Berserker:
-                        aliveEnemies.Add(Instantiate(enemies.berserker, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
-                        break;
-                    case EnemyType.Melee:
-                        aliveEnemies.Add(Instantiate(enemies.melee, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
-                        break;
-                    case EnemyType.Ranged:
-                        aliveEnemies.Add(Instantiate(enemies.ranged, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
-                        break;
-                    case EnemyType.Mortar:
-                        aliveEnemies.Add(Instantiate(enemies.mortar, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
-                        break;
-                    case EnemyType.Tank:
-                        aliveEnemies.Add(Instantiate(enemies.tank, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
-                        break;
+                    yield return new WaitForSeconds(spawnDelay);
+                    switch (waves[waveBackup].enemies[i].enemy)
+                    {
+                        case EnemyType.Berserker:
+                            aliveEnemies.Add(Instantiate(enemies.berserker, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+                            break;
+                        case EnemyType.Melee:
+                            aliveEnemies.Add(Instantiate(enemies.melee, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+                            break;
+                        case EnemyType.Ranged:
+                            aliveEnemies.Add(Instantiate(enemies.ranged, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+                            break;
+                        case EnemyType.Mortar:
+                            aliveEnemies.Add(Instantiate(enemies.mortar, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+                            break;
+                        case EnemyType.Tank:
+                            aliveEnemies.Add(Instantiate(enemies.tank, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity));
+                            break;
+                    }
                 }
             }
         }
@@ -166,7 +174,7 @@ public class LevelManager : MonoBehaviour {
             {
                 if (nextWave == waves.Length)
                 {
-                    // U WON
+                    StartCoroutine(SpawnNextWave());
                 }
                 else
                 {
