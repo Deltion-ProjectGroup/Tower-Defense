@@ -1,0 +1,12 @@
+1. De speler laadt het level, hij wordt begroet door een tekstbalk onderaan het scherm tussen de Ui elementen, de speler
+begint met 300$
+2. De eerste enemy spawnt, het spel wordt gepauzeerd en de speler wordt verteld om op de enemy te klikken, zo leert
+de speler dat hij op enemies kan klikken voor informatie(de tekstbalk mag vertellen dat dit ook voor de wall en towers werkt), hierna wordt de speler gevraag om ergens anders op het scherm
+te klikken om de balk weer te sluiten, daarna wordt de speler gevraagd om op de rechtermuis te klikken om de
+radialmenu te openen, nu mag hij een van de torens kiezen en plaatsen hierna hervat het spel
+3. De enemy wordt gedood (als het goed is) hierna wordt uitgelegd dat de wall een extensie is van je base en dat je hem
+moet verdedigen als je niet wilt dat de enemies makkelijk bij je base komen, alle torens worden verwijdert en de speler
+krijgt een budget van 1000$ om de volgende wave te verslaan, de speler mag zelf bepalen wanneer de wave begint via een
+button in de tekstbalk, de volgende wave laat alle enemy types zien.
+4. Als de wave is verslagen dan is de tutorial tutorial zo goed als afgelopen en komt een victoryscherm naar voren
+en wordt de speler teruggestuurd naar de level select
