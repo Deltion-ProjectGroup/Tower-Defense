@@ -39,10 +39,10 @@ public class UIManager : MonoBehaviour {
             shopUI.GetComponent<RadialMenu>().SwitchShop();
         }
 	}
-    public void DialogMethod(string[] dialog)
+    public void DialogMethod(string[] dialog, bool nextIsAlsoDialog = false)
     {
         dialogUI.SetActive(true);
-        dialogUI.GetComponent<Dialog>().Initializer(dialog);
+        dialogUI.GetComponent<Dialog>().Initializer(dialog, nextIsAlsoDialog);
     }
     public IEnumerator LoadScene(string sceneName)
     {
@@ -51,7 +51,11 @@ public class UIManager : MonoBehaviour {
     }
     public IEnumerator ShowStats(GameObject target)
     {
-        if(target == null)
+        if (EventManager.onInteract != null)
+        {
+            EventManager.onInteract(target);
+        }
+        if (target == null)
         {
             StartCoroutine(StatBarDissapear());
         }
@@ -59,10 +63,6 @@ public class UIManager : MonoBehaviour {
         {
             if (target.tag == "Enemy" || target.tag == "Turret" || target.tag == "Targettable")
             {
-                if(EventManager.onInteract != null)
-                {
-                    EventManager.onInteract(target);
-                }
                 trackingObj = target;
                 enemyInformation[0].SetActive(false);
                 turretInformation[0].SetActive(false);
@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour {
             StartCoroutine(StatBarDissapear());
         }
     }
-    public IEnumerator StatBarDissapear()
+    IEnumerator StatBarDissapear()
     {
         if (canInfoToggle && isTracking)
         {

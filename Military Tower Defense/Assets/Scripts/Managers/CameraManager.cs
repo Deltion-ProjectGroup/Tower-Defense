@@ -98,7 +98,7 @@ public class CameraManager : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().StatBarDissapear());
+            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(null));
         }
     }
 }

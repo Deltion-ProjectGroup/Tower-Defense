@@ -8,6 +8,7 @@ public class Dialog : MonoBehaviour {
     int currentDialog;
     public Text text;
     bool isDone = true;
+    bool nextIsDialog;
     public float textDelay;
     // Use this for initialization
     public void Update()
@@ -27,11 +28,21 @@ public class Dialog : MonoBehaviour {
             }
             else
             {
-                if(EventManager.OnDialogComplete != null)
+                if (!nextIsDialog)
                 {
-                    EventManager.OnDialogComplete();
+                    if (EventManager.OnDialogComplete != null)
+                    {
+                        EventManager.OnDialogComplete();
+                    }
+                    gameObject.SetActive(false);
                 }
-                gameObject.SetActive(false);
+                else
+                {
+                    if (EventManager.OnDialogComplete != null)
+                    {
+                        EventManager.OnDialogComplete();
+                    }
+                }
             }
         }
         else
@@ -42,8 +53,9 @@ public class Dialog : MonoBehaviour {
             currentDialog++;
         }
     }
-    public void Initializer(string[] dialogText)
+    public void Initializer(string[] dialogText, bool nextIsADialog)
     {
+        nextIsDialog = nextIsADialog;
         dialogs = dialogText;
         currentDialog = 0;
         DialogInteract();
