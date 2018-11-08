@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 218059047743687444}
   - component: {fileID: 154597349419246040}
   m_Layer: 9
-  m_Name: Terrain
+  m_Name: TerrainLevel1
   m_TagString: TowerTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
