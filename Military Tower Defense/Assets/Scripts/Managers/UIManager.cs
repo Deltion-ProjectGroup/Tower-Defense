@@ -128,8 +128,8 @@ public class UIManager : MonoBehaviour {
                 break;
             case "Turret":
                 turretInformation[2].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().objName;
-                turretInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().attackSpeed.ToString();
-                turretInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().damage.ToString();
+                turretInformation[3].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().baseAttackSpeed.ToString();
+                turretInformation[4].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().baseDamage.ToString();
                 turretInformation[5].GetComponent<Text>().text = trackingObj.GetComponent<Turret>().description;
                 turretInformation[6].GetComponent<Text>().text = "+" + trackingObj.GetComponent<Turret>().sellValue.ToString();
                 break;
