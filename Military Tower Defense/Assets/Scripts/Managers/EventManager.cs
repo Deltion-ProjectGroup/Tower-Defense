@@ -5,8 +5,9 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class EventManager : MonoBehaviour {
-    public delegate void OnClickEvent();
-    public static event OnClickEvent OnClick;
+    public delegate void EventMethod();
+    public static event EventMethod OnClick;
+    public static EventMethod OnDialogComplete;
 	// Use this for initialization
 	void Start () {
 		

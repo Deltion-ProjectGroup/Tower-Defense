@@ -1,9 +1,9 @@
 ENEMIES:
 -------------------
 Voetstappen (0)
-Standaardkreun
-Aanvalskreun
-Doodskreun
+Standaardkreun(0)
+Aanvalskreun(0)
+Doodskreun(0)
 Bijl impact (0)
 Swing geluidje (0)
 Machete impact (0)
@@ -15,30 +15,30 @@ Tank shell impact (0)
 -------------------
 TORENS:
 -------------------
-Plaats patsboem geluidje
+Plaats patsboem geluidje(0)
 Draai whirr (0)
 Machinegun geschut (0)
 Flamethrower aanval geluid (0)
-Knisperend vuur (voor de DOT)
-Mortar schot
-Mortar impact
-Raketwerper schot
-Raket in vlucht
-Raket impact
-Sniper schot
+Knisperend vuur (voor de DOT)(0)
+Mortar schot(0)
+Mortar impact(0)
+Raketwerper schot(0)
+Raket in vlucht(0)
+Raket impact(0)
+Sniper schot(0)
 Sniper impact (0)
 Verkoop Cha-ching (0)
 Upgrade bouwgeluidjes (0)
 -------------------
 UI:
 -------------------
-Knop indruk feedback
-Vallende muntjes voor geld verdienen
-Infoscherm dat omhoog rolt (achterstevoren voor omlaag)
-Infoscherm dat in plaats klapt
-Cylinder draai
-Cylinder dat in plaats klapt
-Revolver schot
+Knop indruk feedback(0)
+Vallende muntjes voor geld verdienen(0)
+Infoscherm dat omhoog rolt (achterstevoren voor omlaag)(0)
+Infoscherm dat in plaats klapt(0)
+Cylinder draai(0)
+Cylinder dat in plaats klapt(0)
+Revolver schot(0)
 -------------------
 AMBIANCE:
 -------------------

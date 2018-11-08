@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour {
     public bool isTracking;
     bool canInfoToggle = true;
     public GameObject trackingObj;
+    public GameObject dialogUI;
     public AudioClip[] audioclips;
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,11 @@ public class UIManager : MonoBehaviour {
             shopUI.GetComponent<RadialMenu>().SwitchShop();
         }
 	}
+    public void DialogMethod(string[] dialog)
+    {
+        dialogUI.SetActive(true);
+        dialogUI.GetComponent<Dialog>().Initializer(dialog);
+    }
     public IEnumerator LoadScene(string sceneName)
     {
         yield return null;
