@@ -32,7 +32,7 @@ public class BuyItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
             if(LevelManager.levelManager.currency >= cost)
             {
                 GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().cost = cost;
-                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().PlaceTurret(turret);
+                GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().SpawnTurret(turret);
             }
         }
         GetComponentInParent<RadialMenu>().SwitchShop();

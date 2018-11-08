@@ -38,21 +38,7 @@ public class TurretPlacer : MonoBehaviour {
             {
                 if (canPlace)
                 {
-                    GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().AddCurrency(-cost, placingObject.transform.position);
-                    GameObject dust = Instantiate(dustParticles, placingObject.transform.position, dustParticles.transform.rotation);
-                    Destroy(dust, 2);
-                    Collider[] turretColliders = placingObject.GetComponents<Collider>();
-                    placingObject.GetComponent<Turret>().enabled = true;
-                    for (int i = 0; i < turretColliders.Length; i++)
-                    {
-                        turretColliders[i].enabled = true;
-                    }
-                    for (int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
-                    {
-                        placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = ogMaterials[i];
-                    }
-                    placingObject = null;
-                    placing = false;
+                    PlaceTurret();
                 }
             }
             if (Input.GetButtonDown("Fire2"))
@@ -63,7 +49,7 @@ public class TurretPlacer : MonoBehaviour {
             }
         }
 	}
-    public void PlaceTurret(GameObject turret)
+    public void SpawnTurret(GameObject turret)
     {
         placing = true;
         placingObject = Instantiate(turret, Vector3.zero, Quaternion.identity);
@@ -102,5 +88,24 @@ public class TurretPlacer : MonoBehaviour {
         }
         canPlace = true;
         return;
+    }
+    void PlaceTurret()
+    {
+        GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().AddCurrency(-cost, placingObject.transform.position);
+        GameObject dust = Instantiate(dustParticles, placingObject.transform.position, dustParticles.transform.rotation);
+        Destroy(dust, 2);
+        Collider[] turretColliders = placingObject.GetComponents<Collider>();
+        placingObject.GetComponent<Turret>().enabled = true;
+        for (int i = 0; i < turretColliders.Length; i++)
+        {
+            turretColliders[i].enabled = true;
+        }
+        for (int i = 0; i < placingObject.GetComponent<Turret>().turretParts.Length; i++)
+        {
+            placingObject.GetComponent<Turret>().turretParts[i].GetComponent<Renderer>().material = ogMaterials[i];
+        }
+        placingObject = null;
+        placing = false;
+        EventManager.OnTurretPlaced();
     }
 }

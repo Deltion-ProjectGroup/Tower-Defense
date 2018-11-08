@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 
 public class EventManager : MonoBehaviour {
     public delegate void EventMethod();
-    public static event EventMethod OnClick;
+    public static event EventMethod OnLeftClick;
+    public static event EventMethod OnRightClick;
     public static EventMethod OnDialogComplete;
+    public static EventMethod OnObstacleTakeDamage;
+    public static EventMethod OnTurretPlaced;
     public delegate void EventGOMethod(GameObject gO);
     public static EventGOMethod onInteract;
 	// Use this for initialization
@@ -19,9 +22,16 @@ public class EventManager : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            if(OnClick != null)
+            if(OnLeftClick != null)
             {
-                OnClick();
+                OnLeftClick();
+            }
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if(OnRightClick != null)
+            {
+                OnRightClick();
             }
         }
 	}

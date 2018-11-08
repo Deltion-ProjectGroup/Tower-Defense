@@ -20,7 +20,7 @@ public class CameraManager : MonoBehaviour {
     public GameObject terrain;
 	// Use this for initialization
 	void Awake () {
-        EventManager.OnClick += ShowStats;
+        EventManager.OnLeftClick += ShowStats;
         Vector3 maxBound;
         Vector3 minBound;
         maxBound = terrain.GetComponent<MeshCollider>().bounds.max; //105 thinge

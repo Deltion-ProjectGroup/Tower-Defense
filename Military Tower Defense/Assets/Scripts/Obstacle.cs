@@ -31,6 +31,10 @@ public class Obstacle : MonoBehaviour
         {
             if (!damaged)
             {
+                if(EventManager.OnObstacleTakeDamage != null)
+                {
+                    EventManager.OnObstacleTakeDamage();
+                }
                 damaged = true;
                 healthbarHolder.SetActive(true);
             }

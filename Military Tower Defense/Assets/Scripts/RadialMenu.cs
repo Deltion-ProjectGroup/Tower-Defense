@@ -31,7 +31,7 @@ public class RadialMenu : MonoBehaviour {
             {
                 radialParts[i].SetActive(false);
             }
-            EventManager.OnClick -= MissClick;
+            EventManager.OnLeftClick -= MissClick;
         }
         else
         {
@@ -42,7 +42,7 @@ public class RadialMenu : MonoBehaviour {
                 radialParts[i].SetActive(true);
             }
             transform.position = Input.mousePosition;
-            EventManager.OnClick += MissClick;
+            EventManager.OnLeftClick += MissClick;
         }
     }
     public void MissClick()
