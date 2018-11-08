@@ -3952,7 +3952,6 @@ MonoBehaviour:
   - enemies:
     - enemy: 0
       spawnAmount: 1
-  obstacles: []
   enemies:
     berserker: {fileID: 1310555159119564, guid: fa769aafe909688488e20f8449328dc1,
       type: 2}
@@ -5471,6 +5470,7 @@ MonoBehaviour:
   - {fileID: 1643049004234506}
   isTracking: 0
   trackingObj: {fileID: 0}
+  audioclips: []
 --- !u!114 &114321444886578212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6321,6 +6321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placing: 0
+  cost: 0
   detectable:
     serializedVersion: 2
     m_Bits: 3584
@@ -13646,7 +13647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6357163, y: 0.59610856}
   m_AnchorMax: {x: 0.9694881, y: 0.88600004}
-  m_AnchoredPosition: {x: 0.42999268, y: -0.1107322}
+  m_AnchoredPosition: {x: 0.42999268, y: -0.11073303}
   m_SizeDelta: {x: -1.9, y: 0.9699998}
   m_Pivot: {x: 0.5, y: 0.3536585}
 --- !u!224 &224948776737321918
@@ -13664,7 +13665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6357163, y: 0.59610856}
   m_AnchorMax: {x: 0.96400005, y: 0.88600004}
-  m_AnchoredPosition: {x: 0.9299927, y: -0.12073195}
+  m_AnchoredPosition: {x: 0.9299927, y: -0.120731354}
   m_SizeDelta: {x: -0.9, y: 0.96000004}
   m_Pivot: {x: 0.5, y: 0.3536585}
 --- !u!224 &224951226138510842
