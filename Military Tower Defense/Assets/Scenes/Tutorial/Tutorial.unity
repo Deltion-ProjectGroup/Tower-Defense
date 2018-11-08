@@ -23480,7 +23480,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: '-
+
+'
 --- !u!222 &948670226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24925,7 +24927,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: '-
+
+'
 --- !u!222 &1030862766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26280,7 +26284,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4
+  m_Text: '-
+
+'
 --- !u!222 &1086434635
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27459,7 +27465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '1
+  m_Text: '-
 
 '
 --- !u!222 &1154904018
@@ -27540,7 +27546,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: S
+  m_Text: '-
+
+'
 --- !u!222 &1158941843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28306,18 +28314,6 @@ MonoBehaviour:
   waves:
   - enemies:
     - enemy: 3
-      spawnAmount: 1
-  - enemies:
-    - enemy: 0
-      spawnAmount: 1
-  - enemies:
-    - enemy: 0
-      spawnAmount: 1
-  - enemies:
-    - enemy: 0
-      spawnAmount: 1
-  - enemies:
-    - enemy: 0
       spawnAmount: 1
   enemies:
     berserker: {fileID: 1310555159119564, guid: fa769aafe909688488e20f8449328dc1,
@@ -35537,7 +35533,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: '-
+
+'
 --- !u!222 &1557967233
 CanvasRenderer:
   m_ObjectHideFlags: 0

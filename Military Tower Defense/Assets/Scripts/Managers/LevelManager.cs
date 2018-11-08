@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
     private void Awake()
     {
-        if(waves.Length < roundBullets.Count - 1)
+        if(waves.Length < 1)
         {
             throw new System.Exception("NotEnoughWavesException");
         }
@@ -211,9 +211,28 @@ public class LevelManager : MonoBehaviour {
     }
     private void Initialize()
     {
-        for(int i = 1; i < roundBullets.Count; i++)
+        roundBullets[0].GetComponentInChildren<Text>().text = "S";
+        if(waves.Length < roundBullets.Count)
         {
-            roundBullets[i].GetComponent<RoundInfo>().NewWaveImport(waves[i - 1]);
+            for (int i = 1; i < roundBullets.Count; i++)
+            {
+                if(i - 1 < waves.Length)
+                {
+                    roundBullets[i].GetComponent<RoundInfo>().NewWaveImport(waves[i - 1]);
+                    roundBullets[i].GetComponentInChildren<Text>().text = (i).ToString();
+                }
+                else
+                {
+                    roundBullets[i].GetComponentInChildren<Text>().text = "E";
+                }
+            }
+        }
+        else
+        {
+            for (int i = 1; i < roundBullets.Count; i++)
+            {
+                roundBullets[i].GetComponent<RoundInfo>().NewWaveImport(waves[i - 1]);
+            }
         }
     }
 }
