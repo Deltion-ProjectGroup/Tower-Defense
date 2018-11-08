@@ -38,6 +38,11 @@ public class UIManager : MonoBehaviour {
             shopUI.GetComponent<RadialMenu>().SwitchShop();
         }
 	}
+    public IEnumerator LoadScene(string sceneName)
+    {
+        yield return null;
+        SceneManager.LoadScene(sceneName);
+    }
     public IEnumerator ShowStats(GameObject target)
     {
         if(target == null)
