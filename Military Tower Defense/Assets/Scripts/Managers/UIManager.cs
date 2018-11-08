@@ -59,7 +59,10 @@ public class UIManager : MonoBehaviour {
         {
             if (target.tag == "Enemy" || target.tag == "Turret" || target.tag == "Targettable")
             {
-                print(target);
+                if(EventManager.onInteract != null)
+                {
+                    EventManager.onInteract(target);
+                }
                 trackingObj = target;
                 enemyInformation[0].SetActive(false);
                 turretInformation[0].SetActive(false);
@@ -145,7 +148,7 @@ public class UIManager : MonoBehaviour {
             StartCoroutine(StatBarDissapear());
         }
     }
-    IEnumerator StatBarDissapear()
+    public IEnumerator StatBarDissapear()
     {
         if (canInfoToggle && isTracking)
         {

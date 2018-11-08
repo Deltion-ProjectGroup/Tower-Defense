@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour {
     public delegate void EventMethod();
     public static event EventMethod OnClick;
     public static EventMethod OnDialogComplete;
+    public delegate void EventGOMethod(GameObject gO);
+    public static EventGOMethod onInteract;
 	// Use this for initialization
 	void Start () {
 		

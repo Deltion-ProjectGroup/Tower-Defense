@@ -49,14 +49,22 @@ public class CameraManager : MonoBehaviour {
     }
     public void CameraMovement()
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.z = Input.GetAxis("Vertical");
-        movement *= movementModifier * Time.deltaTime;
+        if(Time.timeScale < 1)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.z = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            movement.x = Input.GetAxis("Horizontal");
+            movement.z = Input.GetAxis("Vertical");
+        }
+        movement *= movementModifier;
         if (Input.GetButton("Shift"))
         {
             movement *= 4;
         }
-        transform.Translate(movement);
+        transform.Translate(movement * Time.unscaledDeltaTime);
         Vector3 newPos = transform.position;
         newPos.x = Mathf.Clamp(newPos.x, maxHorizontalPos.underBorder, maxHorizontalPos.upperBorder);
         newPos.z = Mathf.Clamp(newPos.z, maxVerticalPos.underBorder, maxVerticalPos.upperBorder);
@@ -74,8 +82,8 @@ public class CameraManager : MonoBehaviour {
         if(Input.GetButton("Fire3"))
         {
             Cursor.lockState = CursorLockMode.Locked;
-            rotateAmount.y = Input.GetAxis("Mouse X") * cameraRotateModifier * Time.deltaTime;
-            transform.Rotate(rotateAmount);
+            rotateAmount.y = Input.GetAxis("Mouse X") * cameraRotateModifier;
+            transform.Rotate(rotateAmount * Time.unscaledDeltaTime);
         }
         if (Input.GetButtonUp("Fire3"))
         {
@@ -90,7 +98,7 @@ public class CameraManager : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().ShowStats(null));
+            StartCoroutine(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().StatBarDissapear());
         }
     }
 }

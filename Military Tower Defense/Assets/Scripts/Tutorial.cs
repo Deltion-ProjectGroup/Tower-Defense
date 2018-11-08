@@ -32,12 +32,19 @@ public class Tutorial : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[0].dialogSpeech);
                 break;
             case 2:
-                StartCoroutine(Delay(7));
+                Time.timeScale = 1;
+                StartCoroutine(Delay(5.5f));
                 break;
             case 3:
-                print("HI");
-                EventManager.OnDialogComplete -= NextEvent;
+                Time.timeScale = 0;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[1].dialogSpeech);
+                break;
+            case 4:
+                EventManager.OnDialogComplete -= NextEvent;
+                EventManager.onInteract += CheckIfEnemy;
+                break;
+            case 5:
+                print("DUN");
                 break;
         }
     }
@@ -45,5 +52,12 @@ public class Tutorial : MonoBehaviour {
     {
         yield return new WaitForSecondsRealtime(time);
         NextEvent();
+    }
+    public void CheckIfEnemy(GameObject gO)
+    {
+        if(gO.tag == "Enemy")
+        {
+            NextEvent();
+        }
     }
 }
