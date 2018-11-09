@@ -20,7 +20,8 @@ public class CameraManager : MonoBehaviour {
     public GameObject terrain;
 	// Use this for initialization
 	void Awake () {
-        EventManager.OnLeftClick += ShowStats;
+        //EventManager.OnLeftClick += ShowStats;
+        ShowStats();
         Vector3 maxBound;
         Vector3 minBound;
         maxBound = terrain.GetComponent<MeshCollider>().bounds.max; //105 thinge
@@ -31,10 +32,9 @@ public class CameraManager : MonoBehaviour {
         maxVerticalPos.underBorder = (int)minBound.z;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        print(transform.name);
+
+    // Update is called once per frame
+    void Update () {
         if (canMove)
         {
             CameraMovement();

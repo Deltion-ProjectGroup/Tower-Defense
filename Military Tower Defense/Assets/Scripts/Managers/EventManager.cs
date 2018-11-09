@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class EventManager : MonoBehaviour {
     public delegate void EventMethod();
-    public static event EventMethod OnLeftClick;
-    public static event EventMethod OnRightClick;
+    public static EventMethod OnLeftClick;
+    public static EventMethod OnRightClick;
     public static EventMethod OnDialogComplete;
     public static EventMethod OnObstacleTakeDamage;
     public static EventMethod OnTurretPlaced;

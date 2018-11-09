@@ -39,6 +39,8 @@ public class Menu : MonoBehaviour {
 	}
     public void Play(string sceneName)
     {
+        EventManager.OnLeftClick = null;
+        EventManager.OnRightClick = null;
         SceneManager.LoadScene(sceneName);
     }
     public void Resume()
