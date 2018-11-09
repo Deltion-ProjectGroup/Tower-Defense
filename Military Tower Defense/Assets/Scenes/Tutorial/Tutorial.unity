@@ -44453,6 +44453,24 @@ Prefab:
       propertyPath: m_Text
       value: $0
       objectReference: {fileID: 0}
+    - target: {fileID: 114891991618142428, guid: 4220f80f54fe7804c806570fcc5bc2a6,
+        type: 2}
+      propertyPath: m_Text
+      value: "Congratulations on beating the game \nYou are cool!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484018924152626, guid: 4220f80f54fe7804c806570fcc5bc2a6,
+        type: 2}
+      propertyPath: m_Text
+      value: "Congratulations on losing the game \nYou are not so cool!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309676091572348, guid: 4220f80f54fe7804c806570fcc5bc2a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305945063211614, guid: 4220f80f54fe7804c806570fcc5bc2a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4220f80f54fe7804c806570fcc5bc2a6, type: 2}
   m_IsPrefabAsset: 0
