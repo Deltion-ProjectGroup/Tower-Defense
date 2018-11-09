@@ -1756,7 +1756,7 @@ MonoBehaviour:
   enemyType: 0
   enrageBuff:
     rageSpeedBuff: 1
-    rageHealthBuff: 50
+    rageHealthBuff: 75
     rageDamageBuff: 12
     rageAttackspeedBuff: 4
   rageParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
