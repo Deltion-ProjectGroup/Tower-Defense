@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour {
     public GameObject mainMenu;
     public GameObject optionMenu;
     bool inOpt;
+    public bool isMainMenu;
     // Use this for initialization
     void Start () {
         if (PlayerPrefs.HasKey("SFXvol"))

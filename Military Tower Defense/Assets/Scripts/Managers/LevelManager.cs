@@ -52,7 +52,6 @@ public class LevelManager : MonoBehaviour {
     }
     void Start () {
         Initialize();
-        StartCoroutine(SpawnNextWave());
 	}
 	
 	// Update is called once per frame
@@ -80,6 +79,7 @@ public class LevelManager : MonoBehaviour {
             string waveText = newRoundText + " " + (nextWave).ToString();
             uiManager.ShowText(waveText);
             yield return new WaitForSeconds(uiManager.roundUI.GetComponent<Animation>().clip.length);
+            print("KEKKKRRRDD");
             for (int i = 0; i < waves[waveBackup].enemies.Length; i++)
             {
                 for (int q = 0; q < waves[waveBackup].enemies[i].spawnAmount; q++)
@@ -243,5 +243,6 @@ public class LevelManager : MonoBehaviour {
                 roundBullets[i].GetComponent<RoundInfo>().NewWaveImport(waves[i - 1]);
             }
         }
+        StartCoroutine(SpawnNextWave());
     }
 }

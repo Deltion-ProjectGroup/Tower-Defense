@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        print(transform.name);
         if (canMove)
         {
             CameraMovement();

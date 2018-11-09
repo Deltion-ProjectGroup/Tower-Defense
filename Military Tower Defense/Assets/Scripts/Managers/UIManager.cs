@@ -69,6 +69,7 @@ public class UIManager : MonoBehaviour {
     }
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
     public IEnumerator ShowStats(GameObject target)
