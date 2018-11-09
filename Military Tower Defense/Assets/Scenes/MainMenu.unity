@@ -1759,10 +1759,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c358fee34012c7a439bd448cc25bb37a, type: 3}
-    m_FontSize: 66
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 66
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2594,7 +2594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1771785551
 Transform:
   m_ObjectHideFlags: 0
@@ -3149,10 +3149,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c358fee34012c7a439bd448cc25bb37a, type: 3}
-    m_FontSize: 66
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 66
     m_Alignment: 4
     m_AlignByGeometry: 0
