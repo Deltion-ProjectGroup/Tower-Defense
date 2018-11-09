@@ -31,15 +31,18 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 1:
                 Time.timeScale = 0;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
                 EventManager.OnDialogComplete += NextEvent;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[0].dialogSpeech); //INTRODUCES HIMSELF
                 break;
             case 2:
                 Time.timeScale = 1;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
                 StartCoroutine(Delay(3.5f)); //LETS YOU WAIT TILL THE ENEMY IS IN THE FIELD
                 break;
             case 3:
                 Time.timeScale = 0;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[1].dialogSpeech); //TELLS YOU TO CLICK AT THE ENEMY
                 break;
             case 4:
@@ -47,10 +50,12 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 5:
                 Time.timeScale = 1;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
                 StartCoroutine(Delay(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().informationUI.GetComponent<Animation>().GetClip("StatBarAppear").length)); //WAITS FOR THE INFOBAR TO GET UP
                 break;
             case 6:
                 Time.timeScale = 0;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[2].dialogSpeech, true); // TELLS YOU WHAT THE INFOBAR IS
                 break;
             case 7:
@@ -71,11 +76,13 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 11:
                 Time.timeScale = 1;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
                 EventManager.onInteract -= CheckIfMisclick;
                 EventManager.OnObstacleTakeDamage += NextEvent; //RESUMES TIME AFTER YOU CLOSE THE WINDOW AND ADDS THE NEW EVENT FOR IF WALL GETS ATTACKED
                 break;
             case 12:
                 Time.timeScale = 0;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[6].dialogSpeech); // TEXT AFTER WALL GETS ATTACKED
                 break;
             case 13:
@@ -98,6 +105,7 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 17:
                 Time.timeScale = 1;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
                 break;
         }
     }

@@ -66,7 +66,8 @@ public class LevelManager : MonoBehaviour {
     {
         if(nextWave >= waves.Length)
         {
-            print("FINISHED");
+            Time.timeScale = 0;
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().victory.SetActive(true);
             StartCoroutine(SpinBarrel(nextWave));
         }
         else

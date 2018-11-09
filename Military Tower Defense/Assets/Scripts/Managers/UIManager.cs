@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour {
     public GameObject[] turretInformation;
     public GameObject[] obstacleInformation;
     public GameObject[] waveInformation;
+    public GameObject victory;
+    public GameObject loss;
+    public GameObject options;
+    bool isInOpt;
+    public bool canReset = true;
     public bool isTracking;
     bool canInfoToggle = true;
     public GameObject trackingObj;
@@ -30,6 +35,24 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //print(1.0f / Time.deltaTime); //FPS 
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (isInOpt)
+            {
+                if (canReset)
+                {
+                    Time.timeScale = 1;
+                }
+                isInOpt = false;
+                options.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0;
+                isInOpt = true;
+                options.SetActive(true);
+            }
+        }
         if(isTracking && trackingObj != null)
         {
             UpdateStats();
@@ -44,9 +67,8 @@ public class UIManager : MonoBehaviour {
         dialogUI.SetActive(true);
         dialogUI.GetComponent<Dialog>().Initializer(dialog, nextIsAlsoDialog);
     }
-    public IEnumerator LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        yield return null;
         SceneManager.LoadScene(sceneName);
     }
     public IEnumerator ShowStats(GameObject target)
