@@ -6333,43 +6333,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogTexts:
   - dialogSpeech:
-    - Hello there, my name is commander Gravefield and I am here to guide you trough
+    - Hello there, my name is Commander Gravefield and I am here to guide you trough
       the basics.
     - Let's get started with the enemies and wait for one to appear.
   - dialogSpeech:
     - Ah, an enemy has spawned.. quick click on him!
   - dialogSpeech:
     - In this menu you can see all the stats of the enemy you have clicked on. It
-      will always track its stats live so you don't have to worry about that!
+      will always track it's stats live so you don't have to worry about that!
   - dialogSpeech:
-    - In this section you can check the stats of the enemy and see its icon.
+    - In this section you can check the status effect of the enemy and see its icon.
   - dialogSpeech:
-    - In this part you can see the description and the status effects of the selected
-      target.
+    - In this part you can see the health, description and stats of the selected target.
   - dialogSpeech:
     - Oh... before I forget to tell you, enemies are not the only things you can see
       info of, walls and towers can be chosen aswell to see their stats.
-    - Now that we have handled everything of that you can shut down the info panel,
-      you can do this by clicking on a target that you can't see the info of.
+    - 'Now that we have handled everything you can shut down the info panel, you can
+      do this by clicking on a target that you can''t see the info of. '
   - dialogSpeech:
-    - Oh no! It looks like your wall is under attack by an enemy... Quickly defend
-      it by placing a turret!
-    - Open the armory menu by pressing your right mouse button and select an tower
-      to place... Don't worry about the cost of it.
+    - Oh no! It looks like your wall is under attack!... Quickly, defend it by placing
+      a turret!
+    - Open the armory menu by pressing your right-mouse button and select a tower
+      to place... Don't worry about the cost of it, you've been provide with a nice
+      surplus budget.
   - dialogSpeech:
-    - If you were wondering what that revolverbarrel on the bottom-left is, It is
-      the roundrevolver. The roundrevolver indicates at what wave you are and once
-      you are almost at the end it'll indicate that too!
+    - If you were wondering what that cylinder on the bottom left is, It's the RoundRevolver.
+      The RoundRevolver indicates what wave you are at.
     - Also, if you hover over a bullet that is visible you will see the exact amount
-      of that wave, if it is your current round it will even be a up-to-date counter.
+      of enemies for that wave.
   - dialogSpeech:
-    - Good job, that'll teach them a lesson to not mess with us!
+    - Good job, that'll teach them a lesson not to mess with us!
     - I have to go now though help other people in the warfield. You can still finish
       it off here though.
   - dialogSpeech:
-    - Hmmmm.. It is kinda taking too long for him to reach the wall now ain't it?
-      Luckily we have something for that!
-    - If you want to speed up time try holding the spacebar button on your keyboard!
+    - Hmmmm.. It's kinda taking too long for him to reach the wall now ain't it? Luckily
+      we have something for that!
+    - If you want to speed up time, try holding the spacebar button on your keyboard!
   positions:
   - {x: 415.29, y: -93.5, z: 0}
   - {x: -492.8, y: -231.3, z: 0}
