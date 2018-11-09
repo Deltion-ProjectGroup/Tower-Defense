@@ -20,7 +20,7 @@ public class CameraManager : MonoBehaviour {
     public GameObject terrain;
 	// Use this for initialization
 	void Awake () {
-        //EventManager.OnLeftClick += ShowStats;
+        EventManager.OnLeftClick += ShowStats;
         ShowStats();
         Vector3 maxBound;
         Vector3 minBound;
