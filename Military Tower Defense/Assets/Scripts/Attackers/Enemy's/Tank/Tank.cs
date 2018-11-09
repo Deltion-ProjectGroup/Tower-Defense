@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : Enemy {
-    public GameObject explosionParticles;
     public GameObject[] tires;
     public Vector3 rotateAmt;
     // Use this for initialization
@@ -20,7 +19,8 @@ public class Tank : Enemy {
                     audioSources[1].Play();
                     target.GetComponent<Obstacle>().health -= damage;
                     target.GetComponent<Obstacle>().CheckHealth();
-                    GameObject explosion = Instantiate(explosionParticles, hitObj.point, Quaternion.identity);
+                    GameObject explosion = Instantiate(impactParticle, hitObj.point, Quaternion.identity);
+                    GetComponent<AudioSource>().Play();
                     Destroy(explosion, 2);
                 }
             }

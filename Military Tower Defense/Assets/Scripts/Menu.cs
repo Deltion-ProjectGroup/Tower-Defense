@@ -41,6 +41,11 @@ public class Menu : MonoBehaviour {
     {
         EventManager.OnLeftClick = null;
         EventManager.OnRightClick = null;
+        EventManager.OnDialogComplete = null;
+        EventManager.onInteract = null;
+        EventManager.OnSpacebar = null;
+        EventManager.OnTurretPlaced = null;
+        EventManager.OnObstacleTakeDamage = null;
         SceneManager.LoadScene(sceneName);
     }
     public void Resume()

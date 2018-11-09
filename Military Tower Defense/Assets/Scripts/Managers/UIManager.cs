@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour {
     public GameObject loss;
     public GameObject options;
     bool isInOpt;
-    public bool canReset = true;
     public bool isTracking;
     bool canInfoToggle = true;
     public GameObject trackingObj;
@@ -39,15 +38,17 @@ public class UIManager : MonoBehaviour {
         {
             if (isInOpt)
             {
-                if (canReset)
+                if (Tutorial.tester)
                 {
                     Time.timeScale = 1;
                 }
+                LevelManager.canChangeSpeed = true;
                 isInOpt = false;
                 options.SetActive(false);
             }
             else
             {
+                LevelManager.canChangeSpeed = false;
                 Time.timeScale = 0;
                 isInOpt = true;
                 options.SetActive(true);

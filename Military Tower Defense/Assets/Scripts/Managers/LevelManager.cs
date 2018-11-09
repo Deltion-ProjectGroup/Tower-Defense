@@ -21,9 +21,11 @@ public class LevelManager : MonoBehaviour {
     public int currency;
     bool doneSpawning;
     public Vector3 bulletScaler;
+    public static bool canChangeSpeed;
 	// Use this for initialization
     private void Awake()
     {
+        canChangeSpeed = true;
         if(waves.Length < 1)
         {
             throw new System.Exception("NotEnoughWavesException");

@@ -28641,7 +28641,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1841317559852308, guid: 4220f80f54fe7804c806570fcc5bc2a6, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114457792084951784, guid: 4220f80f54fe7804c806570fcc5bc2a6,
         type: 2}
@@ -28848,6 +28848,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114472528090162982, guid: 4220f80f54fe7804c806570fcc5bc2a6,
+        type: 2}
+      propertyPath: cost
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4220f80f54fe7804c806570fcc5bc2a6, type: 2}
@@ -32977,14 +32982,6 @@ Prefab:
     - target: {fileID: 4617980851771624, guid: 812e0167ff7f32945927a78171f86335, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103312764939712, guid: 812e0167ff7f32945927a78171f86335, type: 2}
-      propertyPath: m_TagString
-      value: Targettable
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103312764939712, guid: 812e0167ff7f32945927a78171f86335, type: 2}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 812e0167ff7f32945927a78171f86335, type: 2}

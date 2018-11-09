@@ -5,6 +5,7 @@ using UnityEngine;
 public class RocketLauncherTower : Turret {
     public GameObject missile;
     public Transform[] spawnPoints;
+    public float solvoDelay;
     [HideInInspector]
     public List<Rocket> currentMissiles = new List<Rocket>();
     public override IEnumerator Attack()
@@ -18,6 +19,7 @@ public class RocketLauncherTower : Turret {
                 rocket.transform.LookAt(targets[0].transform);
                 currentMissiles.Add(rocket.GetComponent<Rocket>());
                 currentMissiles[currentMissiles.Count - 1].target = targets[0];
+                yield return new WaitForSeconds(solvoDelay);
             }
             if (targets.Count > 0)
             {

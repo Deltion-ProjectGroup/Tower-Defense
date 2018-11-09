@@ -8,9 +8,11 @@ public class Tutorial : MonoBehaviour {
     public Vector3[] positions;
     public Vector3[] scales;
     public GameObject tutorialIndicator;
+    public static bool tester = true;
 	// Use this for initialization
 	void Start () {
         PerformEvent(currentEvent);
+        LevelManager.canChangeSpeed = false;
 	}
 	
 	// Update is called once per frame
@@ -31,18 +33,18 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 1:
                 Time.timeScale = 0;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
+                tester = false;
                 EventManager.OnDialogComplete += NextEvent;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[0].dialogSpeech); //INTRODUCES HIMSELF
                 break;
             case 2:
                 Time.timeScale = 1;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
+                tester = true;
                 StartCoroutine(Delay(3.5f)); //LETS YOU WAIT TILL THE ENEMY IS IN THE FIELD
                 break;
             case 3:
                 Time.timeScale = 0;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
+                tester = false;;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[1].dialogSpeech); //TELLS YOU TO CLICK AT THE ENEMY
                 break;
             case 4:
@@ -50,12 +52,12 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 5:
                 Time.timeScale = 1;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
+                tester = true;
                 StartCoroutine(Delay(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().informationUI.GetComponent<Animation>().GetClip("StatBarAppear").length)); //WAITS FOR THE INFOBAR TO GET UP
                 break;
             case 6:
                 Time.timeScale = 0;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
+                tester = false;
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[2].dialogSpeech, true); // TELLS YOU WHAT THE INFOBAR IS
                 break;
             case 7:
@@ -76,42 +78,57 @@ public class Tutorial : MonoBehaviour {
                 break;
             case 11:
                 Time.timeScale = 1;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
-                EventManager.onInteract -= CheckIfMisclick;
-                EventManager.OnObstacleTakeDamage += NextEvent; //RESUMES TIME AFTER YOU CLOSE THE WINDOW AND ADDS THE NEW EVENT FOR IF WALL GETS ATTACKED
+                StartCoroutine(Delay(GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().informationUI.GetComponent<Animation>().GetClip("StatbarRemove").length + 3));
                 break;
             case 12:
                 Time.timeScale = 0;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = false;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[6].dialogSpeech); // TEXT AFTER WALL GETS ATTACKED
+                EventManager.onInteract -= CheckIfMisclick;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[9].dialogSpeech); //SAYS THINGS ABOUT SPEEDIN UP TIME
                 break;
             case 13:
-                EventManager.OnRightClick += NextEvent; //ADDS IF YOU RIGHTCLICK EVENT
+                EventManager.OnSpacebar += NextEvent;
                 break;
             case 14:
+                EventManager.OnSpacebar -= NextEvent;
+                EventManager.OnObstacleTakeDamage += NextEvent; //RESUMES TIME AFTER YOU CLOSE THE WINDOW AND ADDS THE NEW EVENT FOR IF WALL GETS ATTACKED
+                Time.timeScale = 1;
+                tester = true;
+                LevelManager.canChangeSpeed = true;
+                break;
+            case 15:
+                Time.timeScale = 0;
+                tester = false;
+                LevelManager.canChangeSpeed = false;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[6].dialogSpeech); // TEXT AFTER WALL GETS ATTACKED
+                break;
+            case 16:
+                EventManager.OnRightClick += NextEvent; //ADDS IF YOU RIGHTCLICK EVENT
+                break;
+            case 17:
                 EventManager.OnRightClick -= NextEvent; //REMOVES IT
                 EventManager.OnTurretPlaced += NextEvent; //PLAYS EVENT IF YOU PLACE ANY TURRET
                 break;
-            case 15:
+            case 18:
                 EventManager.OnTurretPlaced -= NextEvent; //REMOVES IT
                 tutorialIndicator.SetActive(true);//ENABLES INDICATOR ETC
                 tutorialIndicator.transform.localPosition = positions[1];
                 tutorialIndicator.transform.localScale = scales[1];
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[7].dialogSpeech, true); //EXPLAINS THE REVOLVER
                 break;
-            case 16:
+            case 19:
                 tutorialIndicator.SetActive(false);
                 GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().DialogMethod(dialogTexts[8].dialogSpeech); //SAYS HE IS LEAVING
                 break;
-            case 17:
+            case 20:
                 Time.timeScale = 1;
-                GameObject.FindGameObjectWithTag("Canvas").GetComponent<UIManager>().canReset = true;
+                tester = true;
+                LevelManager.canChangeSpeed = true;
                 break;
         }
     }
     public IEnumerator Delay(float time)
     {
-        yield return new WaitForSecondsRealtime(time);
+        yield return new WaitForSeconds(time);
         NextEvent();
     }
     public void CheckIfEnemy(GameObject gO)

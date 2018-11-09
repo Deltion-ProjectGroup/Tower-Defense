@@ -6366,6 +6366,10 @@ MonoBehaviour:
     - Good job, that'll teach them a lesson to not mess with us!
     - I have to go now though help other people in the warfield. You can still finish
       it off here though.
+  - dialogSpeech:
+    - Hmmmm.. It is kinda taking too long for him to reach the wall now ain't it?
+      Luckily we have something for that!
+    - If you want to speed up time try holding the spacebar button on your keyboard!
   positions:
   - {x: 432.2, y: -132.92, z: 0}
   - {x: -467.54, y: -227.7, z: 0}
@@ -28674,7 +28678,7 @@ MonoBehaviour:
   spawnDelay: 0.5
   intermissionTime: 3
   newRoundText: Wave
-  currency: 50000
+  currency: 0
   bulletScaler: {x: 0.04, y: 0.04, z: 0.04}
 --- !u!114 &1202108636
 MonoBehaviour:
@@ -37319,7 +37323,6 @@ MonoBehaviour:
   victory: {fileID: 1238356515}
   loss: {fileID: 758546138}
   options: {fileID: 1167643267}
-  canReset: 1
   isTracking: 0
   trackingObj: {fileID: 0}
   dialogUI: {fileID: 1823560638}
@@ -45017,7 +45020,6 @@ MonoBehaviour:
   victory: {fileID: 0}
   loss: {fileID: 0}
   options: {fileID: 0}
-  canReset: 1
   isTracking: 0
   trackingObj: {fileID: 0}
   dialogUI: {fileID: 0}

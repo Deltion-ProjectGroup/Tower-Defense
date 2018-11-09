@@ -1213,7 +1213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355932136481426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49, y: 0.09997068, z: 35.4}
+  m_LocalPosition: {x: 94.95, y: 0.09986808, z: 39.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4114820704972960}
@@ -1745,8 +1745,6 @@ MonoBehaviour:
   - {fileID: 82386907726086828}
   - {fileID: 82271407454318460}
   enemyType: 4
-  explosionParticles: {fileID: 1158104185815316, guid: cac1c9ae50083bd4ca2013457453c6c3,
-    type: 2}
   tires:
   - {fileID: 1529070235055578}
   - {fileID: 1028316655743846}

@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23630804547188378}
   - component: {fileID: 114623355118653160}
   - component: {fileID: 65098423200850978}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TheWall2
-  m_TagString: Untagged
+  m_TagString: Targettable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,8 +148,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7985377, y: 10.000002, z: 4.0000005}
-  m_Center: {x: 0.024962515, y: -1.0164395e-20, z: 2.0000002}
+  m_Size: {x: 0.9534857, y: 10.000002, z: 4.0000005}
+  m_Center: {x: -0.052511573, y: 1.6910924e-11, z: 2.0000005}
 --- !u!114 &114190528422581988
 MonoBehaviour:
   m_ObjectHideFlags: 1

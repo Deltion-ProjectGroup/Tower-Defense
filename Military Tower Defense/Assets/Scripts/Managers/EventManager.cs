@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class EventManager : MonoBehaviour {
     public delegate void EventMethod();
     public static EventMethod OnLeftClick;
+    public static EventMethod OnSpacebar;
     public static EventMethod OnRightClick;
     public static EventMethod OnDialogComplete;
     public static EventMethod OnObstacleTakeDamage;
@@ -20,6 +21,13 @@ public class EventManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetButtonDown("Jump"))
+        {
+            if(OnSpacebar != null)
+            {
+                OnSpacebar();
+            }
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             if(OnLeftClick != null)

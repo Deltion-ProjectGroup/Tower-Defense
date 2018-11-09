@@ -601,6 +601,7 @@ MonoBehaviour:
   - {fileID: 4007771210494140}
   - {fileID: 4056140901902216}
   - {fileID: 4921086526420402}
+  solvoDelay: 0.3
   currentMissiles: []
 --- !u!135 &135498156108477554
 SphereCollider:
