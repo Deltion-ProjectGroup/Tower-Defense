@@ -105,6 +105,7 @@ public class Tutorial : MonoBehaviour {
                 EventManager.OnRightClick += NextEvent; //ADDS IF YOU RIGHTCLICK EVENT
                 break;
             case 17:
+                LevelManager.levelManager.AddCurrency(1, Vector3.zero);
                 EventManager.OnRightClick -= NextEvent; //REMOVES IT
                 EventManager.OnTurretPlaced += NextEvent; //PLAYS EVENT IF YOU PLACE ANY TURRET
                 break;
