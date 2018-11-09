@@ -28,8 +28,14 @@ public class UIManager : MonoBehaviour {
     public AudioClip[] audioclips;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        if (PlayerPrefs.HasKey("SFXvol"))
+        {
+            print(PlayerPrefs.GetFloat("SFXvol"));
+            options.GetComponent<Options>().audioMixer.SetFloat("SFXvol", PlayerPrefs.GetFloat("SFXvol"));
+            options.GetComponent<Options>().audioMixer.SetFloat("Musicvol", PlayerPrefs.GetFloat("Musicvol"));
+            options.GetComponent<Options>().audioMixer.SetFloat("Mastervol", PlayerPrefs.GetFloat("Mastervol"));
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -251,6 +257,10 @@ public class UIManager : MonoBehaviour {
         LevelManager.levelManager.AddCurrency(trackingObj.GetComponent<Turret>().sellValue, trackingObj.transform.position);
         CheckIfTracked(trackingObj);
         Destroy(trackingObj);
+    }
+    public void ButtonPress(AudioSource source)
+    {
+        source.Play();
     }
     public void PauseGame(bool resume = false)
     {

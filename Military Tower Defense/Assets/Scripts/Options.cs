@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour {
     public AudioMixer audioMixer;
+    public Slider[] sliders;
+    public void Start()
+    {
+        sliders[0].value = PlayerPrefs.GetFloat("SFXvol");
+        sliders[1].value = PlayerPrefs.GetFloat("Musicvol");
+        sliders[2].value = PlayerPrefs.GetFloat("Mastervol");
+    }
     public void ChangeSFX(Slider slider)
     {
         print(slider.value);

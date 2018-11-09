@@ -34,6 +34,10 @@ public class BuyItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
                 GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().cost = cost;
                 GameObject.FindGameObjectWithTag("LevelManager").GetComponent<TurretPlacer>().SpawnTurret(turret);
             }
+            else
+            {
+                GetComponentInParent<AudioSource>().Play();
+            }
         }
         GetComponentInParent<RadialMenu>().SwitchShop();
     }
