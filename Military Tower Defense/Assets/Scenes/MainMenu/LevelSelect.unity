@@ -2024,6 +2024,36 @@ Prefab:
       propertyPath: sliders.Array.data[2]
       value: 
       objectReference: {fileID: 2073567072}
+    - target: {fileID: 114648226325828364, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675610160233382, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114549108440424092, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648226325828364, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675610160233382, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114549108440424092, guid: 0e35699d005c12840993af7bd8f39a86,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e35699d005c12840993af7bd8f39a86, type: 2}
   m_IsPrefabAsset: 0

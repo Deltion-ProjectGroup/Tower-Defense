@@ -30,7 +30,6 @@ public class UIManager : MonoBehaviour {
 	void Start () {
         if (PlayerPrefs.HasKey("SFXvol"))
         {
-            print(PlayerPrefs.GetFloat("SFXvol"));
             options.GetComponent<Options>().audioMixer.SetFloat("SFXvol", PlayerPrefs.GetFloat("SFXvol"));
             options.GetComponent<Options>().audioMixer.SetFloat("Musicvol", PlayerPrefs.GetFloat("Musicvol"));
             options.GetComponent<Options>().audioMixer.SetFloat("Mastervol", PlayerPrefs.GetFloat("Mastervol"));
