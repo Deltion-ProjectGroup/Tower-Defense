@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticles: {fileID: 1250095054832754, guid: 776e8be3808a10849b2bd34911bc8b08,
     type: 2}
-  damage: 12
+  damage: 10
   explosionRange: 8
   targets: []
   targettableEnemies:
