@@ -131,12 +131,13 @@ public class LevelManager : MonoBehaviour {
         }
         if ((currentWave + roundBullets.Count) < waves.Length)
         {
-            roundBullets[currentBullet].GetComponent<RoundInfo>().NewWaveImport(waves[currentWave + roundBullets.Count]);
+            roundBullets[currentBullet].GetComponent<RoundInfo>().NewWaveImport(waves[currentWave + roundBullets.Count - 1]);
             roundBullets[currentBullet].GetComponentInChildren<Text>().text = (currentWave + roundBullets.Count).ToString();
             roundBullets[currentBullet].transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
+            roundBullets[currentBullet].transform.localScale = new Vector3(1, 1, 1);
             roundBullets[currentBullet].GetComponentInChildren<Text>().text = "E";
             print("There is no more waves for this bullet");
             // WIN

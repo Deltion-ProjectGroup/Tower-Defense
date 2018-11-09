@@ -35,6 +35,14 @@ public class CameraManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (Input.GetButton("Jump"))
+        {
+            Time.timeScale = 10;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         if (canMove)
         {
             CameraMovement();
