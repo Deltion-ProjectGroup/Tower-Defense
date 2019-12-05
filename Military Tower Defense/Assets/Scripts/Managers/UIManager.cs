@@ -254,6 +254,10 @@ public class UIManager : MonoBehaviour {
         GetComponent<AudioSource>().Play();
         trackingObj.GetComponent<BoxCollider>().enabled = false;
         LevelManager.levelManager.AddCurrency(trackingObj.GetComponent<Turret>().sellValue, trackingObj.transform.position);
+        foreach(GameObject trackingEnemy in trackingObj.GetComponent<Turret>().targets)
+        {
+            trackingEnemy.GetComponent<Enemy>().targettedBy.Remove(trackingObj);
+        }
         CheckIfTracked(trackingObj);
         Destroy(trackingObj);
     }
